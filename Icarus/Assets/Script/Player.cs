@@ -12,7 +12,10 @@ public class Player : MonoBehaviour
     [SerializeField] float FireRate = 0.1f;
     [SerializeField] float TrocaCD = 1f;
     [SerializeField] float TempoInvencivel = 2f; //Duração da invencibilidade
-   public static bool PlayerVivo = true;
+    [SerializeField] GameObject escudoVisual; // arraste o círculo azul do player aqui no Inspector
+    public bool temEscudo = false; // controla se o escudo está ativo
+
+    public static bool PlayerVivo = true;
     bool direcao = true; //Direcao do modo Rapido
     public bool Modo = true; //Define o modo
     float FireTimer = 0f;
@@ -45,17 +48,23 @@ public class Player : MonoBehaviour
     }
 
 
-    public void Derrota() //Oque acontece se o player morrer
-
+    public void Derrota()
     {
-        if (invencivel) return; // Se estiver invencivel nao perde
+        if (invencivel) return;
+
+        // Se tiver escudo, quebra ele e cancela o dano
+        if (temEscudo)
+        {
+            QuebrarEscudo();
+            return;
+        }
 
         gameObject.SetActive(false);
-        bool PlayerVivo = (false);
-        Invoke("VaiproMenu", 1f); //Demora 3 segundos pra mudar a scene
-        GameManager.Mestre.Pontos = 0; //Reseta os pontos pra zero                     (ATEN��O, CASO QUEIRA QUE MOSTRE NOS LEADERBOARDS MUDAR ESSA LINHA)
-       
+        PlayerVivo = false;
+        Invoke("VaiproMenu", 1f);
+        GameManager.Mestre.Pontos = 0;
     }
+
 
     void Ganhar() //Ganha se apertar V
     {
@@ -85,6 +94,20 @@ public class Player : MonoBehaviour
             Modo = !Modo;
         }
     }
+
+
+    public void AtivarEscudo()
+    {
+        temEscudo = true;
+        escudoVisual.SetActive(true);
+    }
+
+    public void QuebrarEscudo()
+    {
+        temEscudo = false;
+        escudoVisual.SetActive(false);
+    }
+
 
 
     void FixedUpdate()
