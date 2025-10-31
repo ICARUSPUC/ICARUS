@@ -124,6 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedEnemy: 19
   DeathTimeEnemy: 0
+  somDeDisparo: {fileID: 8300000, guid: ea8b1a8dbdfdffb40869f75ac8fee92e, type: 3}
+  volumeDoDisparo: 2
 --- !u!114 &-7684649401819626606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,3 +138,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beffbef7a27e4304b80a978113944c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isrewinding: 0
