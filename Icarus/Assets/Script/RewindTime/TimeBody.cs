@@ -9,12 +9,20 @@ public class TimeBody : MonoBehaviour
 
     List<PointsInTime> pointsintime;
     Rigidbody rb;
+    bool DestroyAfterpointsintime = false; // Variavel para deletar as balas na viagem do tempo
     void Start()
     {
         pointsintime = new List<PointsInTime>();
         rb = GetComponent<Rigidbody>();
     }
 
+
+    void DestroyOnthisTimeLine()
+    {
+        if (DestroyAfterpointsintime)
+
+            return;
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.B))
@@ -29,6 +37,9 @@ public class TimeBody : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (DestroyAfterpointsintime)
+            return;
+
         if (isrewinding)
             Rewind();
         else

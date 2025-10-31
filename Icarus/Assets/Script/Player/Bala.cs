@@ -8,25 +8,25 @@ public class Bala : MonoBehaviour
     [SerializeField] float speed = 10f;
     [SerializeField] float DeathTime = 1f;
 
-
     private void OnTriggerEnter(Collider other)
     {
-        if (GetComponent<TimeBody>().isrewinding == true)
-        {
-            return;
-        }
         if (other.CompareTag("Inimigo")) // Mata o inimigo
             {
             other.GetComponent<Inimigo>().Morrer();
                 Destroy(gameObject);
         }
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("SpawnPoint") && GetComponent<TimeBody>().isrewinding == true)
         {
-            other.GetComponent<Player>().Derrota();
-            // SceneManager.LoadScene("Derrota");
+
+            Invoke("DestruirBala", 0.05f);
+            // Faz a bala ser deletada ao encostar no player ao voltar no tempo
         }
-            
+
+    }
+    void DestruirBala()
+    {
+        Destroy(gameObject);
     }
     void Kill() //Mata a bala depois de certo tempo
     {

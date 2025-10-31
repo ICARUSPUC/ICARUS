@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
                                      
 
     GameManager GameManager;
+    public TimeManager TimeManager;
 
     [SerializeField] GameObject shield;
 
@@ -103,6 +104,10 @@ public class Player : MonoBehaviour
             StartCoroutine(TornarInvencivel());
             Modo = !Modo;
         }
+        if (Input.GetKeyDown(KeyCode.Space) && Modo == false)
+        {
+            TimeManager.BulletTime();
+        }
     }
 
 
@@ -159,13 +164,13 @@ public class Player : MonoBehaviour
         float MoveX = 0f;
         {
             if (Input.GetKey(KeyCode.A)) MoveZ = 1f; ;
-            if (Input.GetKey(KeyCode.S)) MoveX = -1f; ; // <-- Input horizontal
+            if (Input.GetKey(KeyCode.S)) MoveX = -1f; ; 
             if (Input.GetKey(KeyCode.D)) MoveZ = -1f; ;
-            if (Input.GetKey(KeyCode.W)) MoveX = 1f; ;  // <-- Input horizontal
+            if (Input.GetKey(KeyCode.W)) MoveX = 1f; ; 
 
             moveInput = new Vector3(MoveX, 0f, MoveZ);
 
-            Vector3 Limite = (rb.position + moveInput * speedPrincipal * Time.fixedDeltaTime);
+            Vector3 Limite = (rb.position + moveInput * speedPrincipal * Time.unscaledDeltaTime);
             Limite.z = Mathf.Clamp(Limite.z, -13.5f, 6f);
             Limite.x = Mathf.Clamp(Limite.x, -24f, 22f);
             rb.MovePosition(Limite);
@@ -215,11 +220,10 @@ public class Player : MonoBehaviour
 
     void ModoRapidoMovimento() //Movimento do Modo Rapido
     {
-        // Esta linha força a rotação, o que zera a inclinação (o que é bom para a troca de modo)
         transform.rotation = Quaternion.Euler(0f, anguloRapido, 0f);
 
         moveInput = direcao ? new Vector3(0, 0, 1f) : new Vector3(0, 0, -1f);
-        Vector3 Posicao = (rb.position + moveInput * speedRapida * Time.fixedDeltaTime);
+        Vector3 Posicao = (rb.position + moveInput * speedRapida * Time.unscaledDeltaTime);
         Posicao.z = Mathf.Clamp(Posicao.z, -13.5f, 6f);
         rb.MovePosition(Posicao);
     }

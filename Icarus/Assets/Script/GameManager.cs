@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Mestre;
 
-    [SerializeField] float tempo = 0.25f;
-
     public int Pontos = 0;
 
     [SerializeField] GameObject inimigoPrefab;
@@ -20,7 +18,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] float SpawnInterval = 5;
     Vector3 SpawnPosition;
 
+
     public Player Player;
+    [SerializeField] TimeManager TimeManager;
 
     float SpawnTimer = 0;
     private void OnEnable()
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Time.timeScale = tempo;
+            TimeManager.BulletTime();
         }
     }
 
