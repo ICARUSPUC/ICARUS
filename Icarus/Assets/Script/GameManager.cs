@@ -1,10 +1,6 @@
-using NUnit.Framework;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Unity.VisualScripting;
+
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.SceneManagement; // necessário para sceneLoaded
+using UnityEngine.SceneManagement; 
 
 public class GameManager : MonoBehaviour
 {
