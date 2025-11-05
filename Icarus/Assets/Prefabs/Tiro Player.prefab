@@ -124,8 +124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 19
   DeathTime: 0
-  shootSound: {fileID: 8300000, guid: 1346f0ca9335c0a42883739b2a2de8b5, type: 3}
-  soundVolume: 2
 --- !u!114 &-7413042958018613322
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ TagManager:
   - TIroEnemy
   - TiroAlly
   - Escudo
+  - InimigoMelee
+  - InimigoLaser
   layers:
   - Default
   - TransparentFX
