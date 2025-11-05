@@ -1,16 +1,10 @@
-using NUnit.Framework;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Unity.VisualScripting;
+
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.SceneManagement; // necessário para sceneLoaded
+using UnityEngine.SceneManagement; 
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Mestre;
-
-    [SerializeField] float tempo = 0.25f;
 
     public int Pontos = 0;
 
@@ -20,7 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] float SpawnInterval = 5;
     Vector3 SpawnPosition;
 
+
     public Player Player;
+    [SerializeField] TimeManager TimeManager;
 
     float SpawnTimer = 0;
     private void OnEnable()
@@ -93,7 +89,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Time.timeScale = tempo;
+            TimeManager.BulletTime();
         }
     }
 

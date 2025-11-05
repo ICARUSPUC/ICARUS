@@ -3,23 +3,23 @@ using UnityEngine.SceneManagement;
 
 public class Bala : MonoBehaviour
 {
-    // Variáveis de Movimento e Morte
+    // Variï¿½veis de Movimento e Morte
     [SerializeField] float speed = 10f;
     [SerializeField] float DeathTime = 1f;
 
-    // Variável para o Clip de Áudio (Arraste o arquivo de som aqui no Inspector)
+    // Variï¿½vel para o Clip de ï¿½udio (Arraste o arquivo de som aqui no Inspector)
     [SerializeField] AudioClip shootSound;
-    // Variável para o volume do som
+    // Variï¿½vel para o volume do som
     [SerializeField] float soundVolume = 0.5f;
 
-    // Toca o som assim que a bala é criada
+    // Toca o som assim que a bala ï¿½ criada
     void Awake()
     {
-        // Verifica se um clipe de som foi atribuído no Inspector
+        // Verifica se um clipe de som foi atribuï¿½do no Inspector
         if (shootSound != null)
         {
-            // Toca o clipe de áudio uma única vez na posição da bala.
-            // Isso cria e destrói um AudioSource temporário, ideal para sons de tiro.
+            // Toca o clipe de ï¿½udio uma ï¿½nica vez na posiï¿½ï¿½o da bala.
+            // Isso cria e destrï¿½i um AudioSource temporï¿½rio, ideal para sons de tiro.
             AudioSource.PlayClipAtPoint(shootSound, transform.position, soundVolume);
         }
     }
@@ -30,8 +30,11 @@ public class Bala : MonoBehaviour
         {
             return;
         }
+    }
 
-        // Verifica se o objeto "other" tem o componente Inimigo antes de tentar chamá-lo
+        // Verifica se o objeto "other" tem o componente Inimigo antes de tentar chamï¿½-lo
+    private void OnTriggerEnter(Collider other)
+    {
         if (other.CompareTag("Inimigo")) // Mata o inimigo
         {
             if (other.GetComponent<Inimigo>() != null)
@@ -41,16 +44,17 @@ public class Bala : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // Verifica se o objeto "other" tem o componente Player antes de tentar chamá-lo
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("SpawnPoint") && GetComponent<TimeBody>().isrewinding == true)
         {
-            if (other.GetComponent<Player>() != null)
-            {
-                other.GetComponent<Player>().Derrota();
-            }
-            // SceneManager.LoadScene("Derrota");
+
+            Invoke("DestruirBala", 0.05f);
+            // Faz a bala ser deletada ao encostar no player ao voltar no tempo
         }
 
+    }
+    void DestruirBala()
+    {
+        Destroy(gameObject);
     }
 
     void Kill() // Mata a bala depois de certo tempo
