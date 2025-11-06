@@ -201,7 +201,7 @@ Transform:
   m_GameObject: {fileID: 32679592}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.4, y: 6, z: -5}
+  m_LocalPosition: {x: 33.5, y: 6, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -956,13 +956,13 @@ MonoBehaviour:
   waves:
   - waveName: First Wave
     enemies:
-    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
       position: {x: 13, y: 6, z: -9}
       delay: 0
-    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
       position: {x: 13, y: 6, z: -3}
       delay: 1
-    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
       position: {x: 13, y: 6, z: 3}
       delay: 1.5
     delayAfterWave: 3
@@ -1051,7 +1051,7 @@ Transform:
   m_GameObject: {fileID: 134544100}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.232698, y: 11.3237505, z: 2.9984188}
+  m_LocalPosition: {x: 12.2, y: 11.3237505, z: 2.9984188}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8642,7 +8642,7 @@ PrefabInstance:
       objectReference: {fileID: 441797475}
     - target: {fileID: 1378180480481076438, guid: 736836d3352814a4c8960b4b2581af54, type: 3}
       propertyPath: temEscudo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1378180480481076438, guid: 736836d3352814a4c8960b4b2581af54, type: 3}
       propertyPath: tiltspeed
@@ -8670,7 +8670,7 @@ PrefabInstance:
       objectReference: {fileID: 441797475}
     - target: {fileID: 1378180480481076438, guid: 736836d3352814a4c8960b4b2581af54, type: 3}
       propertyPath: TempoInvencivel
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1378180480481076438, guid: 736836d3352814a4c8960b4b2581af54, type: 3}
       propertyPath: TempoLimiteModoRapido

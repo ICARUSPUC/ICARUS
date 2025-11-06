@@ -52,14 +52,27 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Modo == false && other.CompareTag("Inimigo"))
+       string TagInimigo = other.tag;
+
+        if (Modo == false)
         {
-            other.GetComponent<Inimigo>().Morrer();
+            switch(TagInimigo)
+           
+            {
+                case "Inimigo":
+                    other.GetComponent<Inimigo>()?.Morrer();
+                    break;
+                case "InimigoMelee":
+                    other.GetComponent<InimigoMelee>()?.Morrer();
+                    break;
+                case "InimigoLaser":
+                    other.GetComponent<InimigoLaser>()?.Morrer();
+                    break;
+
+            }
+            
         }
-        if (Modo == true && other.CompareTag("Inimigo"))
-        {
-            Derrota();
-        }
+        
     }
 
     IEnumerator TornarInvencivel()
@@ -71,7 +84,7 @@ public class Player : MonoBehaviour
 
     public void Derrota()
     {
-        if (invencivel) return;
+        if (Modo == false) return;
         if (temEscudo)
         {
             QuebrarEscudo();

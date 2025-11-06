@@ -6,7 +6,7 @@ public class SceneManger : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Jogo");
+        SceneManager.LoadScene("Fase1");
     }
 
     private void Update()
