@@ -7,8 +7,8 @@ public class InimigoSpawnSequence : MonoBehaviour
     public class EnemySpawnData
     {
         public GameObject enemyPrefab;   // Prefab do inimigo
-        public Vector3 position;         // Posição onde vai nascer
-        public float delay;              // Tempo de espera antes do próximo inimigo
+        public Vector3 position;         // Posicao onde vai nascer
+        public float delay;              // Tempo de espera antes do prï¿½ximo inimigo
     }
 
     [System.Serializable]
@@ -16,26 +16,26 @@ public class InimigoSpawnSequence : MonoBehaviour
     {
         public string waveName = "Nova Wave";
         public EnemySpawnData[] enemies;   // Lista de inimigos dessa wave
-        public float delayAfterWave = 5f;  // Espera antes da próxima wave
+        public float delayAfterWave = 5f;  // Espera antes da prï¿½xima wave
     }
 
-    [Header("Sequência simples (sem waves)")]
+    [Header("Sequï¿½ncia simples (sem waves)")]
     public EnemySpawnData[] spawnList;
 
-    [Header("Sequência em waves")]
+    [Header("Sequï¿½ncia em waves")]
     public WaveData[] waves;
 
-    [Header("Referência ao GameManager")]
+    [Header("Referï¿½ncia ao GameManager")]
     public GameManager gameManager;
 
-    private bool spawning = false; // impede sobreposição de spawn
+    private bool spawning = false; // impede sobreposicao de spawn
 
     void Start()
     {
         if (gameManager == null)
             gameManager = GameManager.Mestre;
 
-        // Decide qual tipo de sequência usar
+        // Decide qual tipo de sequencia usar
         if (waves != null && waves.Length > 0)
             StartCoroutine(SpawnWavesRoutine());
         else
@@ -58,7 +58,7 @@ public class InimigoSpawnSequence : MonoBehaviour
         }
 
         spawning = false;
-        Debug.Log("Sequência simples concluída!");
+        Debug.Log("Sequï¿½ncia simples concluï¿½da!");
     }
 
     // Modo com waves organizadas
@@ -80,12 +80,12 @@ public class InimigoSpawnSequence : MonoBehaviour
                 }
             }
 
-            Debug.Log($"Wave '{wave.waveName}' concluída. Aguardando próxima...");
+            Debug.Log($"Wave '{wave.waveName}' concluï¿½da. Aguardando prï¿½xima...");
             yield return new WaitForSeconds(wave.delayAfterWave);
         }
 
         spawning = false;
-        Debug.Log("Todas as waves foram concluídas!");
+        Debug.Log("Todas as waves foram concluï¿½das!");
     }
 
     public void IniciarSequencia()

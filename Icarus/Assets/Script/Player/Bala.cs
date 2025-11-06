@@ -39,9 +39,22 @@ public class Bala : MonoBehaviour
             other.GetComponent<Player>().Derrota();
             // SceneManager.LoadScene("Derrota");
         }
-            
+        if (other.CompareTag("SpawnPoint") && GetComponent<TimeBody>().isrewinding == true)
+        {
+            Invoke("DestruirBala", 0.05f);
+            // Faz a bala ser deletada ao encostar no player ao voltar no tempo
+        }
+
+
     }
-    void Kill() //Mata a bala depois de certo tempo
+
+
+void DestruirBala()
+{
+    Destroy(gameObject);
+}
+
+void Kill() //Mata a bala depois de certo tempo
     {
         DeathTime += Time.deltaTime;
         if (DeathTime > 6f)

@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] Wave;
     [SerializeField] float SpawnInterval = 5;
     Vector3 SpawnPosition;
+    [SerializeField] TimeManager TimeManager;
+
 
     public Player Player;
 
@@ -94,8 +96,10 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             Time.timeScale = tempo;
+            TimeManager.BulletTime();
         }
     }
+
 
     public void AlterarPontos(int pontos)
     {
