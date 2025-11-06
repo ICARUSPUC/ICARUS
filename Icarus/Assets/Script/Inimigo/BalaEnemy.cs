@@ -12,19 +12,26 @@ public class BalaEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Inimigo") || GetComponent<TimeBody>().isrewinding == true) // Mata o inimigo
-            {
-            return;
-        }
+ 
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && GetComponent<TimeBody>().isrewinding == false)
         {
             other.GetComponent<Player>().Derrota();
             // SceneManager.LoadScene("Derrota");
         }
 
-            
+        if (other.CompareTag("SpawnPoint") && GetComponent<TimeBody>().isrewinding == true)
+        {
+            Invoke("DestruirBala",0.05f);
+            // Faz a bala ser deletada ao encostar no enemy ao voltar no tempo
+        }
 
+
+    }
+
+    void DestruirBala()
+    {
+        Destroy(gameObject);
     }
     void KillBalaEnemy() //Mata a bala depois de certo tempo
     {
@@ -36,7 +43,6 @@ public class BalaEnemy : MonoBehaviour
     {
         transform.Translate( Vector3.right * speedEnemy * Time.deltaTime, Space.Self); //Move a bala
     }
-  
 
     void Update()
     {
