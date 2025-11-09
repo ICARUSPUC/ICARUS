@@ -11,6 +11,7 @@ TagManager:
   - Escudo
   - InimigoMelee
   - InimigoLaser
+  - Boss
   layers:
   - Default
   - TransparentFX

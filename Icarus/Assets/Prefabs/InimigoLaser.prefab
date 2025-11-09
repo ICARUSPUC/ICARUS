@@ -164,6 +164,7 @@ MonoBehaviour:
   tempoMovimento: 3
   timerMove: 0
   movendo: 1
+  vidaMax: 6
   GameManager: {fileID: 6641579684027775142, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
 --- !u!54 &1618000702398734738
 Rigidbody:

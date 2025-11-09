@@ -2,69 +2,66 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Bala : MonoBehaviour
-
-    
 {
     [SerializeField] float dano = 1f;
     [SerializeField] float speed = 10f;
     [SerializeField] float DeathTime = 1f;
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (GetComponent<TimeBody>().isrewinding == true)
-        {
             return;
-        }
-        if (other.CompareTag("Inimigo")) // Mata o inimigo
-            {
+
+        if (other.CompareTag("Inimigo"))
+        {
             other.GetComponent<Inimigo>().LevarDano(1);
-                Destroy(gameObject);
+            Destroy(gameObject);
         }
-
-        if (other.CompareTag("InimigoMelee")) // Mata o inimigo
-            {
+        else if (other.CompareTag("InimigoMelee"))
+        {
             other.GetComponent<InimigoMelee>().LevarDano(1);
-                Destroy(gameObject);
+            Destroy(gameObject);
         }
-
-        if (other.CompareTag("InimigoLaser")) // Mata o inimigo
-            {
+        else if (other.CompareTag("InimigoLaser"))
+        {
             other.GetComponent<InimigoLaser>().LevarDano(1);
-                Destroy(gameObject);
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("Boss"))
+        {
+            Boss boss = other.GetComponentInParent<Boss>(); // Aqui é o dano no boss
+            if (boss != null)
+            {
+                boss.TomarDano(dano);
             }
-
-        if (other.CompareTag("Player"))
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("Player"))
         {
             other.GetComponent<Player>().Derrota();
-            // SceneManager.LoadScene("Derrota");
         }
-        if (other.CompareTag("SpawnPoint") && GetComponent<TimeBody>().isrewinding == true)
+        else if (other.CompareTag("SpawnPoint") && GetComponent<TimeBody>().isrewinding == true)
         {
             Invoke("DestruirBala", 0.05f);
-            // Faz a bala ser deletada ao encostar no player ao voltar no tempo
         }
-
-
     }
 
+    void DestruirBala()
+    {
+        Destroy(gameObject);
+    }
 
-void DestruirBala()
-{
-    Destroy(gameObject);
-}
-
-void Kill() //Mata a bala depois de certo tempo
+    void Kill()
     {
         DeathTime += Time.deltaTime;
         if (DeathTime > 6f)
             Destroy(gameObject);
     }
+
     void Move()
     {
-        transform.Translate( Vector3.right * speed * Time.deltaTime, Space.Self); //Move a bala
+        transform.Translate(Vector3.right * speed * Time.deltaTime, Space.Self);
     }
-  
 
     void Update()
     {
