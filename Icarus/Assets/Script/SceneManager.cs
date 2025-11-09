@@ -17,7 +17,7 @@ public class SceneManger : MonoBehaviour
     void Ganhar() //Ganha se Fizer 1000 pontos
     {
         if (GameManager.Mestre == null) return;
-        if (GameManager.Mestre.Pontos >= 2000)
+        if (GameManager.Mestre.Pontos >= 1000)
         {
             SceneManager.LoadScene("Victory");
             GameManager.Mestre.Pontos = 0;    
