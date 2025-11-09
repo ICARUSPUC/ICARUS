@@ -1,65 +1,91 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance;
-
     [Header("Mixer")]
-    public AudioMixer mixer;
+    public AudioMixer audioMixer;
 
-    // nomes dos parâmetros expostos no mixer
-    const string MUSIC_PARAM = "MusicVolume";
-    const string SFX_PARAM = "SFXVolume";
+    [Header("UI Sliders (opcional)")]
+    public Slider masterSlider;
+    public Slider musicSlider;
+    public Slider sfxSlider;
 
-    float musicVolume = 1f;
-    float sfxVolume = 1f;
+    private const string MASTER_PARAM = "MasterVolume";
+    private const string MUSIC_PARAM = "MusicVolume";
+    private const string SFX_PARAM = "SFXVolume";
 
-    private void Awake()
+    void Start()
     {
-        // padrão Singleton
-        if (Instance != null && Instance != this)
+        // MASTER
+        if (masterSlider != null)
         {
-            Destroy(gameObject);
-            return;
+            float v = PlayerPrefs.GetFloat(MASTER_PARAM, 1f);
+            masterSlider.value = v;
+            SetMasterVolume(v);
+            masterSlider.onValueChanged.AddListener(SetMasterVolume);
         }
 
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+        // MUSIC
+        if (musicSlider != null)
+        {
+            float v = PlayerPrefs.GetFloat(MUSIC_PARAM, 1f);
+            musicSlider.value = v;
+            SetMusicVolume(v);
+            musicSlider.onValueChanged.AddListener(SetMusicVolume);
+        }
 
-        LoadVolumes();
+        // SFX
+        if (sfxSlider != null)
+        {
+            float v = PlayerPrefs.GetFloat(SFX_PARAM, 1f);
+            sfxSlider.value = v;
+            SetSFXVolume(v);
+            sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+        }
     }
 
-    void LoadVolumes()
+    // -------------------------------------------------
+    // LOG SCALE - melhor controle perceptivo
+    // 20 * log10(x)
+    // -------------------------------------------------
+
+    float SliderToDB(float sliderValue)
     {
-        musicVolume = PlayerPrefs.GetFloat(MUSIC_PARAM, 1f);
-        sfxVolume = PlayerPrefs.GetFloat(SFX_PARAM, 1f);
+        if (sliderValue <= 0.0001f)
+            return -80f;   // praticamente mudo
 
-        SetMusicVolume(musicVolume);
-        SetSFXVolume(sfxVolume);
+        return Mathf.Log10(sliderValue) * 20f;
     }
 
+    // -------------------------------------------------
+    // MASTER
+    // -------------------------------------------------
+    public void SetMasterVolume(float value)
+    {
+        float dB = SliderToDB(value);
+        audioMixer.SetFloat(MASTER_PARAM, dB);
+        PlayerPrefs.SetFloat(MASTER_PARAM, value);
+    }
+
+    // -------------------------------------------------
+    // MUSIC
+    // -------------------------------------------------
     public void SetMusicVolume(float value)
     {
-        musicVolume = Mathf.Clamp01(value);
-        mixer.SetFloat(MUSIC_PARAM, Mathf.Log10(musicVolume) * 20f);
-        PlayerPrefs.SetFloat(MUSIC_PARAM, musicVolume);
+        float dB = SliderToDB(value);
+        audioMixer.SetFloat(MUSIC_PARAM, dB);
+        PlayerPrefs.SetFloat(MUSIC_PARAM, value);
     }
 
+    // -------------------------------------------------
+    // SFX
+    // -------------------------------------------------
     public void SetSFXVolume(float value)
     {
-        sfxVolume = Mathf.Clamp01(value);
-        mixer.SetFloat(SFX_PARAM, Mathf.Log10(sfxVolume) * 20f);
-        PlayerPrefs.SetFloat(SFX_PARAM, sfxVolume);
-    }
-
-    public float GetMusicVolume()
-    {
-        return musicVolume;
-    }
-
-    public float GetSFXVolume()
-    {
-        return sfxVolume;
+        float dB = SliderToDB(value);
+        audioMixer.SetFloat(SFX_PARAM, dB);
+        PlayerPrefs.SetFloat(SFX_PARAM, value);
     }
 }
