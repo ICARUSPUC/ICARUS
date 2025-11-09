@@ -954,12 +954,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnList: []
   waves:
-  - waveName: Boss
-    enemies:
-    - enemyPrefab: {fileID: 721043012140272846, guid: 92d1bfe9cd629194e9be5b59f1d0eac3, type: 3}
-      position: {x: -2.68, y: 4, z: -2.8}
-      delay: 0
-    delayAfterWave: 10
   - waveName: First Wave
     enemies:
     - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
@@ -1046,6 +1040,12 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 2832673781323649384, guid: 4b0b233226232d348869acd32671cc0c, type: 3}
       position: {x: 13, y: 6, z: -2}
       delay: 1
+    delayAfterWave: 10
+  - waveName: Boss
+    enemies:
+    - enemyPrefab: {fileID: 721043012140272846, guid: 92d1bfe9cd629194e9be5b59f1d0eac3, type: 3}
+      position: {x: 0, y: 0, z: -4}
+      delay: 0
     delayAfterWave: 10
   gameManager: {fileID: 2012716996}
 --- !u!4 &134544102

@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d448aa94e35a1fd40a1423cb28b384f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMax: 70
+  vidaMax: 30
   efeitoMorte: {fileID: 0}
 --- !u!1 &7254319675445368765
 GameObject:
