@@ -8057,10 +8057,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: -yourscore-
+  m_text: '- score -'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f185909a04c1e284ca583062c8791d9c, type: 2}
-  m_sharedMaterial: {fileID: -1083142409307325385, guid: f185909a04c1e284ca583062c8791d9c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4fd787a2e49567f41a96667179394888, type: 2}
+  m_sharedMaterial: {fileID: -963199934855791175, guid: 4fd787a2e49567f41a96667179394888, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8068,7 +8068,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 1
+  m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 0.6556303, g: 0, b: 0.9056604, a: 1}
