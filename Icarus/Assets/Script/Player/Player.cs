@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+
+    private AudioSource audioSource;
     // Variáveis com valores padrão para ajuste no Inspector
     [SerializeField] float speedPrincipal = 5f;
     [SerializeField] float speedRapida = 6f;
@@ -47,6 +49,7 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("O script Player requer um componente TimeBody no mesmo objeto.");
         }
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -251,6 +254,7 @@ public class Player : MonoBehaviour
 
     void Atirar()
     {
+    
         if (timeBody != null && timeBody.isrewinding == true)
         {
             return;
@@ -260,6 +264,7 @@ public class Player : MonoBehaviour
             FireTimer += Time.deltaTime;
             if ((Input.GetMouseButton(0) || (Input.GetKey(KeyCode.K))) && FireTimer >= FireRate)
             {
+                audioSource.PlayOneShot(audioSource.clip); // faz som do tiro
                 // Assumindo que Tiro[0] é a bala a ser instanciada
                 if (Tiro.Length > 0 && Tiro[0] != null)
                 {
