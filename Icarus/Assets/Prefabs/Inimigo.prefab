@@ -160,11 +160,10 @@ MonoBehaviour:
   timerMove: 0
   tempoMovimento: 7
   vidaMax: 2
-  renderers:
-  - {fileID: 19359559161924105}
-  damageColor: {r: 0.6698113, g: 0, b: 0, a: 1}
-  flashDuration: 0.1
   GameManager: {fileID: 6641579684027775142, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
+  renderers: []
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.5
 --- !u!114 &356344532862149923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,11 +281,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8215a322df0fa1d4cbc1a79d03c0b049, type: 3}
---- !u!23 &19359559161924105 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 8215a322df0fa1d4cbc1a79d03c0b049, type: 3}
-  m_PrefabInstance: {fileID: 1694851867889653389}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1157402797025866086 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8215a322df0fa1d4cbc1a79d03c0b049, type: 3}

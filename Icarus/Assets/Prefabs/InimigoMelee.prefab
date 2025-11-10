@@ -129,12 +129,7 @@ MonoBehaviour:
   tempoMovimento: 0
   timerMove: 0
   movendo: 1
-  vidaMax: 3
   GameManager: {fileID: 6641579684027775142, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
-  renderers:
-  - {fileID: 6171373406514921373}
-  damageColor: {r: 0.67058825, g: 0, b: 0, a: 1}
-  flashDuration: 0.1
 --- !u!54 &4317653552716818683
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -188,7 +183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b6344497accbc9419f179f45cb1fa29, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.37
+      value: 0.1645
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b6344497accbc9419f179f45cb1fa29, type: 3}
       propertyPath: m_LocalPosition.z
@@ -234,10 +229,5 @@ PrefabInstance:
 --- !u!4 &5039021893534008562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6b6344497accbc9419f179f45cb1fa29, type: 3}
-  m_PrefabInstance: {fileID: 4784101311429714713}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &6171373406514921373 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 6b6344497accbc9419f179f45cb1fa29, type: 3}
   m_PrefabInstance: {fileID: 4784101311429714713}
   m_PrefabAsset: {fileID: 0}
