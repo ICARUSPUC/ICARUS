@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-   
+
+    private AudioSource audioSource;
     // Variáveis com valores padrão para ajuste no Inspector
     [SerializeField] float speedPrincipal = 5f;
     [SerializeField] float speedRapida = 6f;
@@ -15,7 +16,6 @@ public class Player : MonoBehaviour
     [SerializeField] float TempoInvencivel = 2f;
     [SerializeField] GameObject escudoVisual;
     [SerializeField] float TempoLimiteModoRapido = 3f;
-
 
     public bool temEscudo = false;
     float anguloRapido = 35f;
@@ -40,55 +40,27 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
     private Vector3 moveInput;
 
-    // NOVO: Referência para o componente visual (para piscar)
-    private Renderer playerRenderer;
-
-    // NOVO: Tag do Boss para detecção de acerto
-    private const string BOSS_TAG = "Boss";
-
     void Start()
     {
-
-        GameManager.Mestre.Pontos = 0;
-
         rb = GetComponent<Rigidbody>();
         timeBody = GetComponent<TimeBody>(); // Obtém a referência do TimeBody
-
-        // NOVO: Obtém o renderizador para o efeito visual
-        playerRenderer = GetComponent<Renderer>();
 
         if (timeBody == null)
         {
             Debug.LogError("O script Player requer um componente TimeBody no mesmo objeto.");
         }
-
-        // Inicializa o GameManager se for um Singleton Mestre
-        if (GameManager.Mestre != null)
-        {
-            GameManager = GameManager.Mestre;
-        }
+        audioSource = GetComponent<AudioSource>();
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        string TagColidida = other.tag;
+       string TagInimigo = other.tag;
 
-        // 1. NOVO: Lógica de DANO pelo Boss
-        // Verifica o Boss, e se o Player não está invencível.
-        if (TagColidida == BOSS_TAG)
-        {
-            if (!invencivel)
-            {
-                Derrota();
-            }
-            return;
-        }
-
-        // 2. Lógica de COLISÃO com inimigos no Modo Rápido (Se Modo == false)
         if (Modo == false)
         {
-            switch (TagColidida)
+            switch(TagInimigo)
+           
             {
                 case "Inimigo":
                     other.GetComponent<Inimigo>()?.Morrer();
@@ -99,46 +71,36 @@ public class Player : MonoBehaviour
                 case "InimigoLaser":
                     other.GetComponent<InimigoLaser>()?.Morrer();
                     break;
-                    // Adicione aqui a Tag do Projétil Inimigo, se houver
-                    // case "TiroInimigo":
-                    //     Destroy(other.gameObject); // Destroi o tiro inimigo ao invés do Player no modo rápido
-                    //     break;
-            }
-        }
-    }
 
+            }
+            
+        }
+        
+    }
 
     IEnumerator TornarInvencivel()
     {
         invencivel = true;
-
         yield return new WaitForSeconds(TempoInvencivel);
-
         invencivel = false;
-
-        // O PiscarVisual já garante que o renderizador esteja ligado
     }
 
-    // MODIFICADO: Adiciona invencibilidade após quebra do escudo
     public void Derrota()
     {
         if (Modo == false) return;
         if (temEscudo)
         {
             QuebrarEscudo();
-            // NOVO: Dá um breve período de invencibilidade após perder o escudo
-            StartCoroutine(TornarInvencivel());
             return;
         }
 
-        // Lógica de Morte
         gameObject.SetActive(false);
         PlayerVivo = false;
 
         // Checagem de segurança para o Singleton
         if (GameManager.Mestre != null)
         {
-         ;
+            GameManager.Mestre.Pontos = 0;
         }
         Invoke("VaiproMenu", 1f);
     }
@@ -150,7 +112,7 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene("Victory");
             if (GameManager.Mestre != null)
             {
-               
+                GameManager.Mestre.Pontos = 0;
             }
         }
     }
@@ -173,18 +135,18 @@ public class Player : MonoBehaviour
             StartCoroutine(TornarInvencivel());
             Modo = !Modo;
 
-
-            if (Modo == false)
+           
+            if (Modo == false) 
             {
                 if (timeBody != null)
                 {
-                    timeBody.SaveCheckpoint();
+                    timeBody.SaveCheckpoint(); 
                     StartCoroutine(ContagemRegressivaTeleporte());
                 }
             }
-            else
+            else 
             {
-
+               
                 StopCoroutine("ContagemRegressivaTeleporte");
             }
         }
@@ -195,10 +157,10 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(TempoLimiteModoRapido);
 
-
+        
         if (Modo == false)
         {
-
+            
             if (timeBody != null)
             {
                 timeBody.TeleportToCheckpoint();
@@ -292,6 +254,7 @@ public class Player : MonoBehaviour
 
     void Atirar()
     {
+    
         if (timeBody != null && timeBody.isrewinding == true)
         {
             return;
@@ -301,6 +264,7 @@ public class Player : MonoBehaviour
             FireTimer += Time.deltaTime;
             if ((Input.GetMouseButton(0) || (Input.GetKey(KeyCode.K))) && FireTimer >= FireRate)
             {
+                audioSource.PlayOneShot(audioSource.clip); // faz som do tiro
                 // Assumindo que Tiro[0] é a bala a ser instanciada
                 if (Tiro.Length > 0 && Tiro[0] != null)
                 {

@@ -1,25 +1,42 @@
 using UnityEngine;
-using UnityEngine.Video;
 
 public class MusicaFundo : MonoBehaviour
-
 {
-    public VideoPlayer videoPlayer;
     public AudioSource musicaFundo;
-    public float segundosAntes = 2f; // segundos antes do vídeo terminar para começar a música
+    public TimeManager TimeManager;
+    public Player player;
 
-    void Start()
-    {
-        // dispara a música alguns segundos antes do final do vídeo
-        Invoke("TocarMusica", (float)videoPlayer.length - segundosAntes);
-    }
+    public float pitchChangeSpeed = 3f;
 
-    void TocarMusica()
+
+    private float targetPitch;
+
+    void Update()
     {
-        musicaFundo.Play();
-    }
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject); // mantém o objeto entre cenas
+
+        if (TimeManager != null && TimeManager.isbullettime || player.Modo == false)
+        {
+
+            targetPitch = 0.7f;
+        }
+        else
+        {
+
+            targetPitch = 1f;
+        }
+
+
+        musicaFundo.pitch = Mathf.Lerp(
+            musicaFundo.pitch,
+            targetPitch,
+            Time.unscaledDeltaTime * pitchChangeSpeed
+        );
+
+
+        if (Mathf.Abs(musicaFundo.pitch - targetPitch) < 0.01f)
+        {
+            musicaFundo.pitch = targetPitch;
+        }
     }
 }
+   

@@ -98,10 +98,10 @@ public class TimeBody : MonoBehaviour
 
     }
 
-    // MÉTODO NOVO 2: Teleporta o objeto para o ponto salvo
+    //  Teleporta o objeto para o ponto salvo
     public void TeleportToCheckpoint()
     {
-        // Garante que temos um Rigidbody para mover e um ponto salvo
+       
         if (checkpointPoint != null && rb != null)
         {
             if (isrewinding)
