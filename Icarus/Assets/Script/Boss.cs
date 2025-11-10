@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Boss : MonoBehaviour
     public void TomarDano(float dano)
     {
         vidaAtual -= dano;
-        Debug.Log($"Boss tomou dano! Vida atual: {vidaAtual}");
+        
 
         if (vidaAtual <= 0)
         {
@@ -27,7 +28,8 @@ public class Boss : MonoBehaviour
 
     void Morrer()
     {
-        Debug.Log("💀 Boss derrotado!");
+        GameManager.Mestre.SceneManger.Ganhar();
+
 
         if (efeitoMorte != null)
             Instantiate(efeitoMorte, transform.position, Quaternion.identity);

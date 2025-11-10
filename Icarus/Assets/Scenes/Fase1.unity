@@ -998,7 +998,7 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
       position: {x: 13, y: 6, z: 3}
       delay: 0
-    delayAfterWave: 5
+    delayAfterWave: 7
   - waveName: Fourth Wave
     enemies:
     - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
@@ -1040,13 +1040,13 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 2832673781323649384, guid: 4b0b233226232d348869acd32671cc0c, type: 3}
       position: {x: 13, y: 6, z: -2}
       delay: 1
-    delayAfterWave: 10
+    delayAfterWave: 12
   - waveName: Boss
     enemies:
     - enemyPrefab: {fileID: 721043012140272846, guid: 92d1bfe9cd629194e9be5b59f1d0eac3, type: 3}
       position: {x: 0, y: 0, z: -4}
       delay: 0
-    delayAfterWave: 10
+    delayAfterWave: 15
   gameManager: {fileID: 2012716996}
 --- !u!4 &134544102
 Transform:
@@ -6106,6 +6106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7641c53c4066e429ba86d8304b1d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Duracao: 5
+  Queda: 3
+  Limite: -10
 --- !u!4 &1237915853 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6761452278721645176, guid: 1193d3be84868494b8c24cdbb56fae33, type: 3}
@@ -9319,7 +9322,7 @@ PrefabInstance:
     - target: {fileID: 3803613914517548884, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
       propertyPath: powerUpPrefab
       value: 
-      objectReference: {fileID: 919132149155446097, guid: 08c0d70747c4c904db32cb20548c29d4, type: 3}
+      objectReference: {fileID: 1793711508362715307, guid: 36d959b68b1a1164ca2c02e5c7deb0ba, type: 3}
     - target: {fileID: 4029494991377341830, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
       propertyPath: m_Name
       value: GameManager

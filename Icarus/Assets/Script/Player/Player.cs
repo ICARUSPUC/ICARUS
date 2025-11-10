@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+   
     // Variáveis com valores padrão para ajuste no Inspector
     [SerializeField] float speedPrincipal = 5f;
     [SerializeField] float speedRapida = 6f;
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] float TempoInvencivel = 2f;
     [SerializeField] GameObject escudoVisual;
     [SerializeField] float TempoLimiteModoRapido = 3f;
+
 
     public bool temEscudo = false;
     float anguloRapido = 35f;
@@ -46,6 +48,9 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+
+        GameManager.Mestre.Pontos = 0;
+
         rb = GetComponent<Rigidbody>();
         timeBody = GetComponent<TimeBody>(); // Obtém a referência do TimeBody
 
@@ -102,42 +107,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    // NOVO MÉTODO: Controla o piscar visual
-    IEnumerator PiscarVisual()
-    {
-        float taxaDePisca = 0.1f; // Tempo que leva para o Player ficar invisível/visível
-        float tempoPassado = 0f;
 
-        while (tempoPassado < TempoInvencivel)
-        {
-            // Alterna a visibilidade
-            if (playerRenderer != null)
-            {
-                playerRenderer.enabled = !playerRenderer.enabled;
-            }
-
-            // Espera a taxa de piscar
-            yield return new WaitForSeconds(taxaDePisca);
-            tempoPassado += taxaDePisca;
-        }
-
-        // Garante que o Player esteja visível ao final
-        if (playerRenderer != null)
-        {
-            playerRenderer.enabled = true;
-        }
-    }
-
-    // MODIFICADO: Inclui o efeito visual de piscar
     IEnumerator TornarInvencivel()
     {
         invencivel = true;
-
-        // Inicia o efeito visual de piscar
-        if (playerRenderer != null)
-        {
-            StartCoroutine(PiscarVisual());
-        }
 
         yield return new WaitForSeconds(TempoInvencivel);
 
@@ -165,7 +138,7 @@ public class Player : MonoBehaviour
         // Checagem de segurança para o Singleton
         if (GameManager.Mestre != null)
         {
-            GameManager.Mestre.Pontos = 0;
+         ;
         }
         Invoke("VaiproMenu", 1f);
     }
@@ -177,7 +150,7 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene("Victory");
             if (GameManager.Mestre != null)
             {
-                GameManager.Mestre.Pontos = 0;
+               
             }
         }
     }

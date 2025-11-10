@@ -76,7 +76,7 @@ public class InimigoMelee : MonoBehaviour
     {
         other.GetComponent<Player>().Derrota();
         atacou = true;
-        Morrer();
+        MorrerFora();
     }
 }
 

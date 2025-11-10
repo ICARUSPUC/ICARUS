@@ -11,6 +11,11 @@ public class SceneManger : MonoBehaviour
         SceneManager.activeSceneChanged += OnSceneChanged;
     }
 
+    private void Start()
+    {
+        GameManager.Mestre.SceneManger = this;
+    }
+
     private void OnDestroy()
     {
         SceneManager.activeSceneChanged -= OnSceneChanged;
@@ -102,16 +107,16 @@ public class SceneManger : MonoBehaviour
 
     private void Update()
     {
-        Ganhar();
+       // Ganhar();
     }
 
-    void Ganhar()
+    public void Ganhar()
     {
         if (GameManager.Mestre == null) return;
-        if (GameManager.Mestre.Pontos >= 1000)
-        {
+        
+        
             SceneManager.LoadScene("Victory");
             GameManager.Mestre.Pontos = 0;
-        }
+        
     }
 }
