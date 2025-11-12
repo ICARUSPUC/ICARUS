@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Inimigo : MonoBehaviour
 {
+    [Header("Audio")]
+    public AudioSource Tirosom;
+    public AudioSource DeathSound;
     [Header("Tiro e Movimento")]
     [SerializeField] GameObject EnemyShot;
     [SerializeField] GameObject SpawnEnemy;
@@ -94,7 +97,7 @@ public class Inimigo : MonoBehaviour
     {
         if (GetComponent<TimeBody>().isrewinding)
             return;
-
+        Tirosom.Play();
         Instantiate(EnemyShot, SpawnEnemy.transform.position, SpawnEnemy.transform.rotation);
     }
 

@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 53040133}
   - component: {fileID: 53040132}
   m_Layer: 0
-  m_Name: SFX_TVON
+  m_Name: SFX_VHSButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,8 +291,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6713a58c646163042a9643404607e9df, type: 3}
-  m_Resource: {fileID: 8300000, guid: 6713a58c646163042a9643404607e9df, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8b75b1eee3815084c95bfeb2293d330f, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8b75b1eee3815084c95bfeb2293d330f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.75
   m_Pitch: 1
@@ -418,14 +418,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151502548}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40ab39b73bc70ee4f96d8018230dd18b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 0}
   musicaFundo: {fileID: 151502550}
-  segundosAntes: 2
+  TimeManager: {fileID: 0}
+  player: {fileID: 0}
+  pitchChangeSpeed: 3
 --- !u!82 &151502550
 AudioSource:
   m_ObjectHideFlags: 0
@@ -438,7 +439,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 517c20ae2234a204da7717055a4f1c54, type: 3}
   m_Resource: {fileID: 8300000, guid: 517c20ae2234a204da7717055a4f1c54, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.75
   m_Pitch: 0.8
   Loop: 1
@@ -836,14 +837,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685545762}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b78b9153741abc5488df6c78e1a8d80c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 2108407258}
   fadeSpeedOut: 1.5
-  fadeSpeedIn: 1.5
+  fadeSpeedIn: 0.04
 --- !u!4 &685545764
 Transform:
   m_ObjectHideFlags: 0
@@ -1616,7 +1617,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108407256}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

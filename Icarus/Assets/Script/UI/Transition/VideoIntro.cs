@@ -22,9 +22,7 @@ public class SceneIntroVideo : MonoBehaviour
 
     IEnumerator PlayTransition()
     {
-        // Espera 0.1s pra garantir que o load acabou
-        yield return new WaitForSeconds(0.1f);
-
+        // Espera 0.1s pra garantir que o load ac
         // Inicia o vídeo
         videoPlayer.Play();
 
@@ -38,6 +36,6 @@ public class SceneIntroVideo : MonoBehaviour
             yield return null;
         }
 
-        fadeCanvas.gameObject.SetActive(false); // Desativa o overlay preto
+       
     }
 }

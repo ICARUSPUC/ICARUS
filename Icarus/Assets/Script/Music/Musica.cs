@@ -12,7 +12,11 @@ public class MusicaFundo : MonoBehaviour
     private float targetPitch;
 
     void Update()
-    {
+    { 
+        if (TimeManager = null)
+        {
+            return;
+        }
 
         if (TimeManager != null && TimeManager.isbullettime || player.Modo == false)
         {
