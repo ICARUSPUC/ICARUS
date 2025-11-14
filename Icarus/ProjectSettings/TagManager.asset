@@ -12,6 +12,7 @@ TagManager:
   - InimigoMelee
   - InimigoLaser
   - Boss
+  - InimigoEspada
   layers:
   - Default
   - TransparentFX

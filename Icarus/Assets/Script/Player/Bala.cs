@@ -44,6 +44,12 @@ public class Bala : MonoBehaviour
         {
             Invoke("DestruirBala", 0.05f);
         }
+        else if (other.CompareTag("InimigoEspada"))
+        {
+            other.GetComponent<InimigoMelee>().LevarDano(1);
+            Destroy(gameObject);
+        }
+
     }
 
     void DestruirBala()

@@ -959,10 +959,10 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
       position: {x: 13, y: 6, z: -9}
       delay: 0
-    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+    - enemyPrefab: {fileID: 4068364117362724507, guid: 67f311774544dae478a4de6704726396, type: 3}
       position: {x: 13, y: 6, z: -3}
       delay: 1
-    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+    - enemyPrefab: {fileID: 4068364117362724507, guid: 67f311774544dae478a4de6704726396, type: 3}
       position: {x: 13, y: 6, z: 3}
       delay: 1.5
     - enemyPrefab: {fileID: 4068364117362724507, guid: 67f311774544dae478a4de6704726396, type: 3}
