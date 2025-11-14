@@ -21,9 +21,6 @@ public class GameManager : MonoBehaviour
     Vector3 SpawnPosition;
     [SerializeField] TimeManager TimeManager;
 
-    //public SceneManager SceneManager;
-    public SceneManger SceneManger;
-
 
     public Player Player;
 

@@ -1,122 +1,77 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Collections;
 
 public class SceneManger : MonoBehaviour
 {
-    private const string ULTIMA_CENA_KEY = "UltimaCena"; // chave usada no PlayerPrefs
+    [Header("Fade Config")]
+    [SerializeField] private Image fadeImage;
+    [SerializeField] private float fadeSpeedOut = 1.5f;
+    [SerializeField] private float fadeSpeedIn = 1.5f;
+    private bool isFading = false;
 
-    private void Awake()
+    void Start()
     {
-        DontDestroyOnLoad(gameObject);
-        SceneManager.activeSceneChanged += OnSceneChanged;
-    }
-
-    private void Start()
-    {
-        GameManager.Mestre.SceneManger = this;
-    }
-
-    private void OnDestroy()
-    {
-        SceneManager.activeSceneChanged -= OnSceneChanged;
-    }
-
-    private void OnSceneChanged(Scene cenaAntiga, Scene cenaNova)
-    {
-        if (EhCenaDeJogo(cenaNova.name))
+        if (fadeImage != null)
         {
-            PlayerPrefs.SetString(ULTIMA_CENA_KEY, cenaNova.name);
-            PlayerPrefs.Save();
-            Debug.Log($"Última cena de jogo salva: {cenaNova.name}");
-        }
-        else
-        {
-            Debug.Log($"Cena '{cenaNova.name}' ignorada (não é cena de jogo).");
+            fadeImage.color = Color.black;
+            StartCoroutine(FadeIn());
         }
     }
 
-    private bool EhCenaDeJogo(string nomeCena)
+    public void LoadScene(string sceneName)
     {
-        // Só considera cenas de fases como cenas de jogo
-        return nomeCena.StartsWith("Fase");
+        if (!isFading)
+            StartCoroutine(FadeAndLoad(sceneName));
     }
 
-    // Iniciar o jogo (usado no menu principal)
-    public void StartGame()
+    IEnumerator FadeAndLoad(string sceneName)
     {
-        SceneManager.LoadScene("Fase1");
-    }
+        isFading = true;
 
-    // Botão da tela de derrota para voltar à última fase jogada
-    public void VoltarUltimaCena()
-    {
-        if (PlayerPrefs.HasKey(ULTIMA_CENA_KEY))
+        // FADE OUT (escurecendo)
+        for (float i = 0; i <= 1; i += Time.deltaTime * fadeSpeedOut)
         {
-            string ultimaCena = PlayerPrefs.GetString(ULTIMA_CENA_KEY);
-            SceneManager.LoadScene(ultimaCena);
-        }
-        else
-        {
-            SceneManager.LoadScene("Fase1");
-        }
-    }
-
-    // Botão para voltar ao menu
-    public void VoltarMenu()
-    {
-        SceneManager.LoadScene("Menu");
-    }
-
-    // Botão "Próxima Fase" na tela Victory
-    public void ProximaFase()
-    {
-        if (!PlayerPrefs.HasKey(ULTIMA_CENA_KEY))
-        {
-            Debug.LogWarning("Nenhuma fase anterior encontrada. Carregando Fase1 por padrão.");
-            SceneManager.LoadScene("Fase1");
-            return;
+            fadeImage.color = new Color(0, 0, 0, i);
+            yield return null;
         }
 
-        string ultimaFase = PlayerPrefs.GetString(ULTIMA_CENA_KEY);
-        string proximaFase = "";
+        // Espera um pouquinho pra suavizar
+        yield return new WaitForSeconds(0.2f);
 
-        switch (ultimaFase)
-        {
-            case "Fase1":
-                proximaFase = "Fase2";
-                break;
-
-            case "Fase2":
-                proximaFase = "Fase3";
-                break;
-
-            case "Fase3":
-                proximaFase = "Victory"; // ou talvez volte ao menu aqui
-                break;
-
-            default:
-                Debug.LogWarning($"A fase {ultimaFase} não possui próxima fase definida.");
-                return;
-        }
-
-        if (!string.IsNullOrEmpty(proximaFase))
-        {
-            SceneManager.LoadScene(proximaFase);
-        }
+        // Carrega a nova cena (mantendo tudo preto)
+        SceneManager.LoadScene(sceneName);
     }
 
-    private void Update()
+    IEnumerator FadeIn()
     {
-       // Ganhar();
+        isFading = true;
+
+        // FADE IN (clareando)
+        for (float i = 1; i >= 0; i -= Time.deltaTime * fadeSpeedIn)
+        {
+            fadeImage.color = new Color(0, 0, 0, i);
+            yield return null;
+        }
+
+        fadeImage.color = new Color(0, 0, 0, 0);
+        isFading = false;
     }
 
-    public void Ganhar()
+    void Update()
+    {
+        Ganhar();
+    }
+
+    void Ganhar()
     {
         if (GameManager.Mestre == null) return;
-        
-        
-            SceneManager.LoadScene("Victory");
+        if (GameManager.Mestre.Pontos >= 2000)
+        {
             GameManager.Mestre.Pontos = 0;
-        
+            LoadScene("Victory");
+        }
     }
 }
+

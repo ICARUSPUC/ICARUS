@@ -4,8 +4,8 @@ using System.Collections;
 public class PowerUpSpawner : MonoBehaviour
 {
     [SerializeField] GameObject powerUpPrefab; // O prefab do power-up 
-    [SerializeField] Vector3 areaMin = new Vector3(-20f, 0f, -10f); // Limite mínimo do spawn
-    [SerializeField] Vector3 areaMax = new Vector3(20f, 0f, 10f);  // Limite máximo do spawn
+    [SerializeField] Vector3 areaMin = new Vector3(-20f, 0f, -10f); // Limite m�nimo do spawn
+    [SerializeField] Vector3 areaMax = new Vector3(20f, 0f, 10f);  // Limite m�ximo do spawn
     [SerializeField] float tempoSpawn = 40f; // Tempo fixo entre cada spawn
 
     void Start()
@@ -25,9 +25,7 @@ public class PowerUpSpawner : MonoBehaviour
                 Random.Range(areaMin.z, areaMax.z)
             );
 
-            Quaternion rot = Quaternion.Euler(0f, -90f, 0f);
-
-            Instantiate(powerUpPrefab, pos, rot);
+            Instantiate(powerUpPrefab, pos, Quaternion.identity);
         }
     }
 }
