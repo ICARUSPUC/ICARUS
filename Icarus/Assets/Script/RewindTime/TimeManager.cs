@@ -4,6 +4,7 @@ public class TimeManager : MonoBehaviour
 {
     public float slowdownFactor = 0.05f;
     public float slowdownHowlong = 2f;
+    public bool isbullettime = false;
 
     private float normalFixedDeltaTime;
 
@@ -14,6 +15,7 @@ public class TimeManager : MonoBehaviour
 
     public void BulletTime()
     {
+        isbullettime = true;
         Time.timeScale = slowdownFactor;
         Time.fixedDeltaTime = normalFixedDeltaTime * slowdownFactor;
     }
