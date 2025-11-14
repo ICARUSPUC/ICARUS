@@ -1,8 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Collections;
 
 public class SceneManger : MonoBehaviour
 {
+
+    [Header("Fade Config")]
+    [SerializeField] private Image fadeImage;
+    [SerializeField] private float fadeSpeedOut = 1.5f;
+    [SerializeField] private float fadeSpeedIn = 1.5f;
+    private bool isFading = false;
+    
     private const string ULTIMA_CENA_KEY = "UltimaCena"; // chave usada no PlayerPrefs
 
     private void Awake()
@@ -14,6 +23,11 @@ public class SceneManger : MonoBehaviour
     private void Start()
     {
         GameManager.Mestre.SceneManger = this;
+        if (fadeImage != null)
+         {
+            fadeImage.color = Color.black;
+            StartCoroutine(FadeIn());
+        }
     }
 
     private void OnDestroy()
@@ -27,17 +41,17 @@ public class SceneManger : MonoBehaviour
         {
             PlayerPrefs.SetString(ULTIMA_CENA_KEY, cenaNova.name);
             PlayerPrefs.Save();
-            Debug.Log($"Última cena de jogo salva: {cenaNova.name}");
+            Debug.Log($"ï¿½ltima cena de jogo salva: {cenaNova.name}");
         }
         else
         {
-            Debug.Log($"Cena '{cenaNova.name}' ignorada (não é cena de jogo).");
+            Debug.Log($"Cena '{cenaNova.name}' ignorada (nï¿½o ï¿½ cena de jogo).");
         }
     }
 
     private bool EhCenaDeJogo(string nomeCena)
     {
-        // Só considera cenas de fases como cenas de jogo
+        // Sï¿½ considera cenas de fases como cenas de jogo
         return nomeCena.StartsWith("Fase");
     }
 
@@ -47,7 +61,7 @@ public class SceneManger : MonoBehaviour
         SceneManager.LoadScene("Fase1");
     }
 
-    // Botão da tela de derrota para voltar à última fase jogada
+    // Botï¿½o da tela de derrota para voltar ï¿½ ï¿½ltima fase jogada
     public void VoltarUltimaCena()
     {
         if (PlayerPrefs.HasKey(ULTIMA_CENA_KEY))
@@ -61,18 +75,18 @@ public class SceneManger : MonoBehaviour
         }
     }
 
-    // Botão para voltar ao menu
+    // Botï¿½o para voltar ao menu
     public void VoltarMenu()
     {
         SceneManager.LoadScene("Menu");
     }
 
-    // Botão "Próxima Fase" na tela Victory
+    // Botï¿½o "Prï¿½xima Fase" na tela Victory
     public void ProximaFase()
     {
         if (!PlayerPrefs.HasKey(ULTIMA_CENA_KEY))
         {
-            Debug.LogWarning("Nenhuma fase anterior encontrada. Carregando Fase1 por padrão.");
+            Debug.LogWarning("Nenhuma fase anterior encontrada. Carregando Fase1 por padrï¿½o.");
             SceneManager.LoadScene("Fase1");
             return;
         }
@@ -95,7 +109,7 @@ public class SceneManger : MonoBehaviour
                 break;
 
             default:
-                Debug.LogWarning($"A fase {ultimaFase} não possui próxima fase definida.");
+                Debug.LogWarning($"A fase {ultimaFase} nï¿½o possui prï¿½xima fase definida.");
                 return;
         }
 
@@ -104,7 +118,42 @@ public class SceneManger : MonoBehaviour
             SceneManager.LoadScene(proximaFase);
         }
     }
+ public void LoadScene(string sceneName)
+    {
+        if (!isFading)
+            StartCoroutine(FadeAndLoad(sceneName));
+    }
+   IEnumerator FadeAndLoad(string sceneName)
+    {
+        isFading = true;
 
+        // FADE OUT (escurecendo)
+        for (float i = 0; i <= 1; i += Time.deltaTime * fadeSpeedOut)
+        {
+            fadeImage.color = new Color(0, 0, 0, i);
+            yield return null;
+        }
+
+        // Espera um pouquinho pra suavizar
+        yield return new WaitForSeconds(0.2f);
+
+        // Carrega a nova cena (mantendo tudo preto)
+        SceneManager.LoadScene(sceneName);
+    }
+  IEnumerator FadeIn()
+    {
+        isFading = true;
+
+        // FADE IN (clareando)
+        for (float i = 1; i >= 0; i -= Time.deltaTime * fadeSpeedIn)
+        {
+            fadeImage.color = new Color(0, 0, 0, i);
+            yield return null;
+        }
+
+        fadeImage.color = new Color(0, 0, 0, 0);
+        isFading = false;
+    }
     private void Update()
     {
        // Ganhar();
