@@ -1,65 +1,125 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class BalaEnemy : MonoBehaviour
-
-    
 {
+    // =========================================================================
+    // ⚙️ Variáveis de Configuração (Ajustáveis no Inspector)
+    // =========================================================================
+
+    [Header("Configurações da Bala")]
     [SerializeField] float speedEnemy = 10f;
-    [SerializeField] float DeathTimeEnemy = 1f;
+    [SerializeField] float DeathTimeEnemy = 1f; // **Importante:** Este é o tempo inicial.
 
+    // NOVO: Valor fixo para o tempo limite, tornando DeathTimeEnemy um timer
+    private const float MAX_LIFETIME = 6f;
 
- private void OnTriggerEnter(Collider other)
+    // =========================================================================
+    // 🔗 Referências
+    // =========================================================================
+
+    // Variável privada para o TimeBody, buscada no Start
+    private TimeBody timeBody;
+
+    void Start()
     {
-        if (GetComponent<TimeBody>().isrewinding == true)
+        // 1. Obtém o TimeBody para checagens de Rewinding
+        timeBody = GetComponent<TimeBody>();
+
+        if (timeBody == null)
+        {
+            Debug.LogError("O script BalaEnemy requer um componente TimeBody.");
+        }
+
+        // 2. Garante que a bala seja destruída após um tempo máximo
+        // Usamos Invoke, pois o método KillBalaEnemy() do original não estava funcionando
+        // corretamente como um timer de vida útil no Update.
+        Invoke(nameof(DestruirBala), MAX_LIFETIME);
+    }
+
+    // =========================================================================
+    // 🔄 Update
+    // =========================================================================
+
+    void Update()
+    {
+        // Se a bala estiver rebobinando, o movimento será tratado pelo TimeBody, então saímos.
+        if (timeBody != null && timeBody.isrewinding)
         {
             return;
         }
-        if (other.CompareTag("Inimigo")) // Mata o inimigo
+
+        // Os métodos MoveBalaEnemy e KillBalaEnemy foram integrados aqui para melhor fluxo:
+        MoveBalaEnemy();
+        // A lógica de KillBalaEnemy original foi substituída pelo Invoke no Start.
+    }
+
+    // =========================================================================
+    // 💥 Colisão (OnTriggerEnter)
+    // =========================================================================
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Checagem de Rewind: Se estiver rebobinando, a bala não deve causar dano/destruição.
+        if (timeBody != null && timeBody.isrewinding)
         {
-            other.GetComponent<Inimigo>().LevarDano(1);
-            Destroy(gameObject);
+            // Tratamento especial para o SpawnPoint ao rebobinar (lógica original)
+            if (other.CompareTag("SpawnPoint"))
+            {
+                Invoke(nameof(DestruirBala), 0.05f);
+            }
+            return;
         }
 
-        if (other.CompareTag("InimigoMelee")) // Mata o inimigo
+        // Lógica de Dano ao Jogador e Destruição
+        if (other.CompareTag("Player"))
         {
-            other.GetComponent<InimigoMelee>().LevarDano(1);
-            Destroy(gameObject);
+            // Assumindo que o Player tem um método 'Derrota' que trata escudo/invencibilidade
+            other.GetComponent<Player>()?.Derrota();
+            DestruirBala();
+            return; // Destruiu o jogador, saia
         }
 
-        if (other.CompareTag("InimigoLaser")) // Mata o inimigo
+        // Otimização da lógica de dano: usa Tag e destrói
+        if (other.CompareTag("Inimigo"))
         {
-            other.GetComponent<InimigoLaser>().LevarDano(1);
-            Destroy(gameObject);
+            other.GetComponent<Inimigo>()?.LevarDano(1);
+            DestruirBala();
         }
-
-        if (other.CompareTag("SpawnPoint") && GetComponent<TimeBody>().isrewinding == true)
+        else if (other.CompareTag("InimigoMelee"))
         {
-            Invoke("DestruirBala",0.05f);
-            // Faz a bala ser deletada ao encostar no enemy ao voltar no tempo
+            other.GetComponent<InimigoMelee>()?.LevarDano(1);
+            DestruirBala();
         }
+        else if (other.CompareTag("InimigoLaser"))
+        {
+            other.GetComponent<InimigoLaser>()?.LevarDano(1);
+            DestruirBala();
+        }
+    }
 
+    // =========================================================================
+    // 🚀 Movimento e Destruição (Métodos Originais)
+    // =========================================================================
 
+    void MoveBalaEnemy()
+    {
+        // Usa Time.deltaTime para movimento baseado em frame rate
+        transform.Translate(Vector3.right * speedEnemy * Time.deltaTime, Space.Self);
+    }
+
+    // Método original, mas a lógica de timer foi ajustada (ver Start)
+    void KillBalaEnemy()
+    {
+        // REMOVIDO a lógica do timer de vida aqui, que estava incorreta:
+        // DeathTimeEnemy += Time.deltaTime; 
+        // if (DeathTimeEnemy > 6f) Destroy(gameObject);
+
+        // A vida útil agora é tratada pelo Invoke no Start.
     }
 
     void DestruirBala()
     {
         Destroy(gameObject);
-    }
-    void KillBalaEnemy() //Mata a bala depois de certo tempo
-    {
-        DeathTimeEnemy += Time.deltaTime;
-        if (DeathTimeEnemy > 6f)
-            Destroy(gameObject);
-    }
-    void MoveBalaEnemy()
-    {
-        transform.Translate( Vector3.right * speedEnemy * Time.deltaTime, Space.Self); //Move a bala
-    }
-
-    void Update()
-    {
-        MoveBalaEnemy();
-        KillBalaEnemy();
     }
 }

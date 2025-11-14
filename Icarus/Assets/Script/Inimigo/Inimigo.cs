@@ -3,8 +3,11 @@ using System.Collections;
 
 public class Inimigo : MonoBehaviour
 {
-
-    [SerializeField] GameObject EnemyShot; //Prefab do tiro do Inimigo
+    [Header("Audio")]
+    public AudioSource Tirosom;
+    public AudioSource DeathSound;
+    [Header("Tiro e Movimento")]
+   [SerializeField] GameObject EnemyShot; //Prefab do tiro do Inimigo
     [SerializeField] GameObject SpawnEnemy; //Spawn do Tiro do Inimigo
     [SerializeField] float ShotFrequency = 10f; // Quão rapido ele atira
     [SerializeField] float MoveTimer = 0;
@@ -110,6 +113,7 @@ public class Inimigo : MonoBehaviour
         else
         {
             GameObject tiro = Instantiate(EnemyShot, SpawnEnemy.transform.position, SpawnEnemy.transform.rotation);
+            Tirosom.Play();
         }
     }
 

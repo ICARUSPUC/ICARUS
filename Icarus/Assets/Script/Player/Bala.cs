@@ -9,9 +9,13 @@ public class Bala : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("SpawnPoint") && GetComponent<TimeBody>().isrewinding == true)
+        {
+            Invoke("DestruirBala", 0.05f);
+            // Faz a bala ser deletada ao encostar no player ao voltar no tempo
+        }    
         if (GetComponent<TimeBody>().isrewinding == true)
             return;
-
         if (other.CompareTag("Inimigo"))
         {
             other.GetComponent<Inimigo>().LevarDano(1);
@@ -29,7 +33,7 @@ public class Bala : MonoBehaviour
         }
         else if (other.CompareTag("Boss"))
         {
-            Boss boss = other.GetComponentInParent<Boss>(); // Aqui é o dano no boss
+            Boss boss = other.GetComponentInParent<Boss>(); // Aqui ï¿½ o dano no boss
             if (boss != null)
             {
                 boss.TomarDano(dano);
@@ -40,10 +44,7 @@ public class Bala : MonoBehaviour
         {
             other.GetComponent<Player>().Derrota();
         }
-        else if (other.CompareTag("SpawnPoint") && GetComponent<TimeBody>().isrewinding == true)
-        {
-            Invoke("DestruirBala", 0.05f);
-        }
+       
     }
 
     void DestruirBala()

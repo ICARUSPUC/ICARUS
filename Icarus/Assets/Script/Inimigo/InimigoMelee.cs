@@ -1,21 +1,28 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InimigoMelee : MonoBehaviour
 {
-    
-    [Header("Configura��o do inimigo corpo a corpo")]
-    [SerializeField] float speed = 5f;           // velocidade de avan�o
-    [SerializeField] float dano = 1f;  
-    [SerializeField] float tempoMorte = 2f;      // tempo at� ser destru�do ap�s colidir
+    // =========================================================================
+    // ⚙️ Configuração do Inimigo (MANTIDO ORIGINAL)
+    // =========================================================================
 
-    [SerializeField] float tempoMovimento = 0f;     // tempo at� parar (se quiser limitar)
+    [Header("Configuração do inimigo corpo a corpo")]
+    [SerializeField] float speed = 5f;               // velocidade de avanço
+    [SerializeField] float dano = 1f;                // Dano (mantido, embora não usado na colisão)
+    [SerializeField] float tempoMorte = 2f;          // tempo até ser destruído após colidir
+
+    [SerializeField] float tempoMovimento = 0f;      // tempo até parar (se quiser limitar)
     [SerializeField] float timerMove = 0f;
 
     [SerializeField] bool movendo = true;
 
     [Header("Status")]
-    [SerializeField] private float vidaMax = 3f; // Vida m�xima
+    [SerializeField] private float vidaMax = 3f; // Vida máxima
     private float vidaAtual;
+
+    // =========================================================================
+    // 💾 Variáveis de Estado (MANTIDO ORIGINAL)
+    // =========================================================================
 
     private Rigidbody rb;
     private bool dash = false;
@@ -23,11 +30,16 @@ public class InimigoMelee : MonoBehaviour
 
     public GameManager GameManager;
 
+    // =========================================================================
+    // 🔄 Métodos Padrão do Unity
+    // =========================================================================
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Invoke("Dash",2);
-         vidaAtual = vidaMax;
+        // Otimização: Usando nameof()
+        Invoke(nameof(Dash), 2);
+        vidaAtual = vidaMax;
     }
 
     void FixedUpdate()
@@ -35,17 +47,15 @@ public class InimigoMelee : MonoBehaviour
         if (movendo && !atacou)
         {
             MovimentacaoInimigo();
-            timerMove += Time.deltaTime;
 
+            // CORREÇÃO: Usando Time.fixedDeltaTime para consistência em FixedUpdate
+            timerMove += Time.fixedDeltaTime;
 
-
-            if(dash == true)
+            if (dash == true)
             {
                 speed = 15;
             }
 
-            // anda sempre pra esquerda (ou em dire��o ao Player)
-           
             if (tempoMovimento > 0 && timerMove >= tempoMovimento)
             {
                 movendo = false;
@@ -53,14 +63,29 @@ public class InimigoMelee : MonoBehaviour
         }
     }
 
-     void MovimentacaoInimigo()
+    void Update()
     {
-        // movimento constante para a esquerda (ou em dire��o ao player)
-        Vector3 movimento = Vector3.left * speed * Time.deltaTime;
+        // Se o inimigo sair muito da tela (por exemplo, para a esquerda ou para baixo), ele morre
+        if (transform.position.x < -30f || transform.position.z < -20f || transform.position.z > 10f)
+        {
+            MorrerFora();
+        }
+    }
+
+    // =========================================================================
+    // ⚔️ Movimento e Dash
+    // =========================================================================
+
+    void MovimentacaoInimigo()
+    {
+        // movimento constante para a esquerda
+        // CORREÇÃO: Usando Time.fixedDeltaTime para consistência em FixedUpdate e física
+        Vector3 movimento = Vector3.left * speed * Time.fixedDeltaTime;
         Vector3 novaPos = rb.position + movimento;
 
         novaPos.z = Mathf.Clamp(novaPos.z, -13.5f, 6f);
-       // novaPos.x = Mathf.Clamp(novaPos.x, -22f, 22f);
+        // O limite de X foi deixado comentado, como no original
+        // novaPos.x = Mathf.Clamp(novaPos.x, -22f, 22f); 
 
         rb.MovePosition(novaPos);
     }
@@ -70,26 +95,22 @@ public class InimigoMelee : MonoBehaviour
         dash = true;
     }
 
-   private void OnTriggerEnter(Collider other)
-{
-    if (other.CompareTag("Player"))
-    {
-        other.GetComponent<Player>().Derrota();
-        atacou = true;
-        Morrer();
-    }
-}
+    // =========================================================================
+    // 💥 Dano, Colisão e Morte
+    // =========================================================================
 
-void Update()
-{
-    // Se o inimigo sair muito da tela (por exemplo, para a esquerda ou para baixo), ele morre
-    if (transform.position.x < -30f || transform.position.z < -20f || transform.position.z > 10f)
+    private void OnTriggerEnter(Collider other)
     {
-        MorrerFora();
+        if (other.CompareTag("Player"))
+        {
+            // Otimização: Usando null-conditional operator (?. ) para segurança
+            other.GetComponent<Player>()?.Derrota();
+            atacou = true;
+            MorrerFora();
+        }
     }
-}
 
-public void LevarDano(float dano)
+    public void LevarDano(float dano)
     {
         vidaAtual -= dano;
 
@@ -101,31 +122,34 @@ public void LevarDano(float dano)
 
     public void Morrer()
     {
-        // adiciona pontos ao jogador
+        // Adiciona pontos ao jogador
         if (GameManager.Mestre != null)
         {
             GameManager.Mestre.AlterarPontos(75); // recompensa diferente do inimigo normal
         }
 
-        CancelInvoke(); // caso tenha algo invocado (seguran�a)
+        // Otimização: Cancelando o Dash específico e outros Invokes
+        CancelInvoke(nameof(Dash));
+        CancelInvoke();
+
         gameObject.SetActive(false);
-        Invoke("Destruir", tempoMorte);
+        // Otimização: Usando nameof()
+        Invoke(nameof(Destruir), tempoMorte);
     }
 
-     public void MorrerFora()
+    public void MorrerFora()
     {
-       
+        // Otimização: Cancelando o Dash específico e outros Invokes
+        CancelInvoke(nameof(Dash));
+        CancelInvoke();
 
-        CancelInvoke(); // caso tenha algo invocado (seguran�a)
         gameObject.SetActive(false);
-        Invoke("Destruir", tempoMorte);
+        // Otimização: Usando nameof()
+        Invoke(nameof(Destruir), tempoMorte);
     }
-
-
 
     void Destruir()
     {
         Destroy(gameObject);
     }
 }
-
