@@ -965,6 +965,9 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
       position: {x: 13, y: 6, z: 3}
       delay: 1.5
+    - enemyPrefab: {fileID: 4068364117362724507, guid: 67f311774544dae478a4de6704726396, type: 3}
+      position: {x: 13, y: 6, z: 3}
+      delay: 1.5
     delayAfterWave: 3
   - waveName: Second Wave
     enemies:
@@ -6084,6 +6087,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7641c53c4066e429ba86d8304b1d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Duracao: 5
+  Queda: 3
+  Limite: -10
 --- !u!4 &1237915853 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6761452278721645176, guid: 1193d3be84868494b8c24cdbb56fae33, type: 3}
