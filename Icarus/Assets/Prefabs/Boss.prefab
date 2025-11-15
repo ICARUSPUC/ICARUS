@@ -55,6 +55,11 @@ MonoBehaviour:
   minTempoAtaque: 3
   maxTempoAtaque: 6
   duracaoAtaque: 0.9
+  renderers:
+  - {fileID: 6118119836961197945}
+  - {fileID: 6118119836961197945}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.1
 --- !u!54 &3815618253716340821
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -106,8 +111,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3448004603931142077, guid: 1028b4a8ecd729e448e9e47ddbafcfd2, type: 2}
-  m_audioClip: {fileID: 8300000, guid: b387242e3465d3043bc2ed13ac5aa796, type: 3}
-  m_Resource: {fileID: 8300000, guid: b387242e3465d3043bc2ed13ac5aa796, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 31cbe9477eeae804ab769cb37b254681, type: 3}
+  m_Resource: {fileID: 8300000, guid: 31cbe9477eeae804ab769cb37b254681, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -315,7 +320,7 @@ GameObject:
   - component: {fileID: 7452105103497557235}
   - component: {fileID: 8077843784482036075}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -472,6 +477,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMax: 30
   efeitoMorte: {fileID: 0}
+  renderers:
+  - {fileID: 7452105103497557235}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.1
 --- !u!1 &7254319675445368765
 GameObject:
   m_ObjectHideFlags: 0

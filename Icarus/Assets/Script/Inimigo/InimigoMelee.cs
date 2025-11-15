@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using System.Collections;
 public class InimigoMelee : MonoBehaviour
 {
     // =========================================================================
@@ -13,12 +13,16 @@ public class InimigoMelee : MonoBehaviour
 
     [SerializeField] float tempoMovimento = 0f;      // tempo até parar (se quiser limitar)
     [SerializeField] float timerMove = 0f;
-
     [SerializeField] bool movendo = true;
 
     [Header("Status")]
     [SerializeField] private float vidaMax = 3f; // Vida máxima
     private float vidaAtual;
+
+    [Header("Feedback visual de dano")]
+    [SerializeField] private Renderer[] renderers;
+    [SerializeField] private Color damageColor = Color.red;
+    [SerializeField] private float flashDuration = 0.1f;
 
     // =========================================================================
     // 💾 Variáveis de Estado (MANTIDO ORIGINAL)
@@ -27,6 +31,7 @@ public class InimigoMelee : MonoBehaviour
     private Rigidbody rb;
     private bool dash = false;
     private bool atacou = false;
+    private Color[] originalColors;
 
     public GameManager GameManager;
 
@@ -34,6 +39,24 @@ public class InimigoMelee : MonoBehaviour
     // 🔄 Métodos Padrão do Unity
     // =========================================================================
 
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+
+        if (renderers != null && renderers.Length > 0)
+        {
+            originalColors = new Color[renderers.Length];
+            for (int i = 0; i < renderers.Length; i++)
+            {
+                renderers[i].material = new Material(renderers[i].material);
+
+                if (renderers[i].material.HasProperty("_BaseColor"))
+                    originalColors[i] = renderers[i].material.GetColor("_BaseColor");
+                else if (renderers[i].material.HasProperty("_Color"))
+                    originalColors[i] = renderers[i].material.color;
+            }
+        }
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -48,7 +71,6 @@ public class InimigoMelee : MonoBehaviour
         {
             MovimentacaoInimigo();
 
-            // CORREÇÃO: Usando Time.fixedDeltaTime para consistência em FixedUpdate
             timerMove += Time.fixedDeltaTime;
 
             if (dash == true)
@@ -109,10 +131,30 @@ public class InimigoMelee : MonoBehaviour
             MorrerFora();
         }
     }
+    IEnumerator DanoVisual()
+    {
+        foreach (var r in renderers)
+        {
+            if (r.material.HasProperty("_BaseColor"))
+                r.material.SetColor("_BaseColor", damageColor);
+            else if (r.material.HasProperty("_Color"))
+                r.material.color = damageColor;
+        }
 
+        yield return new WaitForSeconds(flashDuration);
+
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            if (renderers[i].material.HasProperty("_BaseColor"))
+                renderers[i].material.SetColor("_BaseColor", originalColors[i]);
+            else if (renderers[i].material.HasProperty("_Color"))
+                renderers[i].material.color = originalColors[i];
+        }
+    }
     public void LevarDano(float dano)
     {
         vidaAtual -= dano;
+        StartCoroutine(DanoVisual());
 
         if (vidaAtual <= 0f)
         {

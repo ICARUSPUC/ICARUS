@@ -7,6 +7,10 @@ public class Player : MonoBehaviour
     // =========================================================================
     // ⚙️ Variáveis de Configuração (Ajustáveis no Inspector)
     // =========================================================================
+    [Header("Audio")]
+
+    [SerializeField] AudioSource SomTiro;
+
 
     [Header("Movimento Principal")]
     [SerializeField] float speedPrincipal = 5f;
@@ -249,6 +253,7 @@ public class Player : MonoBehaviour
             // Assumindo que Tiro[0] é a bala a ser instanciada
             if (Tiro.Length > 0 && Tiro[0] != null)
             {
+                SomTiro.Play();
                 Instantiate(Tiro[0].gameObject, Spawn.transform.position, Spawn.transform.rotation);
                 FireTimer = 0f;
             }
