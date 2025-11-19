@@ -181,14 +181,14 @@ public class Player : MonoBehaviour
             return;
 
         float MoveZ = 0f;
-        float MoveX = 0f;
+        float MoveY = 0f;
 
         if (Input.GetKey(KeyCode.A)) MoveZ = 1f;
-        if (Input.GetKey(KeyCode.S)) MoveX = -1f;
+        if (Input.GetKey(KeyCode.S)) MoveY = -1f;
         if (Input.GetKey(KeyCode.D)) MoveZ = -1f;
-        if (Input.GetKey(KeyCode.W)) MoveX = 1f;
+        if (Input.GetKey(KeyCode.W)) MoveY = 1f;
 
-        moveInput = new Vector3(MoveX, 0f, MoveZ);
+        moveInput = new Vector3(0f, MoveY, MoveZ);
 
         // Movimento
         Vector3 Limite = (rb.position + moveInput * speedPrincipal * Time.fixedDeltaTime); // Usando FixedDeltaTime para movimento
