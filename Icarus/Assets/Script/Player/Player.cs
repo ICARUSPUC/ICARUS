@@ -199,7 +199,7 @@ public class Player : MonoBehaviour
         ApplyTilt(MoveZ);
     }
 
-    private void ApplyTilt(float horizontalInput)
+    private void ApplyTilt(float horizontalInput) // da uma tombadinha quando movimenta o player
     {
         float targetTiltX = horizontalInput * MaxtiltAngle;
 
@@ -214,6 +214,7 @@ public class Player : MonoBehaviour
 
     void ModoRapidoMovimento()
     {
+
         transform.rotation = Quaternion.Euler(0f, anguloRapido, 0f);
 
         // Movimento com base na variável 'direcao'
@@ -322,7 +323,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            TimeManager?.BulletTime(); // Usando ? para checagem de null
+            TimeManager?.StartCoroutine(TimeManager.TempoNaFormaRapida()); //Inicia a dilatacao do tempo na forma secundaria
             TrocaTimer = 0;
             StartCoroutine(TornarInvencivel());
             Modo = !Modo;
@@ -345,7 +346,7 @@ public class Player : MonoBehaviour
     // COROUTINE: Conta o tempo e executa o teleporte de emergência
     IEnumerator ContagemRegressivaTeleporte()
     {
-        yield return new WaitForSeconds(TempoLimiteModoRapido);
+        yield return new WaitForSecondsRealtime(TempoLimiteModoRapido);
 
         if (Modo == false)
         {
