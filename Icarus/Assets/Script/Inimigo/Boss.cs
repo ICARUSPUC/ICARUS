@@ -5,7 +5,7 @@ using System.Collections;
 public class Boss : MonoBehaviour
 {
     // =========================================================================
-    // ⚙️ Atributos do Boss (MANTIDO ORIGINAL)
+    // ⚙️ Atributos do Boss 
     // =========================================================================
     [Header("Atributos do Boss")]
     [SerializeField] float vidaMax = 70f;

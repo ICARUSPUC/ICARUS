@@ -52,9 +52,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maoEsquerdaTransform: {fileID: 8063508094845193479}
   maoDireitaTransform: {fileID: 4948542636614497302}
+  audioSource: {fileID: 2388564023754155098}
+  somDeAtaque: {fileID: 8300000, guid: 9abf41ee2b6f4624da25a3d88d2ad4a1, type: 3}
+  somDeAcerto: {fileID: 8300000, guid: ec00e03d4eb352f4987e5757216a484b, type: 3}
   minTempoAtaque: 3
-  maxTempoAtaque: 6
-  duracaoAtaque: 0.9
+  maxTempoAtaque: 5
+  duracaoAtaque: 0.5
   renderers:
   - {fileID: 6118119836961197945}
   - {fileID: 6118119836961197945}
