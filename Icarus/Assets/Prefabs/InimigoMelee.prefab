@@ -109,8 +109,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.6063424, z: 1.152393}
+  m_Center: {x: 0, y: 0.060198963, z: -0.004807042}
 --- !u!114 &7303396008268324275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,11 +130,11 @@ MonoBehaviour:
   timerMove: 0
   movendo: 1
   vidaMax: 3
-  GameManager: {fileID: 6641579684027775142, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
   renderers:
   - {fileID: 6171373406514921373}
   damageColor: {r: 0.67058825, g: 0, b: 0, a: 1}
   flashDuration: 0.1
+  GameManager: {fileID: 6641579684027775142, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
 --- !u!54 &4317653552716818683
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -32,6 +32,11 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject shield; // Referência direta ao objeto do escudo
     [SerializeField] GameObject escudoVisual; // Mantido o nome original
 
+    [Header("Particulas")]
+    [SerializeField] GameObject explosao;
+    [SerializeField] GameObject destrocos;
+
+
     // =========================================================================
     // 🔑 Variáveis de Estado Públicas (NOMES ORIGINAIS RESTAURADOS)
     // =========================================================================
@@ -192,8 +197,8 @@ public class Player : MonoBehaviour
 
         // Movimento
         Vector3 Limite = (rb.position + moveInput * speedPrincipal * Time.fixedDeltaTime); // Usando FixedDeltaTime para movimento
-        Limite.z = Mathf.Clamp(Limite.z, -13.5f, 6f);
-        Limite.x = Mathf.Clamp(Limite.x, -24f, 22f);
+        Limite.z = Mathf.Clamp(Limite.z, -11f, 4f);
+        Limite.y = Mathf.Clamp(Limite.y, 3f, 10f);
         rb.MovePosition(Limite);
 
         ApplyTilt(MoveZ);
@@ -287,8 +292,12 @@ public class Player : MonoBehaviour
             return;
         }
 
+
+
         // Lógica de Morte
         gameObject.SetActive(false);
+        Instantiate (explosao, transform.position, transform.rotation);
+        Instantiate(destrocos, transform.position, transform.rotation);
         PlayerVivo = false;
 
         // Checagem de segurança para o Singleton
@@ -296,7 +305,7 @@ public class Player : MonoBehaviour
         {
             // Lógica de pontuação ou estado do GameManager
         }
-        Invoke(nameof(VaiproMenu), 1f); // Usando nameof() para segurança
+        Invoke(nameof(VaiproMenu), 3f); // Usando nameof() para segurança
     }
 
     public void AtivarEscudo()
