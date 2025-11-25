@@ -5,8 +5,8 @@ public class Bala : MonoBehaviour
 {
     [SerializeField] float dano = 1f;
     [SerializeField] float speed = 10f;
-    [SerializeField] float DeathTime = 1f;
-
+    [SerializeField] float TimerDeath = 1f;
+    private float DeathTime = 1f;
     private void OnTriggerEnter(Collider other)
     {
         if (GetComponent<TimeBody>().isrewinding == true)
@@ -60,7 +60,7 @@ public class Bala : MonoBehaviour
     void Kill()
     {
         DeathTime += Time.deltaTime;
-        if (DeathTime > 6f)
+        if (DeathTime > TimerDeath)
             Destroy(gameObject);
     }
 

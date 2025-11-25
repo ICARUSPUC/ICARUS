@@ -162,7 +162,7 @@ public class InimigoLaser : MonoBehaviour
 
         atirando = false;
         timerMove = 0f;
-        movendo = true;
+       
     }
 
    

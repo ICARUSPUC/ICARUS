@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedEnemy: 19
-  DeathTimeEnemy: 0
+  DeathTimeEnemy: 16
 --- !u!114 &-7684649401819626606
 MonoBehaviour:
   m_ObjectHideFlags: 0
