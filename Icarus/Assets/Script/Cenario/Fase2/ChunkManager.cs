@@ -24,7 +24,7 @@ public class ChunkManager : MonoBehaviour
 
     void Update()
     {
-        activeChunks.RemoveAll(item => item == null);
+       
 
         while (activeChunks.Count < maxChunks)
         {

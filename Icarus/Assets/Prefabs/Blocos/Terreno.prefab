@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9202672123319557590}
   - component: {fileID: 2634329805424584746}
   - component: {fileID: -4020892603009225547}
+  - component: {fileID: 5480099149394958425}
   m_Layer: 0
   m_Name: Terreno
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2869906720011657747}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 51.97453, y: 13, z: 27102.742}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -156,7 +157,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  destroyX: 200
+  destroyX: 600
+  Spawn: {fileID: 0}
+--- !u!65 &5480099149394958425
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2869906720011657747}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 31.529572, y: 7.5100193, z: 127.09375}
+  m_Center: {x: -219.56816, y: -15.976871, z: -30.1875}
 --- !u!1001 &40478804054071359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1291,7 +1314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8973022247653630908, guid: f7106435011568f498c2a255e9114034, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -198.6496
+      value: -187.9
       objectReference: {fileID: 0}
     - target: {fileID: 8973022247653630908, guid: f7106435011568f498c2a255e9114034, type: 3}
       propertyPath: m_LocalPosition.y
