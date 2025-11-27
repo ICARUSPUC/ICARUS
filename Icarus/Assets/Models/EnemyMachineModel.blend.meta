@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: f016241d3068cdc43adcb5298aa13751
+guid: 6fec9d2a7b159e543bf391e2e8b02260
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: VertexPaintAlpha
-    second: {fileID: 2100000, guid: 4f273b088996f0b4da4d1209fbb07ac3, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
