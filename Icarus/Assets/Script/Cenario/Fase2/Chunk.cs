@@ -5,27 +5,17 @@ public class Chunk : MonoBehaviour
 {
     
     public float speed = 10f;
-    public float destroyX = 50f; // Quando passar dessa posição X, destrói
-    public GameObject Spawn;
+    public float destroyX = -1000f; // Quando passar dessa posição X, destrói
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Limite"))
-            {
-            
-            Instantiate(this.gameObject , Spawn.transform);
-        }
-    }
     void Update()
     {
         // Move no eixo X positivo
         transform.Translate(Vector3.left * speed * Time.deltaTime);
 
         // Se passou do limite, destruir
-        if (transform.position.x > destroyX)
+        if (transform.position.x <= destroyX)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

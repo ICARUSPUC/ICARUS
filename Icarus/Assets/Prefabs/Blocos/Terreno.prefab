@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9202672123319557590}
   - component: {fileID: 2634329805424584746}
   - component: {fileID: -4020892603009225547}
-  - component: {fileID: 5480099149394958425}
   m_Layer: 0
   m_Name: Terreno
   m_TagString: Untagged
@@ -157,29 +156,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  destroyX: 600
-  Spawn: {fileID: 0}
---- !u!65 &5480099149394958425
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2869906720011657747}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 31.529572, y: 7.5100193, z: 127.09375}
-  m_Center: {x: -219.56816, y: -15.976871, z: -30.1875}
+  destroyX: -1000
+  Spawn: {fileID: 3734900676323810410, guid: 1ed4f57814369414d92add4796ea9fde, type: 3}
+  Cenario: {fileID: 2869906720011657747}
 --- !u!1001 &40478804054071359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1314,11 +1293,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8973022247653630908, guid: f7106435011568f498c2a255e9114034, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -187.9
+      value: -194.8
       objectReference: {fileID: 0}
     - target: {fileID: 8973022247653630908, guid: f7106435011568f498c2a255e9114034, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1684
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8973022247653630908, guid: f7106435011568f498c2a255e9114034, type: 3}
       propertyPath: m_LocalPosition.z
