@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Rotation : MonoBehaviour
 {
-    [Tooltip("Rotação (Graus/Segundo")]
+    [Tooltip("Rotaï¿½ï¿½o (Graus/Segundo")]
     public float rotationSpeed = 30f;
 
     void Update()

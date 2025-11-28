@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float tempo = 0.25f;
 
     public int Pontos = 0;
+    public float chronospontos = 0;
 
     [SerializeField] GameObject inimigoPrefab;
     [SerializeField] GameObject SpawnPoint;
@@ -42,6 +43,13 @@ public class GameManager : MonoBehaviour
     {
         EncontrarSpawnPoint();
     }
+    void ChronosPontos()
+    {
+        if (chronospontos >= 100)
+        {
+            Player.Chronos = true;
+        }
+    }
 
     private void Awake()
     {
@@ -69,7 +77,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Zawarudo();
-      //  SpawnInimigos();
+        ChronosPontos();
+      
         if (Input.GetKeyDown(KeyCode.L)) // mostra seus pontos
         {
             Debug.Log($"Seus pontos sao: {Pontos}");
@@ -107,6 +116,11 @@ public class GameManager : MonoBehaviour
     public void AlterarPontos(int pontos)
     {
         Pontos += pontos;
+    }
+
+    public void AlterarChronosPontos(float pontos)
+    {
+        chronospontos += pontos;
     }
 
     void SpawnInimigos ()

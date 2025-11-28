@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 1618000702398734738}
   - component: {fileID: 429299838059767968}
   - component: {fileID: 8717499860814747689}
+  - component: {fileID: 245936444250711194}
   m_Layer: 0
   m_Name: InimigoLaser
   m_TagString: InimigoLaser
@@ -166,7 +167,7 @@ MonoBehaviour:
   tempoAlerta: 0.5
   duracaoLaser: 2
   tamanhoCarregamento: 0.5
-  comprimentoMaximo: 15
+  comprimentoMaximo: 60
   tempoMorte: 2
   speed: 2
   tempoMovimento: 3
@@ -179,6 +180,7 @@ MonoBehaviour:
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
   alertColor: {r: 1, g: 0.997369, b: 0.9669811, a: 1}
+  ExplosaoTiro: {fileID: 953111505554260418, guid: 4955362ee2e14164c9e95dcaef74e76f, type: 3}
 --- !u!54 &1618000702398734738
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -215,12 +217,12 @@ AudioSource:
   m_GameObject: {fileID: 7552061719777853261}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3532428511013653973, guid: 1028b4a8ecd729e448e9e47ddbafcfd2, type: 2}
   m_audioClip: {fileID: 8300000, guid: a0bca66548fc8ac48aed5ed66be88ab7, type: 3}
   m_Resource: {fileID: 8300000, guid: a0bca66548fc8ac48aed5ed66be88ab7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.593
-  m_Pitch: 0.95
+  m_Volume: 0.4
+  m_Pitch: 0.81
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -312,7 +314,7 @@ AudioSource:
   m_GameObject: {fileID: 7552061719777853261}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3532428511013653973, guid: 1028b4a8ecd729e448e9e47ddbafcfd2, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2b371c394fc57ea4283b945d3b3e604d, type: 3}
   m_Resource: {fileID: 8300000, guid: 2b371c394fc57ea4283b945d3b3e604d, type: 3}
   m_PlayOnAwake: 0
@@ -400,6 +402,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &245936444250711194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7552061719777853261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beffbef7a27e4304b80a978113944c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recordTime: 4
+  isRewinding: 0
 --- !u!1001 &7876622494556599120
 PrefabInstance:
   m_ObjectHideFlags: 0

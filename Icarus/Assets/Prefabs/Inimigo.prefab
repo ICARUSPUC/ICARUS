@@ -180,7 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beffbef7a27e4304b80a978113944c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isrewinding: 0
+  recordTime: 4
+  isRewinding: 0
 --- !u!82 &4990664524595175961
 AudioSource:
   m_ObjectHideFlags: 0
@@ -190,7 +191,7 @@ AudioSource:
   m_GameObject: {fileID: 4124394402925275042}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3532428511013653973, guid: 1028b4a8ecd729e448e9e47ddbafcfd2, type: 2}
   m_audioClip: {fileID: 8300000, guid: d697c7fad3096aa458f63149fab602b8, type: 3}
   m_Resource: {fileID: 8300000, guid: d697c7fad3096aa458f63149fab602b8, type: 3}
   m_PlayOnAwake: 0
@@ -319,15 +320,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8215a322df0fa1d4cbc1a79d03c0b049, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6244131
+      value: 0.64096004
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8215a322df0fa1d4cbc1a79d03c0b049, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6244131
+      value: 0.72966886
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8215a322df0fa1d4cbc1a79d03c0b049, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0462322
+      value: 0.6783702
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8215a322df0fa1d4cbc1a79d03c0b049, type: 3}
       propertyPath: m_LocalPosition.x

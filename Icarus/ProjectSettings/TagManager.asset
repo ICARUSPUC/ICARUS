@@ -13,6 +13,7 @@ TagManager:
   - InimigoLaser
   - Boss
   - InimigoEspada
+  - NaveDupla
   layers:
   - Default
   - TransparentFX

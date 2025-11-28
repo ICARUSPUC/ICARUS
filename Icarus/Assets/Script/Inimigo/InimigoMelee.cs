@@ -126,9 +126,11 @@ public class InimigoMelee : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Otimização: Usando null-conditional operator (?. ) para segurança
-            other.GetComponent<Player>()?.Derrota();
+            other.GetComponent<Player>()?.StartCoroutine("Derrota");
             atacou = true;
+           
             MorrerFora();
+           
         }
     }
     IEnumerator DanoVisual()
@@ -168,6 +170,7 @@ public class InimigoMelee : MonoBehaviour
         if (GameManager.Mestre != null)
         {
             GameManager.Mestre.AlterarPontos(75); // recompensa diferente do inimigo normal
+            GameManager.Mestre.AlterarChronosPontos(5);
         }
 
         // Otimização: Cancelando o Dash específico e outros Invokes

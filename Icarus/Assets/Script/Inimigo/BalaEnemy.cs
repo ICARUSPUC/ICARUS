@@ -44,7 +44,7 @@ public class BalaEnemy : MonoBehaviour
     void Update()
     {
         // Se a bala estiver rebobinando, o movimento será tratado pelo TimeBody, então saímos.
-        if (timeBody != null && timeBody.isrewinding)
+        if (timeBody != null && timeBody.isRewinding)
         {
             return;
         }
@@ -61,13 +61,14 @@ public class BalaEnemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Checagem de Rewind: Se estiver rebobinando, a bala não deve causar dano/destruição.
-        if (timeBody != null && timeBody.isrewinding)
+        if (timeBody != null && timeBody.isRewinding)
         {
             // Tratamento especial para o SpawnPoint ao rebobinar (lógica original)
             if (other.CompareTag("SpawnPoint"))
             {
                 Invoke(nameof(DestruirBala), 0.05f);
             }
+
             return;
         }
 
@@ -75,7 +76,7 @@ public class BalaEnemy : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Assumindo que o Player tem um método 'Derrota' que trata escudo/invencibilidade
-            other.GetComponent<Player>()?.Derrota();
+            other.GetComponent<Player>()?.StartCoroutine("Derrota"); ;
             DestruirBala();
             return; // Destruiu o jogador, saia
         }
@@ -96,6 +97,7 @@ public class BalaEnemy : MonoBehaviour
             other.GetComponent<InimigoLaser>()?.LevarDano(1);
             DestruirBala();
         }
+
     }
 
     // =========================================================================

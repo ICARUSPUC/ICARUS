@@ -27,8 +27,11 @@ public class InimigoSpawnSequence : MonoBehaviour
 
     [Header("Refer�ncia ao GameManager")]
     public GameManager gameManager;
+    public TimeManager Zawarudo;
+    public TimeBody Dio;
 
     private bool spawning = false; // impede sobreposicao de spawn
+    
 
     void Start()
     {
@@ -72,7 +75,13 @@ public class InimigoSpawnSequence : MonoBehaviour
 
             foreach (var spawn in wave.enemies)
             {
+                
+
                 yield return new WaitForSeconds(spawn.delay);
+
+                if (Zawarudo.isbullettime || Dio.isRewinding)
+
+                    yield return new WaitForSeconds(5f);
 
                 if (spawn.enemyPrefab != null)
                 {

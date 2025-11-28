@@ -19,6 +19,13 @@ public class Boss : MonoBehaviour
     [SerializeField] private Color damageColor = Color.red;
     [SerializeField] private float flashDuration = 0.1f;
 
+
+    [Header("Musica")]
+    [SerializeField] private AudioSource MusicaBoss;
+    [SerializeField] private AudioSource MusicaMain;
+    [SerializeField] private AudioSource EfeitoVhs;
+
+
     private Rigidbody rb;
     private Color[] originalColors;
 
@@ -45,6 +52,9 @@ public class Boss : MonoBehaviour
     }
     void Start()
     {
+        MusicaMain.Stop();
+        EfeitoVhs.Play();
+        MusicaBoss.Play();
         vidaAtual = vidaMax;
     }
 

@@ -45,10 +45,17 @@ public class InimigoLaser : MonoBehaviour
     [SerializeField] private Color alertColor = Color.yellow;
     private bool emAlerta = false;
 
+    [Header("Particulas")]
+
+    [SerializeField] GameObject ExplosaoTiro;
+
+    private TimeBody timeBody;
+
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        timeBody = GetComponent<TimeBody>();
 
         if (renderers != null && renderers.Length > 0)
         {
@@ -63,16 +70,22 @@ public class InimigoLaser : MonoBehaviour
                     originalColors[i] = renderers[i].material.color;
             }
         }
+        vidaAtual = vidaMax;
     }
-
     void Start()
     {
-        InvokeRepeating(nameof(AtirarLaser), 2f + tempoAlerta, intervaloTiro);
+        InvokeRepeating("AtirarLaser", tempoCrescimento, intervaloTiro);
         vidaAtual = vidaMax;
     }
 
     void FixedUpdate()
-    {
+    {    
+          
+       if (timeBody != null && timeBody.isRewinding)
+        {
+            RewindSolution();
+        }
+
         if (atirando || emAlerta) movendo = false;
 
         if (movendo)
@@ -95,6 +108,7 @@ public class InimigoLaser : MonoBehaviour
     {
         atirando = true;
 
+      
         
         // --- FASE 1: CARREGAMENTO (QUADRADO) ---
      
@@ -120,7 +134,7 @@ public class InimigoLaser : MonoBehaviour
         // Crescimento Uniforme (de 0 até tamanhoCarregamento)
         yield return StartCoroutine(CrescerLaserfase1(laser.transform, tempoCrescimento));
 
-
+         
 
         // --- FASE 2: ALERTA (DURANTE O ESTICAMENTO) ---
         warningaudioSource.Play();
@@ -129,16 +143,17 @@ public class InimigoLaser : MonoBehaviour
 
         yield return new WaitForSeconds(tempoAlerta); // Espera o tempo de alerta
 
-        
-        // --- FASE 3: ESTICAMENTO (DISPARO com DANO ATIVO) ---
-      
 
-        
+        // --- FASE 3: ESTICAMENTO (DISPARO com DANO ATIVO) ---
+
+       
+
         if (laserScript != null)
         {
             laser.GetComponent<Collider>().enabled = true;
         }
         shootaudioSource.Play();
+        Instantiate(ExplosaoTiro, spawnLaser.transform.position, Quaternion.LookRotation(-spawnLaser.transform.right));
         StartCoroutine(MudarCorAlerta(false));
         emAlerta = false; // Alerta desliga assim que começa a esticar
 
@@ -160,9 +175,11 @@ public class InimigoLaser : MonoBehaviour
         if (laser != null)
             Destroy(laser);
 
+        
+
         atirando = false;
         timerMove = 0f;
-       
+
     }
 
    
@@ -222,6 +239,40 @@ public class InimigoLaser : MonoBehaviour
     }
 
 
+    IEnumerator RewindSolution()
+    {
+        OnRewindStart();
+
+    
+
+        yield return new WaitUntil(() => timeBody.isRewinding == false);
+
+        OnRewindStop();
+
+    }
+
+    public void OnRewindStart()
+    {
+    
+        CancelInvoke("AtirarLaser");
+
+        StopCoroutine("LaserRoutine");
+        if (laserAtual != null)
+        {
+            Destroy(laserAtual);
+         
+        }
+    }
+
+    public void OnRewindStop()
+    {
+
+        InvokeRepeating("AtirarLaser", tempoCrescimento, intervaloTiro);
+
+
+        timerMove = 0f;
+        movendo = true;
+    }
     IEnumerator MudarCorAlerta(bool alertar)
     {
         Color corAlvo = alertar ? alertColor : originalColors[0];
@@ -284,6 +335,7 @@ public class InimigoLaser : MonoBehaviour
     {
         if (GameManager != null && GameManager.Mestre != null)
             GameManager.Mestre.AlterarPontos(100);
+            GameManager.Mestre.AlterarChronosPontos(10);
         if (laserAtual != null)
         {
             Destroy(laserAtual);

@@ -1,6 +1,9 @@
 using System.Collections;
+using System.Security.Cryptography;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +13,7 @@ public class Player : MonoBehaviour
     [Header("Audio")]
 
     [SerializeField] AudioSource SomTiro;
+    [SerializeField] AudioSource DilatacaoTemporal;
 
 
     [Header("Movimento Principal")]
@@ -18,6 +22,7 @@ public class Player : MonoBehaviour
     [SerializeField] float tiltspeed = 7f;
 
     [Header("Movimento Rápido")]
+    [SerializeField] float pontosPraFormarapida = 25f;
     [SerializeField] float speedRapida = 6f;
     [SerializeField] float TempoLimiteModoRapido = 3f; // Tempo máximo no Modo Rápido
 
@@ -35,6 +40,17 @@ public class Player : MonoBehaviour
     [Header("Particulas")]
     [SerializeField] GameObject explosao;
     [SerializeField] GameObject destrocos;
+    [SerializeField] GameObject Explosaotemporal;
+    [SerializeField] GameObject SombraPlayer;
+    [SerializeField] GameObject TrailNormal;
+    [SerializeField] GameObject TrailTempo;
+
+    [Header("Chronos")]
+
+    public bool Chronos = false;
+    public float GlobalRewindDuration = 4f;
+    public float chronospontos = 0f;
+
 
 
     // =========================================================================
@@ -46,7 +62,7 @@ public class Player : MonoBehaviour
     public bool Modo = true; // true = Modo Principal, false = Modo Rápido
     public float TrocaTimer = 0f;
     public bool invencivel = false;
-
+    
     // =========================================================================
     // ♻️ Variáveis de Estado Privadas
     // =========================================================================
@@ -109,7 +125,7 @@ public class Player : MonoBehaviour
         {
             if (!invencivel)
             {
-                Derrota();
+                StartCoroutine("Derrota");
             }
             return;
         }
@@ -145,6 +161,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+
             ModoRapidoMovimento();
         }
     }
@@ -182,7 +199,7 @@ public class Player : MonoBehaviour
 
     void Modoprincipal()
     {
-        if (timeBody != null && timeBody.isrewinding)
+        if (timeBody != null && timeBody.isRewinding)
             return;
 
         float MoveZ = 0f;
@@ -219,15 +236,19 @@ public class Player : MonoBehaviour
 
     void ModoRapidoMovimento()
     {
-
+        
         transform.rotation = Quaternion.Euler(0f, anguloRapido, 0f);
 
         // Movimento com base na variável 'direcao'
         moveInput = direcao ? new Vector3(0.8f, 0, 1f) : new Vector3(0.8f, 0, -1f);
         Vector3 Posicao = (rb.position + moveInput * speedRapida * Time.fixedDeltaTime); // Usando FixedDeltaTime
         Posicao.z = Mathf.Clamp(Posicao.z, -13.5f, 6f);
+
         rb.MovePosition(Posicao);
     }
+
+
+
 
     void ModoRapidoInput()
     {
@@ -248,7 +269,7 @@ public class Player : MonoBehaviour
 
     void Atirar()
     {
-        if (timeBody != null && timeBody.isrewinding == true)
+        if (timeBody != null && timeBody.isRewinding == true)
         {
             return;
         }
@@ -279,19 +300,48 @@ public class Player : MonoBehaviour
         invencivel = false;
     }
 
-    // MODIFICADO: Adiciona invencibilidade após quebra do escudo
-    public void Derrota()
+    
+    public IEnumerator Derrota()
     {
-        if (Modo == false) return;
+        if (Modo == false) yield break;
+        if (invencivel) yield break;
 
         if (temEscudo)
         {
             QuebrarEscudo();
             // Dá um breve período de invencibilidade após perder o escudo
             StartCoroutine(TornarInvencivel());
-            return;
+            yield break;
         }
 
+        if (Chronos)
+        {
+            invencivel = true;
+            Instantiate(Explosaotemporal, transform.position, transform.rotation);
+            Instantiate(SombraPlayer, transform.position, transform.rotation);
+            TrailNormal.SetActive(false);
+            TrailTempo.SetActive(true);
+            DilatacaoTemporal.Play();
+            TimeManager.StartCoroutine("Chronos");
+
+            yield return new WaitForSecondsRealtime(0.3f);
+            // 1. encontra todos os componentes TimeBody na cena
+            TimeBody[] allTimeBodies = FindObjectsOfType<TimeBody>();
+
+            foreach (TimeBody tb in allTimeBodies)
+            {
+                tb.StartRewind();
+            }
+
+            Invoke("StopGlobalRewind", GlobalRewindDuration);
+            yield return new WaitForSecondsRealtime(GlobalRewindDuration);
+            TrailNormal.SetActive(true);
+            TrailTempo.SetActive(false);
+            Destroy(SombraPlayer);
+            Chronos = false;
+            invencivel = false;
+            yield break;
+        }
 
 
         // Lógica de Morte
@@ -307,7 +357,17 @@ public class Player : MonoBehaviour
         }
         Invoke(nameof(VaiproMenu), 3f); // Usando nameof() para segurança
     }
+    public void StopGlobalRewind()
+    {
 
+        TimeBody[] allTimeBodies = FindObjectsOfType<TimeBody>();
+
+        
+        foreach (TimeBody tb in allTimeBodies)
+        {
+            tb.StopRewind();
+        }
+    }
     public void AtivarEscudo()
     {
         temEscudo = true;
@@ -327,11 +387,17 @@ public class Player : MonoBehaviour
     void InputTrocadeformas()
     {
         TrocaTimer += Time.deltaTime;
-        if (TrocaCD >= TrocaTimer)
+        if (GameManager.chronospontos <= pontosPraFormarapida)
             return;
+
+        if (timeBody != null && timeBody.isRewinding == true)
+        {
+            return;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Instantiate(SombraPlayer,transform.position, transform.rotation);
             TimeManager?.StartCoroutine(TimeManager.TempoNaFormaRapida()); //Inicia a dilatacao do tempo na forma secundaria
             TrocaTimer = 0;
             StartCoroutine(TornarInvencivel());

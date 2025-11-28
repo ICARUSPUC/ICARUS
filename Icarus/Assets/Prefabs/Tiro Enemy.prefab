@@ -137,7 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beffbef7a27e4304b80a978113944c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isrewinding: 0
+  recordTime: 4
+  isRewinding: 0
 --- !u!54 &3555846727393547906
 Rigidbody:
   m_ObjectHideFlags: 0

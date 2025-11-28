@@ -462,6 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SomTiro: {fileID: 7719888333364994547}
+  DilatacaoTemporal: {fileID: 0}
   speedPrincipal: 8
   MaxtiltAngle: 20
   tiltspeed: 6
@@ -477,6 +478,12 @@ MonoBehaviour:
   escudoVisual: {fileID: 3890737792895482525}
   explosao: {fileID: 653595100544672456, guid: 13798c4c24a6efa41a99da7053bbb17b, type: 3}
   destrocos: {fileID: 1570327137599715649, guid: 5f80bf0185ad16b4e9483eadaa8b8a51, type: 3}
+  Explosaotemporal: {fileID: 0}
+  SombraPlayer: {fileID: 0}
+  TrailNormal: {fileID: 0}
+  TrailTempo: {fileID: 0}
+  Chronos: 0
+  GlobalRewindDuration: 4
   temEscudo: 0
   Modo: 1
   TrocaTimer: 0
@@ -521,7 +528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beffbef7a27e4304b80a978113944c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isrewinding: 0
+  recordTime: 5
+  isRewinding: 0
 --- !u!114 &2119553564551002134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,7 +555,7 @@ AudioSource:
   m_GameObject: {fileID: 8779987202977333005}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3532428511013653973, guid: 1028b4a8ecd729e448e9e47ddbafcfd2, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8dfbca7a03427e0439a3a50b9d58ddeb, type: 3}
   m_Resource: {fileID: 8300000, guid: 8dfbca7a03427e0439a3a50b9d58ddeb, type: 3}
   m_PlayOnAwake: 0

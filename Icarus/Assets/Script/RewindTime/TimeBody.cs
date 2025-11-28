@@ -1,71 +1,86 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic; // Essencial para a lista
+using System.Collections.Generic;
 
 public class TimeBody : MonoBehaviour
 {
-    public bool isrewinding = false;
+    public static TimeBody Dio;
 
-    List<PointsInTime> pointsintime;
-    Rigidbody rb;
-    bool DestroyAfterpointsintime = false;
+    [Header("Configurações")]
+    public float recordTime = 5f; 
 
-    // Variável para armazenar o ponto de segurança (Checkpoint)
-    private PointsInTime checkpointPoint;
+    [Header("Debug / Estado")]
+    public bool isRewinding = false;
+
+   
+    private List<PointsInTime> pointsInTime;
+
+    private Rigidbody rb;
+    private PointsInTime checkpointPoint; 
+    private int maxListSize;
 
     void Start()
     {
-        pointsintime = new List<PointsInTime>();
+        pointsInTime = new List<PointsInTime>();
         rb = GetComponent<Rigidbody>();
-    }
 
-    void DestroyOnthisTimeLine()
-    {
-        if (DestroyAfterpointsintime)
-            return;
+       
+        maxListSize = Mathf.RoundToInt(recordTime / Time.fixedDeltaTime);
     }
 
     void Update()
     {
+      
         if (Input.GetKeyDown(KeyCode.B))
-        {
             StartRewind();
-        }
+
         if (Input.GetKeyUp(KeyCode.B))
-        {
             StopRewind();
-        }
+
+        // Controles de Checkpoint (Salvar e Teleportar)
+        if (Input.GetKeyDown(KeyCode.C))
+            SaveCheckpoint();
+
+        if (Input.GetKeyDown(KeyCode.T))
+            TeleportToCheckpoint();
     }
 
     private void FixedUpdate()
     {
-        if (DestroyAfterpointsintime)
-            return;
-
-        if (isrewinding)
+        if (isRewinding)
+        {
             Rewind();
+        }
         else
+        {
             Record();
+        }
     }
+
 
     void Record()
     {
-        if (pointsintime.Count > Mathf.Round(4f / Time.fixedDeltaTime))
+       
+        if (pointsInTime.Count > maxListSize)
         {
-            pointsintime.RemoveAt(pointsintime.Count - 1);
+            pointsInTime.RemoveAt(pointsInTime.Count - 1);
         }
 
-        pointsintime.Insert(0, new PointsInTime(transform.position, transform.rotation));
+       
+        pointsInTime.Insert(0, new PointsInTime(transform.position, transform.rotation));
     }
 
-    void Rewind()
+    public void Rewind()
     {
-        if (pointsintime.Count > 0 && rb != null)
+        if (pointsInTime.Count > 0)
         {
-            PointsInTime pointInTime = pointsintime[0];
-            rb.MovePosition(pointInTime.position);
-            rb.MoveRotation(pointInTime.rotation);
-            pointsintime.RemoveAt(0);
+            PointsInTime pointInTime = pointsInTime[0];
+
+           
+            transform.position = pointInTime.position;
+            transform.rotation = pointInTime.rotation;
+
+            pointsInTime.RemoveAt(0);
         }
         else
         {
@@ -75,48 +90,51 @@ public class TimeBody : MonoBehaviour
 
     public void StartRewind()
     {
-        isrewinding = true;
+        isRewinding = true;
         if (rb != null)
-        { rb.isKinematic = true; }
-
+        {
+            rb.isKinematic = true;
+        } 
+       
     }
 
     public void StopRewind()
     {
-        isrewinding = false;
+        isRewinding = false;
         if (rb != null)
-        { rb.isKinematic = false; }
+        {
+            rb.isKinematic = false;
+            rb.linearVelocity = Vector3.zero; // Reseta velocidade para não sair voando
+        }
     }
 
-    // MÉTODO NOVO 1: Salva o ponto atual como um checkpoint
+    
+
     public void SaveCheckpoint()
     {
-        if (rb != null) // Checagem de segurança
+        if (rb != null)
         {
-            checkpointPoint = new PointsInTime(rb.position, rb.rotation);
+            checkpointPoint = new PointsInTime(transform.position, transform.rotation);
+            Debug.Log("Checkpoint Salvo!");
         }
-
     }
 
-    // MÉTODO NOVO 2: Teleporta o objeto para o ponto salvo
     public void TeleportToCheckpoint()
     {
-        // Garante que temos um Rigidbody para mover e um ponto salvo
         if (checkpointPoint != null && rb != null)
         {
-            if (isrewinding)
-            {
-                StopRewind();
-            }
+            if (isRewinding) StopRewind();
 
-            // Teleporta o Rigidbody para a posição salva
-            rb.position = checkpointPoint.position;
-            rb.rotation = checkpointPoint.rotation;
+            
+            transform.position = checkpointPoint.position;
+            transform.rotation = checkpointPoint.rotation;
 
-            // Limpa a lista para que o rewind não volte para antes do teleporte
-            pointsintime.Clear();
+          
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            pointsInTime.Clear();
 
-            Debug.Log("Teleporte de emergência! Retorno ao ponto seguro ativado.");
+            Debug.Log("Teleportado para o Checkpoint!");
         }
     }
 }

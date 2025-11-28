@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5297892832757507714}
   - component: {fileID: 1496448601809004789}
   - component: {fileID: 4700728010307310827}
-  - component: {fileID: -7413042958018613322}
+  - component: {fileID: -5898410536919604723}
   m_Layer: 0
   m_Name: Tiro Player
   m_TagString: TiroAlly
@@ -125,7 +125,7 @@ MonoBehaviour:
   dano: 1
   speed: 19
   TimerDeath: 16
---- !u!114 &-7413042958018613322
+--- !u!114 &-5898410536919604723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,4 +137,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beffbef7a27e4304b80a978113944c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isrewinding: 0
+  recordTime: 4
+  isRewinding: 0

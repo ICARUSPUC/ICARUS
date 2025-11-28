@@ -106,7 +106,7 @@ public class Inimigo : MonoBehaviour
 
     void Atirar()
     {
-        if (GetComponent<TimeBody>().isrewinding == true)
+        if (GetComponent<TimeBody>().isRewinding == true)
         {
             return;
         }
@@ -125,6 +125,7 @@ public class Inimigo : MonoBehaviour
     {
 
         GameManager.Mestre.AlterarPontos(50);
+        GameManager.Mestre.AlterarChronosPontos(5);
         CancelInvoke();
         gameObject.SetActive(false);
         Invoke("Destruir", 6f);
