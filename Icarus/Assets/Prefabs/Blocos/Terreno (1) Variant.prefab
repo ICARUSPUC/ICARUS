@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4020892603009225547, guid: f6dbd567255432e46a4589338d2833ac, type: 3}
+      propertyPath: Spawn
+      value: 
+      objectReference: {fileID: 3734900676323810410, guid: 1ed4f57814369414d92add4796ea9fde, type: 3}
     - target: {fileID: 2869906720011657747, guid: f6dbd567255432e46a4589338d2833ac, type: 3}
       propertyPath: m_Name
       value: Terreno (1) Variant
