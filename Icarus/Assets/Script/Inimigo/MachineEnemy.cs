@@ -4,112 +4,86 @@ using System.Collections;
 
 public class MachineEnemy : MonoBehaviour
 {
-
-    [Header("disparo")]
-    public GameObject tiroPrefab; // local para alocar perfab do tiro inimigo
-    public Transform firePoint; //origem do tiro
-    public float fireRate = 0.2f; // tempo de disparo 
-    public float fireTimer; 
+    [Header("Disparo")]
+    public GameObject tiroPrefab;
+    public Transform firePoint;
+    public float fireRate = 0.2f;
+    private float fireTimer = 0;
 
     [Header("Animação")]
-    public Animator anim; // animação 
-    private bool girando = false; // ativa e desativa a animacao
-
+    public Animator anim;
+    private bool girando = false;
 
     [Header("Status")]
-    [SerializeField] private float vidaMax = 5f; // Vida máxima
+    [SerializeField] private float vidaMax = 5f;
     private float vidaAtual;
 
-
-    [SerializeField] private Renderer[] renderers; // arraste aqui os meshes do inimigo
+    [SerializeField] private Renderer[] renderers;
     [SerializeField] private Color damageColor = Color.red;
     [SerializeField] private float flashDuration = 0.1f;
 
-
-    bool movendo = true;
-    float InimigoFireTimer = 1;
-    public GameManager GameManager; //Fala quem é o GameManager Pra esse Script
-    private Vector3 moveEnemy; //Variavel pra mover o inimigo
-    private Rigidbody rbEnemy; //Variavel Pro rigidBody do Inimigo
-    [SerializeField] float MoveTimer = 0;
-    [SerializeField] float speedInimigo;
-    [SerializeField] float timerMove = 0f;
-    [SerializeField] float tempoMovimento = 0f;
-
     private Color[] originalColors;
 
+    private Rigidbody rbEnemy;
+    [SerializeField] private float speedInimigo = 5f;
 
 
-    // Update is called once per frame
+    void Start()
+    {
+        rbEnemy = GetComponent<Rigidbody>();
+        vidaAtual = vidaMax;
+
+        // Salva as cores originais dos materiais
+        originalColors = new Color[renderers.Length];
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            if (renderers[i].material.HasProperty("_Color"))
+                originalColors[i] = renderers[i].material.color;
+        }
+    }
+
     void Update()
     {
+        // Animação controla o tiro
         girando = anim.GetBool("Girando");
-        
 
         if (girando)
         {
             fireTimer += Time.deltaTime;
-            if (fireTimer > fireRate)
+            if (fireTimer >= fireRate)
             {
                 Disparar();
                 fireTimer = 0;
             }
-
-
         }
+    }
+
+    void FixedUpdate()
+    {
+        MovimentacaoInimigo();
     }
 
     void Disparar()
     {
         Instantiate(tiroPrefab, firePoint.position, firePoint.rotation);
-
     }
-
 
     public void LevarDano(float dano)
     {
         vidaAtual -= dano;
+
         StartCoroutine(DanoVisual());
-        Debug.Log($"{name} levou {dano} de dano. Vida atual: {vidaAtual}/{vidaMax}");
-        if (vidaAtual <= 0f) Morrer();
-    }
 
-
-    void Destruir() //Apaga o inimigo da cena
-    {
-        Destroy(gameObject);
-    }
-
-    public void Morrer() // Desativa e depois de um tempo deleta o inimigo
-    {
-
-        GameManager.Mestre.AlterarPontos(50);
-        CancelInvoke();
-        gameObject.SetActive(false);
-        Invoke("Destruir", 6f);
-    }
-
-    void Start()
-    {
-       
-        rbEnemy = GetComponent<Rigidbody>();
-        vidaAtual = vidaMax;
-
-    }
-
-    void MovimentacaoInimigo()
-    {
-        Vector3 movimento = Vector3.left * speedInimigo * Time.fixedDeltaTime;
-        Vector3 Limite = rbEnemy.position + movimento;
-        Limite.z = Mathf.Clamp(Limite.z, -13.5f, 6f);
-        Limite.x = Mathf.Clamp(Limite.x, -22f, 22f);
-        rbEnemy.MovePosition(Limite);
+        if (vidaAtual <= 0f)
+        {
+            Morrer();
+        }
     }
 
     IEnumerator DanoVisual()
     {
-        // muda a cor
-        foreach (var r in renderers)
+        // aplica a cor de dano
+        foreach (Renderer r in renderers)
         {
             if (r.material.HasProperty("_Color"))
                 r.material.color = damageColor;
@@ -124,5 +98,28 @@ public class MachineEnemy : MonoBehaviour
                 renderers[i].material.color = originalColors[i];
         }
     }
-}    
 
+    void MovimentacaoInimigo()
+    {
+        Vector3 movimento = Vector3.left * speedInimigo * Time.fixedDeltaTime;
+
+        Vector3 novaPos = rbEnemy.position + movimento;
+
+        // limites
+        novaPos.z = Mathf.Clamp(novaPos.z, -13.5f, 6f);
+        novaPos.x = Mathf.Clamp(novaPos.x, -22f, 22f);
+
+        rbEnemy.MovePosition(novaPos);
+    }
+
+    public void Morrer()
+    {
+        gameObject.SetActive(false);
+        Invoke(nameof(Destruir), 6f);
+    }
+
+    void Destruir()
+    {
+        Destroy(gameObject);
+    }
+}

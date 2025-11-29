@@ -54,6 +54,11 @@ public class Bala : MonoBehaviour
             other.GetComponent<InimigoDuplo>().LevarDano(1);
             Destroy(gameObject);
         }
+        else if (other.CompareTag("InimigoMachine"))
+        {
+            other.GetComponent<MachineEnemy>().LevarDano(1);
+            Destroy(gameObject);
+        }
 
     }
 
