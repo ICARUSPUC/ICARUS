@@ -27,19 +27,26 @@ public class MachineEnemy : MonoBehaviour
     private Rigidbody rbEnemy;
     [SerializeField] private float speedInimigo = 5f;
 
+    private void Awake()
+    {
+        if (renderers != null && renderers.Length > 0)
+        {
+            originalColors = new Color[renderers.Length];
+            for (int i = 0; i < renderers.Length; i++)
+            {
+                renderers[i].material = new Material(renderers[i].material);
 
+                if (renderers[i].material.HasProperty("_TintColor"))
+                    originalColors[i] = renderers[i].material.GetColor("_TintColor");
+                else if (renderers[i].material.HasProperty("_Color"))
+                    originalColors[i] = renderers[i].material.color;
+            }
+        }
+    }
     void Start()
     {
         rbEnemy = GetComponent<Rigidbody>();
         vidaAtual = vidaMax;
-
-        // Salva as cores originais dos materiais
-        originalColors = new Color[renderers.Length];
-        for (int i = 0; i < renderers.Length; i++)
-        {
-            if (renderers[i].material.HasProperty("_Color"))
-                originalColors[i] = renderers[i].material.color;
-        }
     }
 
     void Update()
@@ -82,19 +89,21 @@ public class MachineEnemy : MonoBehaviour
 
     IEnumerator DanoVisual()
     {
-        // aplica a cor de dano
-        foreach (Renderer r in renderers)
+        foreach (var r in renderers)
         {
-            if (r.material.HasProperty("_Color"))
+            if (r.material.HasProperty("_TintColor"))
+                r.material.SetColor("_TintColor", damageColor);
+            else if (r.material.HasProperty("_Color"))
                 r.material.color = damageColor;
         }
 
         yield return new WaitForSeconds(flashDuration);
 
-        // volta à cor original
         for (int i = 0; i < renderers.Length; i++)
         {
-            if (renderers[i].material.HasProperty("_Color"))
+            if (renderers[i].material.HasProperty("_TintColor"))
+                renderers[i].material.SetColor("_TintColor", originalColors[i]);
+            else if (renderers[i].material.HasProperty("_Color"))
                 renderers[i].material.color = originalColors[i];
         }
     }

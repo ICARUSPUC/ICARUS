@@ -24627,7 +24627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1378180480481076438, guid: 736836d3352814a4c8960b4b2581af54, type: 3}
       propertyPath: Chronos
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1378180480481076438, guid: 736836d3352814a4c8960b4b2581af54, type: 3}
       propertyPath: TrailTempo
@@ -24660,6 +24660,10 @@ PrefabInstance:
     - target: {fileID: 2105550377171464753, guid: 736836d3352814a4c8960b4b2581af54, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934597024173527385, guid: 736836d3352814a4c8960b4b2581af54, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7719888333364994547, guid: 736836d3352814a4c8960b4b2581af54, type: 3}
       propertyPath: m_Volume

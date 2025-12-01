@@ -64,8 +64,8 @@ public class InimigoLaser : MonoBehaviour
             {
                 renderers[i].material = new Material(renderers[i].material);
 
-                if (renderers[i].material.HasProperty("_BaseColor"))
-                    originalColors[i] = renderers[i].material.GetColor("_BaseColor");
+                if (renderers[i].material.HasProperty("_TintColor"))
+                    originalColors[i] = renderers[i].material.GetColor("_TintColor");
                 else if (renderers[i].material.HasProperty("_Color"))
                     originalColors[i] = renderers[i].material.color;
             }
@@ -278,8 +278,8 @@ public class InimigoLaser : MonoBehaviour
         Color corAlvo = alertar ? alertColor : originalColors[0];
         foreach (var r in renderers)
         {
-            if (r.material.HasProperty("_BaseColor"))
-                r.material.SetColor("_BaseColor", corAlvo);
+            if (r.material.HasProperty("_TintColor"))
+                r.material.SetColor("_TintColor", corAlvo);
             else if (r.material.HasProperty("_Color"))
                 r.material.color = corAlvo;
         }
@@ -312,8 +312,8 @@ public class InimigoLaser : MonoBehaviour
     {
         foreach (var r in renderers)
         {
-            if (r.material.HasProperty("_BaseColor"))
-                r.material.SetColor("_BaseColor", damageColor);
+            if (r.material.HasProperty("_TintColor"))
+                r.material.SetColor("_TintColor", damageColor);
             else if (r.material.HasProperty("_Color"))
                 r.material.color = damageColor;
         }
@@ -324,8 +324,8 @@ public class InimigoLaser : MonoBehaviour
         {
             Color corRestaurar = emAlerta ? alertColor : originalColors[i];
 
-            if (renderers[i].material.HasProperty("_BaseColor"))
-                renderers[i].material.SetColor("_BaseColor", corRestaurar);
+            if (renderers[i].material.HasProperty("_TintColor"))
+                renderers[i].material.SetColor("_TintColor", corRestaurar);
             else if (renderers[i].material.HasProperty("_Color"))
                 renderers[i].material.color = corRestaurar;
         }

@@ -50,8 +50,8 @@ public class InimigoMelee : MonoBehaviour
             {
                 renderers[i].material = new Material(renderers[i].material);
 
-                if (renderers[i].material.HasProperty("_BaseColor"))
-                    originalColors[i] = renderers[i].material.GetColor("_BaseColor");
+                if (renderers[i].material.HasProperty("_TintColor"))
+                    originalColors[i] = renderers[i].material.GetColor("_TintColor");
                 else if (renderers[i].material.HasProperty("_Color"))
                     originalColors[i] = renderers[i].material.color;
             }
@@ -137,8 +137,8 @@ public class InimigoMelee : MonoBehaviour
     {
         foreach (var r in renderers)
         {
-            if (r.material.HasProperty("_BaseColor"))
-                r.material.SetColor("_BaseColor", damageColor);
+            if (r.material.HasProperty("_TintColor"))
+                r.material.SetColor("_TintColor", damageColor);
             else if (r.material.HasProperty("_Color"))
                 r.material.color = damageColor;
         }
@@ -147,8 +147,8 @@ public class InimigoMelee : MonoBehaviour
 
         for (int i = 0; i < renderers.Length; i++)
         {
-            if (renderers[i].material.HasProperty("_BaseColor"))
-                renderers[i].material.SetColor("_BaseColor", originalColors[i]);
+            if (renderers[i].material.HasProperty("_TintColor"))
+                renderers[i].material.SetColor("_TintColor", originalColors[i]);
             else if (renderers[i].material.HasProperty("_Color"))
                 renderers[i].material.color = originalColors[i];
         }

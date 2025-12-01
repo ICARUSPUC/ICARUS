@@ -31,17 +31,26 @@ public class MachineEnemyFast : MonoBehaviour
     [SerializeField] private float speedInimigo = 5f;
 
 
+    private void Awake()
+    {
+        if (renderers != null && renderers.Length > 0)
+        {
+            originalColors = new Color[renderers.Length];
+            for (int i = 0; i < renderers.Length; i++)
+            {
+                renderers[i].material = new Material(renderers[i].material);
+
+                if (renderers[i].material.HasProperty("_TintColor"))
+                    originalColors[i] = renderers[i].material.GetColor("_TintColor");
+                else if (renderers[i].material.HasProperty("_Color"))
+                    originalColors[i] = renderers[i].material.color;
+            }
+        }
+    }
     void Start()
     {
         rbEnemy = GetComponent<Rigidbody>();
         vidaAtual = vidaMax;
-
-        originalColors = new Color[renderers.Length];
-        for (int i = 0; i < renderers.Length; i++)
-        {
-            if (renderers[i].material.HasProperty("_Color"))
-                originalColors[i] = renderers[i].material.color;
-        }
 
         if (firePoints == null || firePoints.Length == 0)
         {
@@ -91,9 +100,11 @@ public class MachineEnemyFast : MonoBehaviour
 
     IEnumerator DanoVisual()
     {
-        foreach (Renderer r in renderers)
+        foreach (var r in renderers)
         {
-            if (r.material.HasProperty("_Color"))
+            if (r.material.HasProperty("_TintColor"))
+                r.material.SetColor("_TintColor", damageColor);
+            else if (r.material.HasProperty("_Color"))
                 r.material.color = damageColor;
         }
 
@@ -101,7 +112,9 @@ public class MachineEnemyFast : MonoBehaviour
 
         for (int i = 0; i < renderers.Length; i++)
         {
-            if (renderers[i].material.HasProperty("_Color"))
+            if (renderers[i].material.HasProperty("_TintColor"))
+                renderers[i].material.SetColor("_TintColor", originalColors[i]);
+            else if (renderers[i].material.HasProperty("_Color"))
                 renderers[i].material.color = originalColors[i];
         }
     }

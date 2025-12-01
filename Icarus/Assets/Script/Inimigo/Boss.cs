@@ -9,7 +9,6 @@ public class Boss : MonoBehaviour
     // =========================================================================
     [Header("Atributos do Boss")]
     [SerializeField] float vidaMax = 70f;
-    float vidaAtual;
 
     [Header("Efeitos opcionais")]
     [SerializeField] GameObject efeitoMorte; // arraste um efeito se quiser
@@ -43,8 +42,8 @@ public class Boss : MonoBehaviour
             {
                 renderers[i].material = new Material(renderers[i].material);
 
-                if (renderers[i].material.HasProperty("_BaseColor"))
-                    originalColors[i] = renderers[i].material.GetColor("_BaseColor");
+                if (renderers[i].material.HasProperty("_TintColor"))
+                    originalColors[i] = renderers[i].material.GetColor("_TintColor");
                 else if (renderers[i].material.HasProperty("_Color"))
                     originalColors[i] = renderers[i].material.color;
             }
@@ -55,7 +54,6 @@ public class Boss : MonoBehaviour
         MusicaMain.Stop();
         EfeitoVhs.Play();
         MusicaBoss.Play();
-        vidaAtual = vidaMax;
     }
 
     // =========================================================================
@@ -64,10 +62,10 @@ public class Boss : MonoBehaviour
 
     public void TomarDano(float dano)
     {
-        vidaAtual -= dano;
+        vidaMax -= dano;
         StartCoroutine(DanoVisual());
 
-        if (vidaAtual <= 0)
+        if (vidaMax <= 0)
         {
             Morrer();
         }
@@ -77,8 +75,8 @@ public class Boss : MonoBehaviour
     {
         foreach (var r in renderers)
         {
-            if (r.material.HasProperty("_BaseColor"))
-                r.material.SetColor("_BaseColor", damageColor);
+            if (r.material.HasProperty("_TintColor"))
+                r.material.SetColor("_TintColor", damageColor);
             else if (r.material.HasProperty("_Color"))
                 r.material.color = damageColor;
         }
@@ -87,8 +85,8 @@ public class Boss : MonoBehaviour
 
         for (int i = 0; i < renderers.Length; i++)
         {
-            if (renderers[i].material.HasProperty("_BaseColor"))
-                renderers[i].material.SetColor("_BaseColor", originalColors[i]);
+            if (renderers[i].material.HasProperty("_TintColor"))
+                renderers[i].material.SetColor("_TintColor", originalColors[i]);
             else if (renderers[i].material.HasProperty("_Color"))
                 renderers[i].material.color = originalColors[i];
         }
