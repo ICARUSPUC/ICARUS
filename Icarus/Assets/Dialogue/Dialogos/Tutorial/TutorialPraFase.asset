@@ -18,7 +18,7 @@ MonoBehaviour:
   - speaker: {fileID: 11400000, guid: 5b28ff6321e645d43bfe531f51f1943f, type: 2}
     line: "Voc\xEA viu como eu destru\xED eles??"
   - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
-    line: O modulo de viagem no tempo, a senhorita deve descobrir no caminho...
+    line: Imagino que a senhorita vai descobrir o modulo de viagem no tempo no caminho...
   - speaker: {fileID: 11400000, guid: 9c2881e726b69174d89d6d9c8604dc64, type: 2}
     line: "M.I.R.A voc\xEA ta me ouvindo? eu disse que..."
   - speaker: {fileID: 11400000, guid: 24aa5b79cf7e375449eae35071df5245, type: 2}
