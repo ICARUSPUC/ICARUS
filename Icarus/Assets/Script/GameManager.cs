@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float tempo = 0.25f;
 
     public int Pontos = 0;
-    public float chronospontos = 0;
+    public float chronospontos = 25f;
 
     [SerializeField] GameObject inimigoPrefab;
     [SerializeField] GameObject SpawnPoint;

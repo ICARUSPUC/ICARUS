@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e630d3942adfcf146b3f9270dfe21a59, type: 3}
+  m_Name: Tutorial
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: "Observe senhorita pilot, como os inimigos estar\xE3o perfeitamente alinhados
+      para sua segunda forma"
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: Deve ser uma obra do destino
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: "Aperte Space, e depois Controle a dire\xE7\xE3o com o bot\xE3o esquerdo
+      e direito do mouse"
+  - speaker: {fileID: 11400000, guid: c3efc45c1a8e8574691a97dc93cda772, type: 2}
+    line: "Mouse??? Space?? Aonde que est\xE3o esses bot\xF5es na cabine??"
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: Senhorita foco!!, teste antes que eles lhe obliterem.

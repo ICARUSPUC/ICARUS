@@ -336,6 +336,7 @@ public class InimigoLaser : MonoBehaviour
         if (GameManager != null && GameManager.Mestre != null)
             GameManager.Mestre.AlterarPontos(100);
             GameManager.Mestre.AlterarChronosPontos(10);
+        InimigoSpawnSequence.AddWavePoints();
         if (laserAtual != null)
         {
             Destroy(laserAtual);

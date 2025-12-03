@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e630d3942adfcf146b3f9270dfe21a59, type: 3}
+  m_Name: TutorialPraFase
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: Por ora, isso deve bastar...
+  - speaker: {fileID: 11400000, guid: 5b28ff6321e645d43bfe531f51f1943f, type: 2}
+    line: "Voc\xEA viu como eu destru\xED eles??"
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: O modulo de viagem no tempo, a senhorita deve descobrir no caminho...
+  - speaker: {fileID: 11400000, guid: 9c2881e726b69174d89d6d9c8604dc64, type: 2}
+    line: "M.I.R.A voc\xEA ta me ouvindo? eu disse que..."
+  - speaker: {fileID: 11400000, guid: 24aa5b79cf7e375449eae35071df5245, type: 2}
+    line: "PERA VOC\xCA DISSE VIAGEM NO TEMPO???"

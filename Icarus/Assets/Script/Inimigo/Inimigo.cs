@@ -19,6 +19,10 @@ public class Inimigo : MonoBehaviour
     [SerializeField] private float vidaMax = 3f; // Vida máxima
     private float vidaAtual;
 
+    [Header("Particulas")]
+
+    [SerializeField] GameObject Explosao;
+
     bool movendo = true;
     float InimigoFireTimer = 1;
     public GameManager GameManager; //Fala quem é o GameManager Pra esse Script
@@ -31,7 +35,7 @@ public class Inimigo : MonoBehaviour
 
     private Color[] originalColors;
 
-
+    public DialogueSequence dialogo;
     void Awake()
     {
 
@@ -130,8 +134,17 @@ public class Inimigo : MonoBehaviour
     public void Morrer() // Desativa e depois de um tempo deleta o inimigo
     {
 
+        Instantiate(Explosao, transform.position, transform.rotation);
+
+        if (dialogo)
+        {
+            DialogueManager.Instance.StartDialogue(dialogo);
+        }
+        
+      
         GameManager.Mestre.AlterarPontos(50);
         GameManager.Mestre.AlterarChronosPontos(5);
+        InimigoSpawnSequence.AddWavePoints();
         CancelInvoke();
         gameObject.SetActive(false);
         Invoke("Destruir", 6f);

@@ -10,7 +10,7 @@ public class MachineEnemy : MonoBehaviour
     public float fireRate = 0.2f;
     private float fireTimer = 0;
 
-    [Header("Animação")]
+    [Header("Animaï¿½ï¿½o")]
     public Animator anim;
     private bool girando = false;
 
@@ -51,7 +51,7 @@ public class MachineEnemy : MonoBehaviour
 
     void Update()
     {
-        // Animação controla o tiro
+        // Animaï¿½ï¿½o controla o tiro
         girando = anim.GetBool("Girando");
 
         if (girando)
@@ -123,6 +123,7 @@ public class MachineEnemy : MonoBehaviour
 
     public void Morrer()
     {
+        InimigoSpawnSequence.AddWavePoints();
         gameObject.SetActive(false);
         Invoke(nameof(Destruir), 6f);
     }

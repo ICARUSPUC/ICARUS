@@ -8,12 +8,12 @@ public class MachineEnemyFast : MonoBehaviour
     [Header("Disparo")]
     public GameObject tiroPrefab;
     public Transform[] firePoints;
-    public float fireRate = 0.15f; // <--- AUMENTADO A CADÊNCIA: Tempo entre tiros menor (0.15s)
+    public float fireRate = 0.15f; // <--- AUMENTADO A CADï¿½NCIA: Tempo entre tiros menor (0.15s)
     private float fireTimer = 0f;
     private int currentFirePointIndex = 0;
     private const string bulletTag = "EnemyFast"; 
 
-    [Header("Animação")]
+    [Header("Animaï¿½ï¿½o")]
     public Animator anim;
     private bool girando = false;
 
@@ -61,7 +61,7 @@ public class MachineEnemyFast : MonoBehaviour
 
     void Update()
     {
-        // O tiro é acionado continuamente (sem depender da animação)
+        // O tiro ï¿½ acionado continuamente (sem depender da animaï¿½ï¿½o)
         fireTimer += Time.deltaTime;
         if (fireTimer >= fireRate)
         {
@@ -79,7 +79,7 @@ public class MachineEnemyFast : MonoBehaviour
     {
         Transform currentFirePoint = firePoints[currentFirePointIndex];
 
-        // O tiro ainda usa o mesmo prefab, mas a velocidade é controlada pelo script da bala (abaixo).
+        // O tiro ainda usa o mesmo prefab, mas a velocidade ï¿½ controlada pelo script da bala (abaixo).
         GameObject novoTiro = Instantiate(tiroPrefab, currentFirePoint.position, currentFirePoint.rotation);
 
         novoTiro.tag = bulletTag;
@@ -132,6 +132,7 @@ public class MachineEnemyFast : MonoBehaviour
 
     public void Morrer()
     {
+        InimigoSpawnSequence.AddWavePoints();
         gameObject.SetActive(false);
         Invoke(nameof(Destruir), 6f);
     }

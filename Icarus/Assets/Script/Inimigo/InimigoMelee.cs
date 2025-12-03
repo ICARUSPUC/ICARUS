@@ -172,7 +172,7 @@ public class InimigoMelee : MonoBehaviour
             GameManager.Mestre.AlterarPontos(75); // recompensa diferente do inimigo normal
             GameManager.Mestre.AlterarChronosPontos(5);
         }
-
+        InimigoSpawnSequence.AddWavePoints();
         // Otimização: Cancelando o Dash específico e outros Invokes
         CancelInvoke(nameof(Dash));
         CancelInvoke();
@@ -187,7 +187,7 @@ public class InimigoMelee : MonoBehaviour
         // Otimização: Cancelando o Dash específico e outros Invokes
         CancelInvoke(nameof(Dash));
         CancelInvoke();
-
+        InimigoSpawnSequence.AddWavePoints();
         gameObject.SetActive(false);
         // Otimização: Usando nameof()
         Invoke(nameof(Destruir), tempoMorte);

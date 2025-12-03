@@ -21,10 +21,10 @@ public class Boss : MonoBehaviour
 
     [Header("Musica")]
     [SerializeField] private AudioSource MusicaBoss;
-    [SerializeField] private AudioSource MusicaMain;
+    [SerializeField] private GameObject MusicaMain;
     [SerializeField] private AudioSource EfeitoVhs;
 
-
+    public bool BossinScene = false;
     private Rigidbody rb;
     private Color[] originalColors;
 
@@ -48,10 +48,12 @@ public class Boss : MonoBehaviour
                     originalColors[i] = renderers[i].material.color;
             }
         }
+
+        BossinScene = true;
     }
     void Start()
     {
-        MusicaMain.Stop();
+        
         EfeitoVhs.Play();
         MusicaBoss.Play();
     }
@@ -94,10 +96,8 @@ public class Boss : MonoBehaviour
 
     void Morrer()
     {
-        // 1. Lógica de Vitória
-        // Usando o operador ?. (null-conditional) para garantir que não haverá erro
-        // se o GameManager.Mestre não estiver inicializado.
-        GameManager.Mestre?.SceneManger.Ganhar();
+        InimigoSpawnSequence.AddWavePoints();
+        
 
         // 2. Efeito Visual
         if (efeitoMorte != null)
@@ -108,5 +108,7 @@ public class Boss : MonoBehaviour
         // 3. Destruição do Objeto
         // Garante que o objeto pai (raiz) do boss seja destruído.
         Destroy(transform.root.gameObject);
+
+        GameManager.Mestre?.SceneManger.Ganhar();
     }
 }

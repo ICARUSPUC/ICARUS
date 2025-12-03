@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3780381801635445423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4327026932989029569}
+  - component: {fileID: 7657302371999137162}
+  m_Layer: 0
+  m_Name: EnemySpawnController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4327026932989029569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3780381801635445423}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.2, y: 11.3237505, z: 2.9984188}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7657302371999137162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3780381801635445423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3a59f90b000ee46880753998df348b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnList: []
+  waves:
+  - waveName: Boss
+    enemies:
+    - enemyPrefab: {fileID: 721043012140272846, guid: 92d1bfe9cd629194e9be5b59f1d0eac3, type: 3}
+      position: {x: 0, y: 0, z: -4}
+      delay: 0
+    delayAfterWave: 15
+  - waveName: First Wave
+    enemies:
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+      position: {x: 12, y: 3.5, z: 0}
+      delay: 0
+    - enemyPrefab: {fileID: 2416775903353144361, guid: b6d321c7ceaba5e4a9947a75956e50c9, type: 3}
+      position: {x: 12, y: 3.5, z: -3}
+      delay: 1
+    - enemyPrefab: {fileID: 2416775903353144361, guid: b6d321c7ceaba5e4a9947a75956e50c9, type: 3}
+      position: {x: 12, y: 3.5, z: -5}
+      delay: 1.5
+    delayAfterWave: 3
+  - waveName: Second Wave
+    enemies:
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: -9}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: -3}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: 3}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: -6}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: -3}
+      delay: 1
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: 1}
+      delay: 1
+    delayAfterWave: 5
+  - waveName: Third Wave
+    enemies:
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 6, z: -9}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 6, z: -3}
+      delay: 1
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 6, z: 3}
+      delay: 0
+    delayAfterWave: 7
+  - waveName: Fourth Wave
+    enemies:
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+      position: {x: 13, y: 6, z: -9}
+      delay: 0
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+      position: {x: 13, y: 6, z: -3}
+      delay: 0
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+      position: {x: 13, y: 6, z: 3}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: -6}
+      delay: 1
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: 0}
+      delay: 1
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: 6}
+      delay: 1
+    delayAfterWave: 10
+  - waveName: Fifth Wave
+    enemies:
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+      position: {x: 13, y: 6, z: -12}
+      delay: 0
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+      position: {x: 13, y: 6, z: -8}
+      delay: 0
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+      position: {x: 13, y: 6, z: 1}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: -4}
+      delay: 1
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: -9}
+      delay: 1
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: -2}
+      delay: 1
+    delayAfterWave: 12
+  gameManager: {fileID: 0}
+  Zawarudo: {fileID: 0}
+  Dio: {fileID: 0}

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e630d3942adfcf146b3f9270dfe21a59, type: 3}
+  m_Name: Inicio
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: {fileID: 11400000, guid: 9c2881e726b69174d89d6d9c8604dc64, type: 2}
+    line: aaaaaa, por acaso essa lata velha ja ta funcionando???
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: "Senhorita Pilot, O projeto Chronos \xE9 a nossa tecnologia mais avan\xE7ada
+      e de maior..."
+  - speaker: {fileID: 11400000, guid: 9c2881e726b69174d89d6d9c8604dc64, type: 2}
+    line: "\xC9 uma JUKEBOX!! ELES ME MANDARAM PRA MISS\xC3O, COM UMA JUKEBOX!!!"
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: Como sua assistente, acho q me cabe lhe aconselhar com um ditado popular
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: '"As vezes, Quando tudo parece errado, o problema, se encontra entre o
+      volante e a cadeira"'
+  - speaker: {fileID: 11400000, guid: 24aa5b79cf7e375449eae35071df5245, type: 2}
+    line: O- Oque....
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: Seguindo em frente, devo lhe explicar os controles da Nave
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: Consegue perceber Essa grande Barra em cima de seu visor?
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: Este visor representa a quantidade de combustivel Chronos que a senhorita
+      possui
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: ",Todos os modulos da nave s\xE3o abastecidos pelo mesmo"
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: Comecemos pelo Basico, Se habitue com os controles da nave, e assim que
+      estiver pronta...
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: mate esse inimigo que esta Coincidentemente exposto,sozinho e vulneravel

@@ -163,6 +163,7 @@ public class InimigoDuplo : MonoBehaviour
 
         GameManager.Mestre.AlterarPontos(100);
         CancelInvoke();
+        InimigoSpawnSequence.AddWavePoints();
         gameObject.SetActive(false);
         Invoke("Destruir", 6f);
     }

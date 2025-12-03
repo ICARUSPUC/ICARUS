@@ -5,7 +5,7 @@ public class MusicaFundo : MonoBehaviour
     public AudioSource musicaFundo;
     public TimeManager TimeManager;
     public Player player;
-
+    public Boss boss;
     public float pitchChangeSpeed = 3f;
 
 
@@ -13,6 +13,10 @@ public class MusicaFundo : MonoBehaviour
 
     void Update()
     { 
+        if (boss.BossinScene == true)
+        {
+            Destroy(this.gameObject);
+        }
         if (TimeManager = null)
         {
             return;
@@ -41,6 +45,9 @@ public class MusicaFundo : MonoBehaviour
         {
             musicaFundo.pitch = targetPitch;
         }
+
+       
     }
+
 }
    

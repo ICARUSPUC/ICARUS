@@ -29,6 +29,14 @@ public class InimigoSpawnSequence : MonoBehaviour
     public GameManager gameManager;
     public TimeManager Zawarudo;
     public TimeBody Dio;
+    public static float WavePoints = 0f;
+
+    [Header("Dialogo após completar a wave")]
+    public DialogueSequence Dialogue;
+
+
+    private int enemiesToSpawnCount = 0;
+    private int currentWaveEnemyCount = 0;
 
     private bool spawning = false; // impede sobreposicao de spawn
     
@@ -37,6 +45,7 @@ public class InimigoSpawnSequence : MonoBehaviour
     {
         if (gameManager == null)
             gameManager = GameManager.Mestre;
+        WavePoints = 0;
 
         // Decide qual tipo de sequencia usar
         if (waves != null && waves.Length > 0)
@@ -71,30 +80,49 @@ public class InimigoSpawnSequence : MonoBehaviour
 
         foreach (var wave in waves)
         {
+            currentWaveEnemyCount = wave.enemies.Length;
+            WavePoints = 0;
+            enemiesToSpawnCount = 0;
+
+            StartCoroutine(SpawnEnemiesInWave(wave));
             Debug.Log($"Iniciando wave: {wave.waveName}");
 
-            foreach (var spawn in wave.enemies)
-            {
-                
+            yield return new WaitUntil(() => WavePoints >= currentWaveEnemyCount);
 
-                yield return new WaitForSeconds(spawn.delay);
+           
 
-                if (Zawarudo.isbullettime || Dio.isRewinding)
-
-                    yield return new WaitForSeconds(5f);
-
-                if (spawn.enemyPrefab != null)
-                {
-                    Instantiate(spawn.enemyPrefab, spawn.position, Quaternion.identity);
-                }
-            }
-
-            Debug.Log($"Wave '{wave.waveName}' conclu�da. Aguardando pr�xima...");
             yield return new WaitForSeconds(wave.delayAfterWave);
         }
 
+
         spawning = false;
+
+        if (Dialogue != null)
+        {
+            DialogueManager.Instance.StartDialogue(Dialogue);
+        }
+
         Debug.Log("Todas as waves foram conclu�das!");
+    }
+    IEnumerator SpawnEnemiesInWave(WaveData wave)
+    {
+        foreach (var spawn in wave.enemies)
+        {
+            yield return new WaitForSeconds(spawn.delay);
+
+            if (spawn.enemyPrefab != null)
+            {
+                Instantiate(spawn.enemyPrefab, spawn.position, Quaternion.identity);
+                enemiesToSpawnCount++; 
+            }
+        }
+    }
+
+    // Chamar em todos os inimigos derrotados
+    public static void AddWavePoints()
+    {
+        WavePoints++;
+        Debug.Log($"Inimigo derrotado. Pontos da Wave: {WavePoints}");
     }
 
     public void IniciarSequencia()

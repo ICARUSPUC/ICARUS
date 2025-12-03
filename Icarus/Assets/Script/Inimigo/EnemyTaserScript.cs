@@ -7,9 +7,9 @@ public class MachineEnemyTaser : MonoBehaviour
 {
     [Header("Disparo")]
     public GameObject tiroPrefab;
-    // Alterado para um array de Transform para os múltiplos pontos de disparo
+    // Alterado para um array de Transform para os mï¿½ltiplos pontos de disparo
     public Transform[] firePoints;
-    public float fireRate = 0.5f; // Cadência de tiro diminuída (tempo entre tiros aumentado)
+    public float fireRate = 0.5f; // Cadï¿½ncia de tiro diminuï¿½da (tempo entre tiros aumentado)
     private float fireTimer = 0f;
     private int currentFirePointIndex = 0; // Para alternar entre os pontos de disparo
     private const string bulletTag = "EnemyTaser"; // Tag para o tiro
@@ -54,8 +54,8 @@ public class MachineEnemyTaser : MonoBehaviour
 
     void Update()
     {
-        // *** LÓGICA DE DISPARO REVISADA ***
-        // O tiro é agora ACIONADO CONTINUAMENTE, independentemente da animação.
+        // *** Lï¿½GICA DE DISPARO REVISADA ***
+        // O tiro ï¿½ agora ACIONADO CONTINUAMENTE, independentemente da animaï¿½ï¿½o.
         fireTimer += Time.deltaTime;
         if (fireTimer >= fireRate)
         {
@@ -63,7 +63,7 @@ public class MachineEnemyTaser : MonoBehaviour
             fireTimer = 0f;
         }
 
-        // As linhas abaixo foram removidas/ignoradas para garantir o tiro contínuo:
+        // As linhas abaixo foram removidas/ignoradas para garantir o tiro contï¿½nuo:
         // girando = anim.GetBool("Girando");
         // if (girando) { ... }
     }
@@ -78,13 +78,13 @@ public class MachineEnemyTaser : MonoBehaviour
         // Pega o ponto de disparo atual
         Transform currentFirePoint = firePoints[currentFirePointIndex];
 
-        // Cria a instância do tiro
+        // Cria a instï¿½ncia do tiro
         GameObject novoTiro = Instantiate(tiroPrefab, currentFirePoint.position, currentFirePoint.rotation);
 
         // Define a tag do tiro
         novoTiro.tag = bulletTag;
 
-        // Avança para o próximo ponto de disparo no array (circularmente)
+        // Avanï¿½a para o prï¿½ximo ponto de disparo no array (circularmente)
         currentFirePointIndex = (currentFirePointIndex + 1) % firePoints.Length;
     }
 
@@ -136,6 +136,7 @@ public class MachineEnemyTaser : MonoBehaviour
 
     public void Morrer()
     {
+        InimigoSpawnSequence.AddWavePoints();
         gameObject.SetActive(false);
         Invoke(nameof(Destruir), 6f);
     }

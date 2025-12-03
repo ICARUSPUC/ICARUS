@@ -20,11 +20,13 @@ public class Player : MonoBehaviour
     [SerializeField] float speedPrincipal = 5f;
     [SerializeField] float MaxtiltAngle = 15f;
     [SerializeField] float tiltspeed = 7f;
+    public static float CurrentHorizontalInput;
 
     [Header("Movimento Rápido")]
     [SerializeField] float pontosPraFormarapida = 25f;
     [SerializeField] float speedRapida = 6f;
     [SerializeField] float TempoLimiteModoRapido = 3f; // Tempo máximo no Modo Rápido
+    [SerializeField] float transicaoDeltaTime = 0.5f;
 
     [Header("Tiro")]
     [SerializeField] Bala[] Tiro = new Bala[1]; // Assumindo que Bala é um MonoBehaviour
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject explosao;
     [SerializeField] GameObject destrocos;
     [SerializeField] GameObject Explosaotemporal;
+    [SerializeField] GameObject ExplosaoSecondForm;
     [SerializeField] GameObject SombraPlayer;
     [SerializeField] GameObject TrailNormal;
     [SerializeField] GameObject TrailTempo;
@@ -50,6 +53,7 @@ public class Player : MonoBehaviour
     public bool Chronos = false;
     public float GlobalRewindDuration = 4f;
     public float chronospontos = 0f;
+    float tempoNoModoRapido = 0f;
 
 
 
@@ -211,17 +215,18 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.W)) MoveY = 1f;
 
         moveInput = new Vector3(0f, MoveY, MoveZ);
+        CurrentHorizontalInput = MoveZ;
 
         // Movimento
         Vector3 Limite = (rb.position + moveInput * speedPrincipal * Time.fixedDeltaTime); // Usando FixedDeltaTime para movimento
         Limite.z = Mathf.Clamp(Limite.z, -11f, 4f);
-        Limite.y = Mathf.Clamp(Limite.y, 3f, 10f);
+        Limite.y = Mathf.Clamp(Limite.y, 0.9f, 9f);
         rb.MovePosition(Limite);
 
         ApplyTilt(MoveZ);
     }
 
-    private void ApplyTilt(float horizontalInput) // da uma tombadinha quando movimenta o player
+    public float ApplyTilt(float horizontalInput) // da uma tombadinha quando movimenta o player
     {
         float targetTiltX = horizontalInput * MaxtiltAngle;
 
@@ -231,17 +236,34 @@ public class Player : MonoBehaviour
             tiltspeed * Time.fixedDeltaTime
         );
 
-        transform.rotation = Quaternion.Euler(smoothedTiltX, 0f, 0f);
+        return smoothedTiltX;
     }
 
     void ModoRapidoMovimento()
     {
-        
+       
+        tempoNoModoRapido += Time.unscaledDeltaTime;
+
+        float movimentoDeltaTime;
+
+     
+        if (tempoNoModoRapido < transicaoDeltaTime)
+        {
+            movimentoDeltaTime = Time.deltaTime;
+        }
+       
+        else
+        {
+            movimentoDeltaTime = Time.unscaledDeltaTime;
+        }
+
+
         transform.rotation = Quaternion.Euler(0f, anguloRapido, 0f);
 
-        // Movimento com base na variável 'direcao'
         moveInput = direcao ? new Vector3(0.8f, 0, 1f) : new Vector3(0.8f, 0, -1f);
-        Vector3 Posicao = (rb.position + moveInput * speedRapida * Time.fixedDeltaTime); // Usando FixedDeltaTime
+
+        Vector3 Posicao = (rb.position + moveInput * speedRapida * movimentoDeltaTime);
+
         Posicao.z = Mathf.Clamp(Posicao.z, -13.5f, 6f);
 
         rb.MovePosition(Posicao);
@@ -397,27 +419,51 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(SombraPlayer,transform.position, transform.rotation);
-            TimeManager?.StartCoroutine(TimeManager.TempoNaFormaRapida()); //Inicia a dilatacao do tempo na forma secundaria
-            TrocaTimer = 0;
-            StartCoroutine(TornarInvencivel());
-            Modo = !Modo;
-
-            if (Modo == false) // Entrou no Modo Rápido
-            {
-                if (timeBody != null)
-                {
-                    timeBody.SaveCheckpoint();
-                    StartCoroutine(nameof(ContagemRegressivaTeleporte)); // Usando nameof() para segurança
-                }
-            }
-            else // Voltou ao Modo Principal
-            {
-                StopCoroutine(nameof(ContagemRegressivaTeleporte));
-            }
+            
+            StartCoroutine(TransitarParaModoRapido());
         }
     }
 
+    IEnumerator TransitarParaModoRapido()
+    {
+        if (Modo == false) 
+        {
+            
+            Modo = true;
+            StopCoroutine("ContagemRegressivaTeleporte");
+            if (TimeManager != null) TimeManager.StopCoroutine("TempoNaFormaRapida");
+            yield break;
+        }
+
+        // ------------------ ENTRANDO NO MODO RÁPIDO ------------------
+
+     
+        Instantiate(ExplosaoSecondForm, transform.position, transform.rotation);
+        TrocaTimer = 0;
+        StartCoroutine(TornarInvencivel());
+        tempoNoModoRapido = 0f;
+
+        if (TimeManager != null)
+        {
+           
+            TimeManager.StartCoroutine("TempoNaFormaRapida");
+        }
+
+
+        yield return new WaitForSecondsRealtime(0.01f); // Espera 1 frame IMPORTANTISSIMO, É OQUE RESOLVE O PROBLEMA DO TELEPORTE NÃO MEXA NESSA MERDA!!!!!!!!!!!
+
+        Instantiate(SombraPlayer, transform.position, transform.rotation);
+        Modo = false; 
+
+
+        if (timeBody != null)
+        {
+            timeBody.SaveCheckpoint();
+            
+            StartCoroutine(nameof(ContagemRegressivaTeleporte));
+        }
+
+    }
     // COROUTINE: Conta o tempo e executa o teleporte de emergência
     IEnumerator ContagemRegressivaTeleporte()
     {
@@ -433,6 +479,14 @@ public class Player : MonoBehaviour
 
             Modo = true; // Volta forçadamente para o Modo Principal
             StartCoroutine(TornarInvencivel()); // Dá invencibilidade
+
+            while (Time.timeScale < 1f)
+
+            {
+                TimeManager?.VoltaroTempoaoNormal();
+                yield return null;
+            }
+            GameManager.chronospontos = (GameManager.chronospontos - pontosPraFormarapida);
         }
     }
 
