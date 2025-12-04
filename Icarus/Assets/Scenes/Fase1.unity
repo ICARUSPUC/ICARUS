@@ -10753,7 +10753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &886333960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25401,63 +25401,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a962b801db69cd140824a6a90ef8960c, type: 3}
---- !u!1001 &7110651036152146367
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2213231795225852335, guid: 765b59ca5fd0c6f4990be07b414ed96a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2213231795225852335, guid: 765b59ca5fd0c6f4990be07b414ed96a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2213231795225852335, guid: 765b59ca5fd0c6f4990be07b414ed96a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2213231795225852335, guid: 765b59ca5fd0c6f4990be07b414ed96a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2213231795225852335, guid: 765b59ca5fd0c6f4990be07b414ed96a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2213231795225852335, guid: 765b59ca5fd0c6f4990be07b414ed96a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2213231795225852335, guid: 765b59ca5fd0c6f4990be07b414ed96a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2213231795225852335, guid: 765b59ca5fd0c6f4990be07b414ed96a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2213231795225852335, guid: 765b59ca5fd0c6f4990be07b414ed96a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2213231795225852335, guid: 765b59ca5fd0c6f4990be07b414ed96a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6232825176163159551, guid: 765b59ca5fd0c6f4990be07b414ed96a, type: 3}
-      propertyPath: m_Name
-      value: SecondFormShockwave
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 765b59ca5fd0c6f4990be07b414ed96a, type: 3}
 --- !u!1001 &7645731134568769255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25667,4 +25610,3 @@ SceneRoots:
   - {fileID: 2800565}
   - {fileID: 7645731134568769255}
   - {fileID: 1480262079}
-  - {fileID: 7110651036152146367}

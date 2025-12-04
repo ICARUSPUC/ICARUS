@@ -1,2 +1,16 @@
 fileFormatVersion: 2
-guid: d7c4d6464637c134fb60956ee1330818
+guid: 28522885b63251347ab948cf52026a79
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Tirosom: {instanceID: 0}
+  - DeathSound: {instanceID: 0}
+  - EnemyShot: {fileID: 7025566002365091599, guid: afcc05954f44af44fa3c2cd631e68544, type: 3}
+  - SpawnEnemy: {instanceID: 0}
+  - GameManager: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
