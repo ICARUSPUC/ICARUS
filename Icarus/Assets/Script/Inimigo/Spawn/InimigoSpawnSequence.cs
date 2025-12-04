@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.IO;
 
 public class InimigoSpawnSequence : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class InimigoSpawnSequence : MonoBehaviour
     private int currentWaveEnemyCount = 0;
 
     private bool spawning = false; // impede sobreposicao de spawn
+
+    [SerializeField] InimigoSpawnSequenceTutorial tutorialSpawn;
     
 
     void Start()
@@ -84,14 +87,19 @@ public class InimigoSpawnSequence : MonoBehaviour
             WavePoints = 0;
             enemiesToSpawnCount = 0;
 
-            StartCoroutine(SpawnEnemiesInWave(wave));
-            Debug.Log($"Iniciando wave: {wave.waveName}");
+            yield return new WaitForSeconds(0.01f);
 
-            yield return new WaitUntil(() => WavePoints >= currentWaveEnemyCount);
+            yield return new WaitUntil(() => tutorialSpawn.Tutorialspawning == false);
+            
+                StartCoroutine(SpawnEnemiesInWave(wave));
+                Debug.Log($"Iniciando wave: {wave.waveName}");
 
-           
+                yield return new WaitUntil(() => WavePoints >= currentWaveEnemyCount);
 
-            yield return new WaitForSeconds(wave.delayAfterWave);
+
+
+                yield return new WaitForSeconds(wave.delayAfterWave);
+            
         }
 
 

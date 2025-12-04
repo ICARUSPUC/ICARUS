@@ -54,6 +54,10 @@ public class Player : MonoBehaviour
     public float GlobalRewindDuration = 4f;
     public float chronospontos = 0f;
     float tempoNoModoRapido = 0f;
+    public bool isRewinding;
+
+    //GUGU TEMPORÁRIO
+
 
 
 
@@ -354,6 +358,7 @@ public class Player : MonoBehaviour
             {
                 tb.StartRewind();
             }
+            isRewinding = true;
 
             Invoke("StopGlobalRewind", GlobalRewindDuration);
             yield return new WaitForSecondsRealtime(GlobalRewindDuration);
@@ -362,6 +367,7 @@ public class Player : MonoBehaviour
             Destroy(SombraPlayer);
             Chronos = false;
             invencivel = false;
+            isRewinding = false;
             yield break;
         }
 
@@ -412,6 +418,9 @@ public class Player : MonoBehaviour
         if (GameManager.chronospontos <= pontosPraFormarapida)
             return;
 
+        if (TrocaTimer  <  TrocaCD)
+            return;
+
         if (timeBody != null && timeBody.isRewinding == true)
         {
             return;
@@ -419,24 +428,13 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            
+            TrocaTimer = 0f;
             StartCoroutine(TransitarParaModoRapido());
         }
     }
 
     IEnumerator TransitarParaModoRapido()
     {
-        if (Modo == false) 
-        {
-            
-            Modo = true;
-            StopCoroutine("ContagemRegressivaTeleporte");
-            if (TimeManager != null) TimeManager.StopCoroutine("TempoNaFormaRapida");
-            yield break;
-        }
-
-        // ------------------ ENTRANDO NO MODO RÁPIDO ------------------
-
      
         Instantiate(ExplosaoSecondForm, transform.position, transform.rotation);
         TrocaTimer = 0;

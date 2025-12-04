@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: {fileID: 11400000, guid: 9c2881e726b69174d89d6d9c8604dc64, type: 2}
-    line: aaaaaa, por acaso essa lata velha ja ta funcionando???
+    line: AAArgh, por acaso essa lata velha ja ta funcionando???
   - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
-    line: "Senhorita Pilot, O projeto Chronos \xE9 a nossa tecnologia mais avan\xE7ada
+    line: "Senhorita Pilot, O projeto ICARUS \xE9 a nossa tecnologia mais avan\xE7ada
       e de maior..."
   - speaker: {fileID: 11400000, guid: 9c2881e726b69174d89d6d9c8604dc64, type: 2}
-    line: "\xC9 uma JUKEBOX!! ELES ME MANDARAM PRA MISS\xC3O, COM UMA JUKEBOX!!!"
+    line: "M.I.R.A \xC9 UMA JUKEBOX!! ELES ME MANDARAM PRA MISS\xC3O, COM UMA JUKEBOX!!!"
   - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
     line: Como sua assistente, acho q me cabe lhe aconselhar com um ditado popular
   - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
@@ -30,14 +30,14 @@ MonoBehaviour:
   - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
     line: Seguindo em frente, devo lhe explicar os controles da Nave
   - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
-    line: Consegue perceber Essa grande Barra em cima de seu visor?
+    line: Consegue perceber essa grande Barra em cima de seu visor?
   - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
     line: Este visor representa a quantidade de combustivel Chronos que a senhorita
       possui
   - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
-    line: ",Todos os modulos da nave s\xE3o abastecidos pelo mesmo"
+    line: "Todos os modulos da nave s\xE3o abastecidos pelo mesmo"
   - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
     line: Comecemos pelo Basico, Se habitue com os controles da nave, e assim que
       estiver pronta...
   - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
-    line: mate esse inimigo que esta Coincidentemente exposto,sozinho e vulneravel
+    line: Mate esse inimigo que esta Coincidentemente exposto,sozinho e vulneravel

@@ -34,7 +34,8 @@ public class InimigoDuplo : MonoBehaviour
 
     private Color[] originalColors;
     private Transform player; // Posicão do Player
-    
+    private TimeBody timeBody;
+
 
     void Awake()
     {
@@ -154,6 +155,35 @@ public class InimigoDuplo : MonoBehaviour
         }
     }
 
+
+    public void OnRewindStart()
+    {
+
+        CancelInvoke("Atirar");
+    }
+
+    public void OnRewindStop()
+    {
+
+        InvokeRepeating("Atirar", InimigoFireTimer, ShotFrequency);
+
+
+        timerMove = 0f;
+        movendo = true;
+    }
+
+
+    IEnumerator RewindSolution()
+    {
+        OnRewindStart();
+
+
+
+        yield return new WaitUntil(() => timeBody.isRewinding == false);
+
+        OnRewindStop();
+
+    }
     void Destruir() //Apaga o inimigo da cena
     {
         Destroy(gameObject);

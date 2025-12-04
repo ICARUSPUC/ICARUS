@@ -649,6 +649,8 @@ MonoBehaviour:
   gameManager: {fileID: 2012716996}
   Zawarudo: {fileID: 0}
   Dio: {fileID: 0}
+  Dialogue: {fileID: 0}
+  tutorialSpawn: {fileID: 0}
 --- !u!4 &134544102
 Transform:
   m_ObjectHideFlags: 0
@@ -3523,10 +3525,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1876110097}
     m_Modifications:
-    - target: {fileID: -4020892603009225547, guid: f6dbd567255432e46a4589338d2833ac, type: 3}
-      propertyPath: Spawn
-      value: 
-      objectReference: {fileID: 513173923}
     - target: {fileID: 2869906720011657747, guid: f6dbd567255432e46a4589338d2833ac, type: 3}
       propertyPath: m_Name
       value: Terreno
@@ -3571,10 +3569,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5703466394186947820, guid: f6dbd567255432e46a4589338d2833ac, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 6df4df2accff6e84899a0eef64b9f5e0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
