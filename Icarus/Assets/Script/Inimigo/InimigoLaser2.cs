@@ -7,7 +7,7 @@ public class InimigoLaser2 : MonoBehaviour
     [Header("Audio")]
     public AudioSource warningaudioSource;
     public AudioSource shootaudioSource;
-    [Header("Configuração do inimigo de laser")]
+    [Header("Configuraï¿½ï¿½o do inimigo de laser")]
     [SerializeField] GameObject laserPrefab;
     [SerializeField] Transform spawnLaser;
     [SerializeField] float intervaloTiro = 5f;
@@ -16,7 +16,7 @@ public class InimigoLaser2 : MonoBehaviour
     [SerializeField] float tempoAlerta = 1.0f;
     [SerializeField] float duracaoLaser = 2f;
 
-    // Configurações do disparo em duas fases
+    // Configuraï¿½ï¿½es do disparo em duas fases
     [SerializeField] float tamanhoCarregamento = 0.3f;
     [SerializeField] float comprimentoMaximo = 50f;
 
@@ -55,6 +55,7 @@ private bool girando = false;
     [Header("Particulas")]
 
     [SerializeField] GameObject ExplosaoTiro;
+    [SerializeField] GameObject Explosao;
 
     private TimeBody timeBody;
 
@@ -175,7 +176,7 @@ IEnumerator VoltarRotacao()
             laser.GetComponent<Collider>().enabled = false;
         }
 
-        // Crescimento Uniforme (de 0 até tamanhoCarregamento)
+        // Crescimento Uniforme (de 0 atï¿½ tamanhoCarregamento)
         yield return StartCoroutine(CrescerLaserfase1(laser.transform, tempoCrescimento));
 
          
@@ -199,7 +200,7 @@ IEnumerator VoltarRotacao()
         shootaudioSource.Play();
         Instantiate(ExplosaoTiro, spawnLaser.transform.position, Quaternion.LookRotation(-spawnLaser.transform.right));
         StartCoroutine(MudarCorAlerta(false));
-        emAlerta = false; // Alerta desliga assim que começa a esticar
+        emAlerta = false; // Alerta desliga assim que comeï¿½a a esticar
 
         StartCoroutine(GirarDuranteTiro());
 
@@ -210,7 +211,7 @@ IEnumerator VoltarRotacao()
      
         if (laserScript != null)
         {
-            // A duração do laser deve ser tratada aqui
+            // A duraï¿½ï¿½o do laser deve ser tratada aqui
             yield return new WaitForSeconds(laserScript.tempoVida);
         }
         else
@@ -391,6 +392,7 @@ IEnumerator VoltarRotacao()
             Destroy(laserAtual);
         }
         CancelInvoke();
+        Instantiate(Explosao, transform.position, transform.rotation);
         gameObject.SetActive(false);
         Invoke(nameof(Destruir), tempoMorte);
     }

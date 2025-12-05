@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.IO;
+using UnityEngine.VFX;
 
 public class InimigoSpawnSequence : MonoBehaviour
 {
@@ -34,7 +35,6 @@ public class InimigoSpawnSequence : MonoBehaviour
 
     [Header("Dialogo após completar a wave")]
     public DialogueSequence Dialogue;
-
 
     private int enemiesToSpawnCount = 0;
     private int currentWaveEnemyCount = 0;
@@ -111,6 +111,8 @@ public class InimigoSpawnSequence : MonoBehaviour
         }
 
         Debug.Log("Todas as waves foram conclu�das!");
+
+        GameManager.Mestre?.SceneManger.Invoke("Ganhar", 3f);
     }
     IEnumerator SpawnEnemiesInWave(WaveData wave)
     {

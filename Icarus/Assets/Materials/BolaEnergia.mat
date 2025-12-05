@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EscudoShield
+  m_Name: BolaEnergia
   m_Shader: {fileID: -6465566751694194690, guid: bb97078c7367d6c4eb138f1a478f869e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -115,7 +115,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 1
     - _OcclusionStrength: 1
-    - _Opacity: 0.426
+    - _Opacity: 0.31
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -132,8 +132,8 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 0, b: 0.78594255, a: 1}
     - _Color: {r: 1, g: 0, b: 0.78594255, a: 1}
-    - _ColorA: {r: 1, g: 0, b: 0.8980392, a: 0}
-    - _ColorB: {r: 1, g: 0, b: 0.8999224, a: 0}
+    - _ColorA: {r: 1, g: 0.00941272, b: 0, a: 0}
+    - _ColorB: {r: 0.754717, g: 0.046279836, b: 0.33788854, a: 0}
     - _EmissionColor: {r: 0.7075472, g: 0.010012442, b: 0.010012442, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []

@@ -135,6 +135,7 @@ MonoBehaviour:
   renderers: []
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
+  Explosao: {fileID: 653595100544672456, guid: 496d83af2d85dd94b9f0d41c03dcf79f, type: 3}
   GameManager: {fileID: 6641579684027775142, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
 --- !u!54 &4144278155010998798
 Rigidbody:

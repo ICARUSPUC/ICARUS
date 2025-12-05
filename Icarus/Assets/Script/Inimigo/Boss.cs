@@ -49,15 +49,15 @@ public class Boss : MonoBehaviour
             }
         }
 
-        BossinScene = true;
+        
     }
     void Start()
     {
-        
+        BossinScene = true;
         EfeitoVhs.Play();
         MusicaBoss.Play();
-    }
 
+    }
     // =========================================================================
     // 💥 Dano e Morte
     // =========================================================================
@@ -108,7 +108,5 @@ public class Boss : MonoBehaviour
         // 3. Destruição do Objeto
         // Garante que o objeto pai (raiz) do boss seja destruído.
         Destroy(transform.root.gameObject);
-
-        GameManager.Mestre?.SceneManger.Ganhar();
     }
 }

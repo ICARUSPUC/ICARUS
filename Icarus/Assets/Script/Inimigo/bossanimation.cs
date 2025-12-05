@@ -2,29 +2,29 @@ using UnityEngine;
 
 public class FlutuarIdle : MonoBehaviour
 {
-    // Variável para armazenar a posição inicial
+    // Variï¿½vel para armazenar a posiï¿½ï¿½o inicial
     private Vector3 posicaoInicial;
 
     
-    public float amplitude = 0.05f; // Amplitude do movimento (meio centímetro para cima/baixo)
+    public float amplitude = 0.05f; // Amplitude do movimento (meio centï¿½metro para cima/baixo)
 
     
-    public float frequencia = 2f; // Velocidade da flutuação
+    public float frequencia = 2f; // Velocidade da flutuaï¿½ï¿½o
 
     void Start()
     {
-        // Armazena a posição Y inicial no início
+        // Armazena a posiï¿½ï¿½o Y inicial no inï¿½cio
         posicaoInicial = transform.position;
     }
 
     void Update()
     {
-        // 1. Calcula o novo valor Y usando a função seno
-        // A função Mathf.Sin(Time.time * frequencia) varia suavemente entre -1 e 1 ao longo do tempo.
+        // 1. Calcula o novo valor Y usando a funï¿½ï¿½o seno
+        // A funï¿½ï¿½o Mathf.Sin(Time.time * frequencia) varia suavemente entre -1 e 1 ao longo do tempo.
         float novoY = Mathf.Sin(Time.time * frequencia) * amplitude;
 
-        // 2. Define a nova posição
-        // Adiciona o novoY (o deslocamento) à posição Y inicial.
+        // 2. Define a nova posiï¿½ï¿½o
+        // Adiciona o novoY (o deslocamento) ï¿½ posiï¿½ï¿½o Y inicial.
         transform.position = new Vector3(
             posicaoInicial.x,
             posicaoInicial.y + novoY,

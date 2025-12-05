@@ -9,7 +9,7 @@ public class SimpleEnemy : MonoBehaviour
     [Header("Tiro e Movimento")]
    [SerializeField] GameObject EnemyShot; //Prefab do tiro do Inimigo
     [SerializeField] GameObject SpawnEnemy; //Spawn do Tiro do Inimigo
-    [SerializeField] float ShotFrequency = 0.7f; // Quão rapido ele atira
+    [SerializeField] float ShotFrequency = 0.7f; // Quï¿½o rapido ele atira
     [SerializeField] float MoveTimer = 0;
     [SerializeField] float speedInimigo;
      [SerializeField] float timerMove = 0f;
@@ -20,17 +20,22 @@ public class SimpleEnemy : MonoBehaviour
     public float limiteEsquerda = -20f;
     public float limiteDireita = 20f;
 
-     private int direcao = -1; // começa indo para a esquerda
+     private int direcao = -1; // comeï¿½a indo para a esquerda
     private Rigidbody rbEnemy;
     
 
     [Header("Status")]
-    [SerializeField] private float vidaMax = 3f; // Vida máxima
+    [SerializeField] private float vidaMax = 3f; // Vida mï¿½xima
     private float vidaAtual;
+
+
+    [Header("Particulas")]
+
+    [SerializeField] GameObject Explosao;
 
     bool movendo = true;
     float InimigoFireTimer = 1;
-    public GameManager GameManager; //Fala quem é o GameManager Pra esse Script
+    public GameManager GameManager; //Fala quem ï¿½ o GameManager Pra esse Script
     private Vector3 moveEnemy; //Variavel pra mover o inimigo
      //Variavel Pro rigidBody do Inimigo
 
@@ -136,10 +141,11 @@ public class SimpleEnemy : MonoBehaviour
     }
     public void Morrer() // Desativa e depois de um tempo deleta o inimigo
     {
-
+        InimigoSpawnSequence.AddWavePoints();
         GameManager.Mestre.AlterarPontos(50);
         GameManager.Mestre.AlterarChronosPontos(5);
         CancelInvoke();
+        Instantiate(Explosao, transform.position, transform.rotation);
         gameObject.SetActive(false);
         Invoke("Destruir", 6f);
     }
@@ -149,7 +155,7 @@ public class SimpleEnemy : MonoBehaviour
         Vector3 movimento = new Vector3(0, 0, direcao * speedInimigo * Time.deltaTime);
         Vector3 novaPos = rbEnemy.position + movimento;
 
-         // troca direção ao chegar no limite
+         // troca direï¿½ï¿½o ao chegar no limite
         if (novaPos.z <= limiteEsquerda)
         {
             novaPos.z = limiteEsquerda;

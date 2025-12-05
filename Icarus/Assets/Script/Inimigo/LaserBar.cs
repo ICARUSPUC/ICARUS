@@ -5,20 +5,20 @@ public class LaserBar : MonoBehaviour
 {
    
     // =========================================================================
-    // ?? Configuração do Inimigo (MANTIDO ORIGINAL)
+    // ?? Configuraï¿½ï¿½o do Inimigo (MANTIDO ORIGINAL)
     // =========================================================================
 
-    [Header("Configuração do inimigo corpo a corpo")]
-    [SerializeField] float speed = 5f;               // velocidade de avanço
-    [SerializeField] float dano = 1f;                // Dano (mantido, embora não usado na colisão)
-    [SerializeField] float tempoMorte = 2f;          // tempo até ser destruído após colidir
+    [Header("Configuraï¿½ï¿½o do inimigo corpo a corpo")]
+    [SerializeField] float speed = 5f;               // velocidade de avanï¿½o
+    [SerializeField] float dano = 1f;                // Dano (mantido, embora nï¿½o usado na colisï¿½o)
+    [SerializeField] float tempoMorte = 2f;          // tempo atï¿½ ser destruï¿½do apï¿½s colidir
 
-    [SerializeField] float tempoMovimento = 0f;      // tempo até parar (se quiser limitar)
+    [SerializeField] float tempoMovimento = 0f;      // tempo atï¿½ parar (se quiser limitar)
     [SerializeField] float timerMove = 0f;
     [SerializeField] bool movendo = true;
 
     [Header("Status")]
-    [SerializeField] private float vidaMax = 3f; // Vida máxima
+    [SerializeField] private float vidaMax = 3f; // Vida mï¿½xima
     private float vidaAtual;
 
     [Header("Feedback visual de dano")]
@@ -26,8 +26,13 @@ public class LaserBar : MonoBehaviour
     [SerializeField] private Color damageColor = Color.red;
     [SerializeField] private float flashDuration = 0.1f;
 
+
+    [Header("Particulas")]
+
+    [SerializeField] GameObject Explosao;
+
     // =========================================================================
-    // ?? Variáveis de Estado (MANTIDO ORIGINAL)
+    // ?? Variï¿½veis de Estado (MANTIDO ORIGINAL)
     // =========================================================================
 
     private Rigidbody rb;
@@ -38,7 +43,7 @@ public class LaserBar : MonoBehaviour
     public GameManager GameManager;
 
     // =========================================================================
-    // ?? Métodos Padrão do Unity
+    // ?? Mï¿½todos Padrï¿½o do Unity
     // =========================================================================
 
     void Awake()
@@ -62,7 +67,7 @@ public class LaserBar : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        // Otimização: Usando nameof()
+        // Otimizaï¿½ï¿½o: Usando nameof()
         Invoke(nameof(Dash), 2);
         vidaAtual = vidaMax;
     }
@@ -103,7 +108,7 @@ public class LaserBar : MonoBehaviour
     void MovimentacaoInimigo()
     {
         // movimento constante para a esquerda
-        // CORREÇÃO: Usando Time.fixedDeltaTime para consistência em FixedUpdate e física
+        // CORREï¿½ï¿½O: Usando Time.fixedDeltaTime para consistï¿½ncia em FixedUpdate e fï¿½sica
         Vector3 movimento = Vector3.left * speed * Time.fixedDeltaTime;
         Vector3 novaPos = rb.position + movimento;
 
@@ -120,14 +125,14 @@ public class LaserBar : MonoBehaviour
     }
 
     // =========================================================================
-    // ?? Dano, Colisão e Morte
+    // ?? Dano, Colisï¿½o e Morte
     // =========================================================================
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // Otimização: Usando null-conditional operator (?. ) para segurança
+            // Otimizaï¿½ï¿½o: Usando null-conditional operator (?. ) para seguranï¿½a
             other.GetComponent<Player>()?.StartCoroutine("Derrota");
             atacou = true;
            
@@ -175,23 +180,25 @@ public class LaserBar : MonoBehaviour
             GameManager.Mestre.AlterarChronosPontos(5);
         }
         InimigoSpawnSequence.AddWavePoints();
-        // Otimização: Cancelando o Dash específico e outros Invokes
+        // Otimizaï¿½ï¿½o: Cancelando o Dash especï¿½fico e outros Invokes
         CancelInvoke(nameof(Dash));
         CancelInvoke();
 
         gameObject.SetActive(false);
-        // Otimização: Usando nameof()
+        // Otimizaï¿½ï¿½o: Usando nameof()
         Invoke(nameof(Destruir), tempoMorte);
     }
 
     public void MorrerFora()
     {
-        // Otimização: Cancelando o Dash específico e outros Invokes
+        // Otimizaï¿½ï¿½o: Cancelando o Dash especï¿½fico e outros Invokes
         CancelInvoke(nameof(Dash));
         CancelInvoke();
         InimigoSpawnSequence.AddWavePoints();
+        GameManager.Mestre.AlterarPontos(50);
+        Instantiate(Explosao, transform.position, transform.rotation);
         gameObject.SetActive(false);
-        // Otimização: Usando nameof()
+        // Otimizaï¿½ï¿½o: Usando nameof()
         Invoke(nameof(Destruir), tempoMorte);
     }
 

@@ -58,7 +58,7 @@ MonoBehaviour:
   somDeAcerto: {fileID: 8300000, guid: ec00e03d4eb352f4987e5757216a484b, type: 3}
   minTempoAtaque: 3
   maxTempoAtaque: 5
-  duracaoAtaque: 0.5
+  duracaoAtaque: 1
   renderers:
   - {fileID: 6118119836961197945}
   - {fileID: 6118119836961197945}
@@ -210,7 +210,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721043012140272846}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 724a066189fe7f44783e2bfae8c6158d, type: 2}
   m_CullingMode: 0
@@ -289,7 +289,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: abdc80cec88486b46b4735a240d07dbb, type: 2}
+  - {fileID: 2100000, guid: 56a11838878dc0047a12f9c25f226a75, type: 2}
   - {fileID: 430303326476141930, guid: 712d24a2b9ae2144f8efed8c91da642e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -331,8 +331,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.056282774, y: 0.036925726, z: 0.049668193}
-  m_Center: {x: 0.0084880255, y: 0.0026624398, z: 0.0051950887}
+  m_Size: {x: 0.056282774, y: 0.021633117, z: 0.037443887}
+  m_Center: {x: 0.008488024, y: 0.004166313, z: 0.0006049597}
 --- !u!1 &7254319675445368765
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,8 +440,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.056282777, y: 0.036925726, z: 0.049668193}
-  m_Center: {x: 0.008487996, y: 0.0026624398, z: 0.005195085}
+  m_Size: {x: 0.05628278, y: 0.021629391, z: 0.03284006}
+  m_Center: {x: 0.008487942, y: 0.0029790306, z: 0.0037328713}
 --- !u!1001 &9070950502702886607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -451,9 +451,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 1318653061582686866}
     m_Modifications:
     - target: {fileID: 1411989363060565690, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
+      propertyPath: vidaMax
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411989363060565690, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
       propertyPath: MusicaBoss
       value: 
       objectReference: {fileID: 2388564023754155098}
+    - target: {fileID: 1411989363060565690, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
+      propertyPath: MusicaMain
+      value: 
+      objectReference: {fileID: 4169115815105348704, guid: 3bd8c90dd4ffcd340994516bba14dfb3, type: 3}
     - target: {fileID: 1411989363060565690, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
       propertyPath: efeitoMorte
       value: 

@@ -9,7 +9,7 @@ public class MiniLaser : MonoBehaviour
     [Header("Audio")]
     public AudioSource warningaudioSource;
     public AudioSource shootaudioSource;
-    [Header("Configuração do inimigo de laser")]
+    [Header("Configuraï¿½ï¿½o do inimigo de laser")]
     [SerializeField] GameObject laserPrefab;
     [SerializeField] Transform[] spawnLaser;
     [SerializeField] float intervaloTiro = 5f;
@@ -18,7 +18,7 @@ public class MiniLaser : MonoBehaviour
     [SerializeField] float tempoAlerta = 1.0f;
     [SerializeField] float duracaoLaser = 2f;
 
-    // Configurações do disparo em duas fases
+    // Configuraï¿½ï¿½es do disparo em duas fases
     [SerializeField] float tamanhoCarregamento = 0.3f;
     [SerializeField] float comprimentoMaximo = 50f;
 
@@ -57,7 +57,7 @@ private bool girando = false;
     [Header("Particulas")]
 
     [SerializeField] GameObject ExplosaoTiro;
-
+    [SerializeField] GameObject Explosao;
     private TimeBody timeBody;
 
 
@@ -165,7 +165,7 @@ IEnumerator VoltarRotacao()
         laser.transform.SetParent(spawn);
         laser.transform.localScale = Vector3.zero;
 
-        // Desativa o collider no início
+        // Desativa o collider no inï¿½cio
         Laser laserScript = laser.GetComponent<Laser>();
         if (laserScript != null)
             laser.GetComponent<Collider>().enabled = false;
@@ -213,7 +213,7 @@ IEnumerator VoltarRotacao()
     foreach (var l in lasersAtuais)
         if (l != null) Destroy(l);
 
-    // Voltar rotação
+    // Voltar rotaï¿½ï¿½o
     yield return StartCoroutine(VoltarRotacao());
 
     atirando = false;
@@ -377,12 +377,12 @@ IEnumerator VoltarRotacao()
     {
         if (GameManager != null && GameManager.Mestre != null)
             GameManager.Mestre.AlterarPontos(100);
-            GameManager.Mestre.AlterarChronosPontos(10);
         InimigoSpawnSequence.AddWavePoints();
         if (laserAtual != null)
         {
             Destroy(laserAtual);
         }
+        Instantiate(Explosao, transform.position, transform.rotation);
         CancelInvoke();
         gameObject.SetActive(false);
         Invoke(nameof(Destruir), tempoMorte);

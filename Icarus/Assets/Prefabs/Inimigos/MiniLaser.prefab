@@ -282,6 +282,7 @@ MonoBehaviour:
   flashDuration: 0.1
   alertColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   ExplosaoTiro: {fileID: 953111505554260418, guid: 4955362ee2e14164c9e95dcaef74e76f, type: 3}
+  Explosao: {fileID: 653595100544672456, guid: 496d83af2d85dd94b9f0d41c03dcf79f, type: 3}
 --- !u!54 &4789035918104824697
 Rigidbody:
   m_ObjectHideFlags: 0

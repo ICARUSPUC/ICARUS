@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MusicaFundo : MonoBehaviour
@@ -10,14 +11,10 @@ public class MusicaFundo : MonoBehaviour
 
 
     private float targetPitch;
-
     void Update()
     { 
-        if (boss.BossinScene == true)
-        {
-            Destroy(this.gameObject);
-        }
-        if (TimeManager = null)
+       
+        if (TimeManager == null)
         {
             return;
         }

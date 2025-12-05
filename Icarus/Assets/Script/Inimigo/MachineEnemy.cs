@@ -32,6 +32,10 @@ public class MachineEnemy : MonoBehaviour
     [SerializeField] private Color damageColor = Color.red;
     [SerializeField] private float flashDuration = 0.1f;
 
+    [Header("Particulas")]
+
+    [SerializeField] GameObject Explosao;
+
     private Color[] originalColors;
 
     private Rigidbody rbEnemy;
@@ -143,7 +147,11 @@ public class MachineEnemy : MonoBehaviour
 
     public void Morrer()
     {
+        if (GameManager != null && GameManager.Mestre != null)
+            GameManager.Mestre.AlterarPontos(200);
+        GameManager.Mestre.AlterarChronosPontos(10);
         InimigoSpawnSequence.AddWavePoints();
+        Instantiate(Explosao, transform.position, transform.rotation);
         gameObject.SetActive(false);
         Invoke(nameof(Destruir), 6f);
     }

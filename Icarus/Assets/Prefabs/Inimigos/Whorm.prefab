@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4834359494251318616}
   m_Layer: 0
   m_Name: Whorm
-  m_TagString: Untagged
+  m_TagString: Whorm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,6 +58,7 @@ MonoBehaviour:
   - {fileID: 1808670469450693119}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
+  Explosao: {fileID: 653595100544672456, guid: 496d83af2d85dd94b9f0d41c03dcf79f, type: 3}
   GameManager: {fileID: 6641579684027775142, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
 --- !u!54 &2699951022131126867
 Rigidbody:

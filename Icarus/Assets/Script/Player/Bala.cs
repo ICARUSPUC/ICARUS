@@ -99,6 +99,11 @@ public class Bala : MonoBehaviour
             other.GetComponent<InimigoLaser2>().LevarDano(1);
             Destroy(gameObject);
         }
+        else if (other.CompareTag("Insetoide"))
+        {
+            other.GetComponent<SimpleEnemy>().LevarDano(1);
+            Destroy(gameObject);
+        }
 
 
     }

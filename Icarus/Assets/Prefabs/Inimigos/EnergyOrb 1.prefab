@@ -284,6 +284,7 @@ MonoBehaviour:
   - {fileID: 6696813783241806321}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
+  Explosao: {fileID: 653595100544672456, guid: 496d83af2d85dd94b9f0d41c03dcf79f, type: 3}
 --- !u!1 &7448534299161836166
 GameObject:
   m_ObjectHideFlags: 0

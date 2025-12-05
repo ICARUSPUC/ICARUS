@@ -163,8 +163,11 @@ public class Inimigo : MonoBehaviour
         }
         else
         {
-            GameObject tiro = Instantiate(EnemyShot, SpawnEnemy.transform.position, SpawnEnemy.transform.rotation);
-            Tirosom.Play();
+            if (EnemyShot != null)
+            {
+                GameObject tiro = Instantiate(EnemyShot, SpawnEnemy.transform.position, SpawnEnemy.transform.rotation);
+                Tirosom.Play();
+            }
         }
     }
 

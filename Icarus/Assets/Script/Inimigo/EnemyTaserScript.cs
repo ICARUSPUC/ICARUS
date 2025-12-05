@@ -32,6 +32,11 @@ public class MachineEnemyTaser : MonoBehaviour
     [SerializeField] private Color damageColor = Color.red;
     [SerializeField] private float flashDuration = 0.1f;
 
+
+    [Header("Particulas")]
+
+    [SerializeField] GameObject Explosao;
+
     private Color[] originalColors;
 
     private Rigidbody rbEnemy;
@@ -155,6 +160,9 @@ public class MachineEnemyTaser : MonoBehaviour
     public void Morrer()
     {
         InimigoSpawnSequence.AddWavePoints();
+        GameManager.Mestre.AlterarPontos(200);
+        GameManager.Mestre.AlterarChronosPontos(10);
+        Instantiate(Explosao, transform.position, transform.rotation);
         gameObject.SetActive(false);
         Invoke(nameof(Destruir), 6f);
     }

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 1034191734169113285}
   m_Layer: 0
   m_Name: ChaserBalles
-  m_TagString: Untagged
+  m_TagString: ChaserBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,8 +185,7 @@ MeshRenderer:
   m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -268,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46a64973fa8d054ca5b158cde225078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyShot: {fileID: 7025566002365091599, guid: afcc05954f44af44fa3c2cd631e68544, type: 3}
+  EnemyShot: {fileID: 7025566002365091599, guid: 4b26a5e611b2bab419cb9453c1e8f6c2, type: 3}
   SpawnEnemy: {fileID: 5268589593611678892}
   ShotFrequency: 2
   MoveTimer: 0
@@ -276,6 +275,7 @@ MonoBehaviour:
   timerMove: 0
   tempoMovimento: 7
   rotateSpeed: 5
+  Explosao: {fileID: 653595100544672456, guid: 496d83af2d85dd94b9f0d41c03dcf79f, type: 3}
   vidaMax: 3
   GameManager: {fileID: 6641579684027775142, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
   renderers:

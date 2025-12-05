@@ -18,7 +18,7 @@ public class AngelProbe : MonoBehaviour
     public Vector3 rotacaoPontoDireito;
     public Vector3 rotacaoPontoSaida;
 
-    [Header("Configuração do Padrão")]
+    [Header("Configuraï¿½ï¿½o do Padrï¿½o")]
     public float velocidade = 8f;
     public float anguloRotacao = -20f;
     public float anguloNormal = 0;
@@ -37,13 +37,18 @@ public class AngelProbe : MonoBehaviour
     private Rigidbody rbEnemy;
 
     [Header("Status")]
-    [SerializeField] private float vidaMax = 3f; // Vida máxima
+    [SerializeField] private float vidaMax = 3f; // Vida mï¿½xima
     private float vidaAtual;
 
      
     [SerializeField] private Renderer[] renderers;
     [SerializeField] private Color damageColor = Color.red;
     [SerializeField] private float flashDuration = 0.1f;
+
+
+    [Header("Particulas")]
+
+    [SerializeField] GameObject Explosao;
 
     private Color[] originalColors;
 
@@ -71,30 +76,30 @@ public class AngelProbe : MonoBehaviour
         timeBody = GetComponent<TimeBody>();
 
         if (executando)
-            StartCoroutine(ExecutarPadrão());
+            StartCoroutine(ExecutarPadrao());
     }
 
-    IEnumerator ExecutarPadrão()
+    IEnumerator ExecutarPadrao()
     {
         executando = true;
 
-        // 1 — vai para o ponto inicial
+        // 1 ï¿½ vai para o ponto inicial
         if (pontoInicial != null)
             yield return MoveToComRotacao(pontoInicial.position,rotacaoPontoDireito);
 
-        yield return PadrãoTiro();
+        yield return PadraoTiro();
 
-        // 2 — vai para o meio
+        // 2 ï¿½ vai para o meio
         if (pontoMeio != null)
             yield return MoveToComRotacao(pontoMeio.position, rotacaoPontoDireito);
 
-        yield return PadrãoTiro();
+        yield return PadraoTiro();
 
-        // 3 — vai para o direito
+        // 3 ï¿½ vai para o direito
         if (pontoDireito != null)
             yield return MoveToComRotacao(pontoDireito.position, rotacaoPontoDireito);
 
-        yield return PadrãoTiro();
+        yield return PadraoTiro();
 
         if (pontoSaida != null)
         {
@@ -107,7 +112,7 @@ public class AngelProbe : MonoBehaviour
         executando = false;
     }
 
-    IEnumerator PadrãoTiro()
+    IEnumerator PadraoTiro()
     {
         Quaternion rotacaoOriginal = transform.rotation;
 
@@ -132,7 +137,7 @@ public class AngelProbe : MonoBehaviour
         yield return null;
     }
 
-    // força a rotação final ser exatamente a original
+    // forï¿½a a rotaï¿½ï¿½o final ser exatamente a original
     transform.rotation = rotacaoOriginal;
 
     }
@@ -153,6 +158,8 @@ public class AngelProbe : MonoBehaviour
     }
     public void Morrer()
     {
+        GameManager.Mestre.AlterarPontos(50);
+        GameManager.Mestre.AlterarChronosPontos(5);
         InimigoSpawnSequence.AddWavePoints();
         gameObject.SetActive(false);
         Invoke(nameof(Destruir), 6f);
@@ -179,13 +186,13 @@ public class AngelProbe : MonoBehaviour
             velocidade * Time.deltaTime
         );
 
-        // gira suavemente para a rotação alvo
+        // gira suavemente para a rotaï¿½ï¿½o alvo
         transform.rotation = Quaternion.Slerp(transform.rotation, rotacaoAlvo, Time.deltaTime * 3f);
 
         yield return null;
     }
 
-    // garante rotação exata
+    // garante rotaï¿½ï¿½o exata
     transform.rotation = rotacaoAlvo;
 }
  

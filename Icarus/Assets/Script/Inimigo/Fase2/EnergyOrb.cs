@@ -31,9 +31,14 @@ public class EnergyOrb : MonoBehaviour
     [SerializeField] private float flashDuration = 0.1f;
     private Color[] originalColors;
 
-   
 
-   
+    [Header("Particulas")]
+
+    [SerializeField] GameObject Explosao;
+
+
+
+
 
     void Awake()
     {
@@ -148,10 +153,10 @@ public class EnergyOrb : MonoBehaviour
 
     void Morrer()
     {
-        
+        InimigoSpawnSequence.AddWavePoints();
         GameManager.Mestre.AlterarPontos(80);      
         GameManager.Mestre.AlterarChronosPontos(8);
-
+        Instantiate(Explosao, transform.position, transform.rotation);
         gameObject.SetActive(false);
         Invoke(nameof(Destruir), 5f);
     }

@@ -343,6 +343,7 @@ public class Player : MonoBehaviour
         if (Chronos)
         {
             invencivel = true;
+            GameManager.chronospontos = 0;
             Instantiate(Explosaotemporal, transform.position, transform.rotation);
             Instantiate(SombraPlayer, transform.position, transform.rotation);
             TrailNormal.SetActive(false);
@@ -364,14 +365,46 @@ public class Player : MonoBehaviour
             yield return new WaitForSecondsRealtime(GlobalRewindDuration);
             TrailNormal.SetActive(true);
             TrailTempo.SetActive(false);
-            Destroy(SombraPlayer);
+            SombraPlayer.SetActive(false);
             Chronos = false;
+             IEnumerator TransitarParaModoRapido()
+    {
+     
+        Instantiate(ExplosaoSecondForm, transform.position, transform.rotation);
+        TrocaTimer = 0;
+        GameManager.chronospontos = (GameManager.chronospontos - pontosPraFormarapida);
+        StartCoroutine(TornarInvencivel());
+        tempoNoModoRapido = 0f;
+
+        if (TimeManager != null)
+        {
+           
+            TimeManager.StartCoroutine("TempoNaFormaRapida");
+        }
+
+
+        yield return new WaitForSecondsRealtime(0.01f); // Espera 1 frame IMPORTANTISSIMO, É OQUE RESOLVE O PROBLEMA DO TELEPORTE NÃO MEXA NESSA MERDA!!!!!!!!!!!
+
+        Instantiate(SombraPlayer, transform.position, transform.rotation);
+        Modo = false; 
+
+
+        if (timeBody != null)
+        {
+            timeBody.SaveCheckpoint();
+            
+            StartCoroutine(nameof(ContagemRegressivaTeleporte));
+        }
+
+    }
             invencivel = false;
             isRewinding = false;
             yield break;
         }
 
 
+
+        GameManager.chronospontos = 0;
         // Lógica de Morte
         gameObject.SetActive(false);
         Instantiate (explosao, transform.position, transform.rotation);
@@ -438,6 +471,7 @@ public class Player : MonoBehaviour
      
         Instantiate(ExplosaoSecondForm, transform.position, transform.rotation);
         TrocaTimer = 0;
+        GameManager.chronospontos = (GameManager.chronospontos - pontosPraFormarapida);
         StartCoroutine(TornarInvencivel());
         tempoNoModoRapido = 0f;
 
@@ -484,7 +518,7 @@ public class Player : MonoBehaviour
                 TimeManager?.VoltaroTempoaoNormal();
                 yield return null;
             }
-            GameManager.chronospontos = (GameManager.chronospontos - pontosPraFormarapida);
+            
         }
     }
 

@@ -163,12 +163,17 @@ MonoBehaviour:
   - {fileID: 6576965800411393519}
   - {fileID: 5507837144971828804}
   fireRate: 0.5
+  MoveTimer: 0
+  speedInimigo: 5
+  timerMove: 0
+  tempoMovimento: 0
+  GameManager: {fileID: 0}
   vidaMax: 5
   renderers:
   - {fileID: 6661188649676544381}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
-  speedInimigo: 5
+  Explosao: {fileID: 653595100544672456, guid: 496d83af2d85dd94b9f0d41c03dcf79f, type: 3}
 --- !u!1 &7960100485780634023
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1507728281688637493}
   m_Layer: 0
   m_Name: Insetoide 1
-  m_TagString: Untagged
+  m_TagString: Insetoide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.2, y: 0, z: 4.4287195}
-  m_LocalScale: {x: 2.4380295, y: 1.5891882, z: 2.3956692}
+  m_LocalScale: {x: 3.3369339, y: 2.1751237, z: 3.278955}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7120990378402790978}
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d44675c794a9d4abc85413feea5596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyShot: {fileID: 7025566002365091599, guid: afcc05954f44af44fa3c2cd631e68544, type: 3}
+  EnemyShot: {fileID: 7025566002365091599, guid: 4b26a5e611b2bab419cb9453c1e8f6c2, type: 3}
   SpawnEnemy: {fileID: 5456017217576405413}
   ShotFrequency: 0.7
   MoveTimer: 0
@@ -160,6 +160,7 @@ MonoBehaviour:
   limiteEsquerda: -10
   limiteDireita: 10
   vidaMax: 3
+  Explosao: {fileID: 653595100544672456, guid: 496d83af2d85dd94b9f0d41c03dcf79f, type: 3}
   GameManager: {fileID: 6641579684027775142, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
   renderers:
   - {fileID: 4796612255845094736}

@@ -10,7 +10,7 @@ public class ChaserBall : MonoBehaviour
     [Header("Tiro e Movimento")]
    [SerializeField] GameObject EnemyShot; //Prefab do tiro do Inimigo
     [SerializeField] Transform SpawnEnemy; //Spawn do Tiro do Inimigo
-    [SerializeField] float ShotFrequency = 0.7f; // Quão rapido ele atira
+    [SerializeField] float ShotFrequency = 0.7f; // Quï¿½o rapido ele atira
     [SerializeField] float MoveTimer = 0;
     [SerializeField] float speedInimigo;
      [SerializeField] float timerMove = 0f;
@@ -21,16 +21,20 @@ public class ChaserBall : MonoBehaviour
  
     private Rigidbody rbEnemy;
     private Transform player;
-    
+
+    [Header("Particulas")]
+
+    [SerializeField] GameObject Explosao;
+
 
 
     [Header("Status")]
-    [SerializeField] private float vidaMax = 3f; // Vida máxima
+    [SerializeField] private float vidaMax = 3f; // Vida mï¿½xima
     private float vidaAtual;
 
     bool movendo = true;
     float InimigoFireTimer = 1;
-    public GameManager GameManager; //Fala quem é o GameManager Pra esse Script
+    public GameManager GameManager; //Fala quem ï¿½ o GameManager Pra esse Script
     private Vector3 moveEnemy; //Variavel pra mover o inimigo
      //Variavel Pro rigidBody do Inimigo
 
@@ -67,7 +71,7 @@ public class ChaserBall : MonoBehaviour
         if (p != null)
             player = p.transform;
 
-        // começa a atirar periodicamente
+        // comeï¿½a a atirar periodicamente
         InvokeRepeating(nameof(Atirar), ShotFrequency, ShotFrequency);
     }
 
@@ -131,8 +135,9 @@ public class ChaserBall : MonoBehaviour
     void Morrer() // Desativa e depois de um tempo deleta o inimigo
     {
 
-        GameManager.Mestre.AlterarPontos(50);
+        GameManager.Mestre.AlterarPontos(100);
         GameManager.Mestre.AlterarChronosPontos(5);
+        Instantiate(Explosao, transform.position, transform.rotation);
         CancelInvoke();
         gameObject.SetActive(false);
         Invoke("Destruir", 6f);
