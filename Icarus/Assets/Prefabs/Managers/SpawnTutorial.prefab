@@ -74,84 +74,11 @@ MonoBehaviour:
       position: {x: -10.16184, y: 2.17, z: -8.18}
       delay: 0.4
     delayAfterWave: 15
-  - waveName: Third Wave
-    enemies:
-    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
-      position: {x: 13, y: 6, z: -9}
-      delay: 0
-    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
-      position: {x: 13, y: 6, z: -3}
-      delay: 1
-    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
-      position: {x: 13, y: 6, z: 3}
-      delay: 0
-    delayAfterWave: 7
-  - waveName: Fourth Wave
-    enemies:
-    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
-      position: {x: 13, y: 6, z: -9}
-      delay: 0
-    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
-      position: {x: 13, y: 6, z: -3}
-      delay: 0
-    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
-      position: {x: 13, y: 6, z: 3}
-      delay: 0
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -6}
-      delay: 1
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: 0}
-      delay: 1
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: 6}
-      delay: 1
-    delayAfterWave: 10
-  - waveName: Fifth Wave
-    enemies:
-    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
-      position: {x: 13, y: 6, z: -12}
-      delay: 0
-    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
-      position: {x: 13, y: 6, z: -8}
-      delay: 0
-    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
-      position: {x: 13, y: 6, z: 1}
-      delay: 0
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -4}
-      delay: 1
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -9}
-      delay: 1
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -2}
-      delay: 1
-    delayAfterWave: 12
-  - waveName: Meele Wave
-    enemies:
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -9}
-      delay: 0
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -3}
-      delay: 0
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: 3}
-      delay: 0
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -6}
-      delay: 0
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -3}
-      delay: 1
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: 1}
-      delay: 1
-    delayAfterWave: 5
   gameManager: {fileID: 0}
   Zawarudo: {fileID: 0}
   Dio: {fileID: 0}
+  Dialogue: {fileID: 0}
+  tutorialSpawn: {fileID: 0}
 --- !u!1001 &8341307723890775858
 PrefabInstance:
   m_ObjectHideFlags: 0
