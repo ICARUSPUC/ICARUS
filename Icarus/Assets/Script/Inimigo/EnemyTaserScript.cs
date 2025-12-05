@@ -14,7 +14,16 @@ public class MachineEnemyTaser : MonoBehaviour
     private int currentFirePointIndex = 0; // Para alternar entre os pontos de disparo
     private const string bulletTag = "EnemyTaser"; // Tag para o tiro
 
-        
+    [Header("Movimento")]
+        [SerializeField] float MoveTimer = 0;
+    [SerializeField] float speedInimigo;
+    [SerializeField] float timerMove = 0f;
+    [SerializeField] float tempoMovimento = 0f;
+
+    bool movendo = true;
+
+    public GameManager GameManager;
+
     [Header("Status")]
     [SerializeField] private float vidaMax = 5f;
     private float vidaAtual;
@@ -26,7 +35,7 @@ public class MachineEnemyTaser : MonoBehaviour
     private Color[] originalColors;
 
     private Rigidbody rbEnemy;
-    [SerializeField] private float speedInimigo = 5f;
+    
 
 
     private void Awake()
@@ -70,7 +79,16 @@ public class MachineEnemyTaser : MonoBehaviour
 
     void FixedUpdate()
     {
-        MovimentacaoInimigo();
+       if (movendo)
+            {
+                MovimentacaoInimigo();
+                timerMove += Time.fixedDeltaTime;
+
+                if (timerMove >= tempoMovimento)
+                {
+                    movendo = false; // para o inimigo
+                }
+            }
     }
 
     void Disparar()

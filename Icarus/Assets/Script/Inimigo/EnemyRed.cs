@@ -30,6 +30,8 @@ public class MachineEnemyFast : MonoBehaviour
     private Rigidbody rbEnemy;
     [SerializeField] private float speedInimigo = 5f;
 
+    public GameManager GameManager;
+
 
     private void Awake()
     {

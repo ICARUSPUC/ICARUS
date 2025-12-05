@@ -10,6 +10,16 @@ public class MachineEnemy : MonoBehaviour
     public float fireRate = 0.2f;
     private float fireTimer = 0;
 
+    [Header("Movimento")]
+        [SerializeField] float MoveTimer = 0;
+    [SerializeField] float speedInimigo;
+    [SerializeField] float timerMove = 0f;
+    [SerializeField] float tempoMovimento = 0f;
+
+    bool movendo = true;
+
+    public GameManager GameManager;
+
     [Header("Anima��o")]
     public Animator anim;
     private bool girando = false;
@@ -25,7 +35,7 @@ public class MachineEnemy : MonoBehaviour
     private Color[] originalColors;
 
     private Rigidbody rbEnemy;
-    [SerializeField] private float speedInimigo = 5f;
+   
 
     private void Awake()
     {
@@ -67,7 +77,16 @@ public class MachineEnemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        MovimentacaoInimigo();
+        if (movendo)
+            {
+                MovimentacaoInimigo();
+                timerMove += Time.fixedDeltaTime;
+
+                if (timerMove >= tempoMovimento)
+                {
+                    movendo = false; // para o inimigo
+                }
+            }
     }
 
     void Disparar()
@@ -86,6 +105,7 @@ public class MachineEnemy : MonoBehaviour
             Morrer();
         }
     }
+
 
     IEnumerator DanoVisual()
     {

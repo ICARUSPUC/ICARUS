@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: VertexMetallicMat
-    second: {fileID: 2100000, guid: 4f273b088996f0b4da4d1209fbb07ac3, type: 2}
+    second: {fileID: 2100000, guid: 0131808d0e2e7e9488a68b12d58b3986, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

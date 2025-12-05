@@ -16,6 +16,14 @@ TagManager:
   - InimigoMachine
   - NaveDupla
   - EnemyTaser
+  - EnemyFast
+  - AngelProbe
+  - Insetoide
+  - ChaserBall
+  - Whorm
+  - EnergyOrb
+  - SimpleEnemy
+  - InimigoLaser2
   layers:
   - Default
   - TransparentFX

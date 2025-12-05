@@ -69,6 +69,37 @@ public class Bala : MonoBehaviour
             other.GetComponent<MachineEnemyFast>().LevarDano(1);
             Destroy(gameObject);
         }
+        else if (other.CompareTag("AngelProbe"))
+        {
+            other.GetComponent<AngelProbe>().LevarDano(1);
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("ChaserBall"))
+        {
+            other.GetComponent<ChaserBall>().LevarDano(1);
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("EnergyOrb"))
+        {
+            other.GetComponent<EnergyOrb>().LevarDano(1);
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("SimpleEnemy"))
+        {
+            other.GetComponent<SimpleEnemy>().LevarDano(1);
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("Whorm"))
+        {
+            other.GetComponent<Worm>().LevarDano(1);
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("InimigoLaser2"))
+        {
+            other.GetComponent<InimigoLaser2>().LevarDano(1);
+            Destroy(gameObject);
+        }
+
 
     }
 
