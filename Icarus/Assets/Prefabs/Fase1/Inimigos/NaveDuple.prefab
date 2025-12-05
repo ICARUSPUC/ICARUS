@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2416775903353144361}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.019419963, z: -0, w: 0.9998114}
+  m_LocalRotation: {x: 0, y: -0.019424267, z: 0, w: 0.9998113}
   m_LocalPosition: {x: -181.29, y: 0, z: 56.448845}
   m_LocalScale: {x: 0.3508725, y: 0.3508725, z: 0.3508725}
   m_ConstrainProportionsScale: 0
@@ -107,11 +107,12 @@ MonoBehaviour:
   SpawnEnemyR: {fileID: 7838024798530393095}
   SpawnEnemyL: {fileID: 7526899149769365210}
   ShotFrequency: 1
-  MoveTimer: 1.98
-  speedInimigo: 1.01
-  timerMove: 0.88
-  tempoMovimento: 0.94
+  MoveTimer: 0
+  speedInimigo: 2.3
+  timerMove: 0
+  tempoMovimento: 7
   vidaMax: 3
+  Explosao: {fileID: 653595100544672456, guid: 496d83af2d85dd94b9f0d41c03dcf79f, type: 3}
   GameManager: {fileID: 0}
   renderers:
   - {fileID: 8324492478265078217}

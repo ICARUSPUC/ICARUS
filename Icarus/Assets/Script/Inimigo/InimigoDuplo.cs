@@ -20,6 +20,7 @@ public class InimigoDuplo : MonoBehaviour
     [Header("Status")]
     [SerializeField] private float vidaMax = 3f; // Vida máxima
     private float vidaAtual;
+    [SerializeField] GameObject Explosao;
 
     bool movendo = true;
     float InimigoFireTimer = 1;
@@ -194,6 +195,7 @@ public class InimigoDuplo : MonoBehaviour
         GameManager.Mestre.AlterarPontos(100);
         CancelInvoke();
         InimigoSpawnSequence.AddWavePoints();
+        Instantiate(Explosao, transform.position, transform.rotation);
         gameObject.SetActive(false);
         Invoke("Destruir", 6f);
     }

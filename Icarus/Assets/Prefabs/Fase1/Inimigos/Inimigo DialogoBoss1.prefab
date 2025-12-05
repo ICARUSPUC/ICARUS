@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 356344532862149923}
   - component: {fileID: 4990664524595175961}
   m_Layer: 0
-  m_Name: Inimigo
+  m_Name: Inimigo DialogoBoss1
   m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   - {fileID: 19359559161924105}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
-  dialogo: {fileID: 0}
+  dialogo: {fileID: 11400000, guid: c360387b2ac7c5f4cae054db6f0a68ea, type: 2}
 --- !u!114 &356344532862149923
 MonoBehaviour:
   m_ObjectHideFlags: 0

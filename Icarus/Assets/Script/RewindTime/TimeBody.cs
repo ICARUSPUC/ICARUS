@@ -19,6 +19,9 @@ public class TimeBody : MonoBehaviour
     private PointsInTime checkpointPoint; 
     private int maxListSize;
 
+    private Coroutine rewindCoroutine; // Referência para controlar a Coroutine
+    private float rewindStartTime;      // Tempo em que o rebobinamento começou
+
     void Start()
     {
         pointsInTime = new List<PointsInTime>();
@@ -47,14 +50,12 @@ public class TimeBody : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isRewinding)
-        {
-            Rewind();
-        }
-        else
+        
+        if (!isRewinding)
         {
             Record();
         }
+        
     }
 
 
@@ -70,45 +71,91 @@ public class TimeBody : MonoBehaviour
         pointsInTime.Insert(0, new PointsInTime(transform.position, transform.rotation));
     }
 
-    public void Rewind()
+    private IEnumerator Rewind()
     {
-        if (pointsInTime.Count > 0)
+      
+        while (pointsInTime.Count > 0)
         {
+            // Pega o ponto mais antigo (posição 0)
             PointsInTime pointInTime = pointsInTime[0];
 
-           
+            // Aplica posição e rotação
             transform.position = pointInTime.position;
             transform.rotation = pointInTime.rotation;
 
+            // Remove o ponto da lista
             pointsInTime.RemoveAt(0);
+
+            // Espera pelo próximo FixedUpdate (para coincidir com a taxa de gravação)
+            yield return new WaitForFixedUpdate();
+
+            
+            if (!isRewinding)
+            {
+                yield break;
+            }
         }
-        else
+
+     
+
+        // Calcula o tempo que o rebobinamento levou até a lista se esgotar
+        float timeSpentRewinding = Time.time - rewindStartTime;
+
+        // Calcula quanto tempo ainda falta para completar o recordTime
+        float timeRemaining = recordTime - timeSpentRewinding;
+
+        
+        if (timeRemaining > 0f)
         {
-            StopRewind();
+            
+            
+            yield return new WaitForSeconds(timeRemaining);
         }
+
+     
+        StopRewind();
     }
 
     public void StartRewind()
     {
+
         isRewinding = true;
+        rewindStartTime = Time.time; // Registra o tempo atual
+
+        // Interrompe qualquer coroutine anterior e inicia a nova
+        if (rewindCoroutine != null)
+        {
+            StopCoroutine(rewindCoroutine);
+        }
+        rewindCoroutine = StartCoroutine("Rewind");
+
         if (rb != null)
         {
             rb.isKinematic = true;
-        } 
-       
+        }
     }
 
     public void StopRewind()
     {
+
         isRewinding = false;
+
+        
+        if (rewindCoroutine != null)
+        {
+            StopCoroutine(rewindCoroutine);
+            rewindCoroutine = null;
+        }
+
         if (rb != null)
         {
             rb.isKinematic = false;
-            rb.linearVelocity = Vector3.zero; // Reseta velocidade para não sair voando
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
     }
 
-    
+
 
     public void SaveCheckpoint()
     {

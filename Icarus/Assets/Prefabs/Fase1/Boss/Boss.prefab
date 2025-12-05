@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3815618253716340821}
   - component: {fileID: 9028336629614244108}
   - component: {fileID: 2388564023754155098}
+  - component: {fileID: 2966634104905704455}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.06, y: -0.31, z: -2.11}
-  m_LocalScale: {x: 0.92045, y: 0.92045, z: 0.92045}
+  m_LocalScale: {x: 1.9943389, y: 1.9943389, z: 1.9943389}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4948542636614497302}
@@ -201,6 +202,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &2966634104905704455
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721043012140272846}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 724a066189fe7f44783e2bfae8c6158d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5757590317989129900
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +289,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8053f7fa6cda1fd4fa43ad6bce3af120, type: 2}
+  - {fileID: 2100000, guid: abdc80cec88486b46b4735a240d07dbb, type: 2}
   - {fileID: 430303326476141930, guid: 712d24a2b9ae2144f8efed8c91da642e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -375,7 +398,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8053f7fa6cda1fd4fa43ad6bce3af120, type: 2}
+  - {fileID: 2100000, guid: 56a11838878dc0047a12f9c25f226a75, type: 2}
   - {fileID: 430303326476141930, guid: 712d24a2b9ae2144f8efed8c91da642e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -431,6 +454,22 @@ PrefabInstance:
       propertyPath: MusicaBoss
       value: 
       objectReference: {fileID: 2388564023754155098}
+    - target: {fileID: 1411989363060565690, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
+      propertyPath: efeitoMorte
+      value: 
+      objectReference: {fileID: 6157148692288117796, guid: 72526c93cc614a84fb064c3ecb4a03d0, type: 3}
+    - target: {fileID: 1912146892705847868, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912146892705847868, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: ec29b1e37044c0f44a999ce052928cfe, type: 3}
+    - target: {fileID: 1912146892705847868, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 56a11838878dc0047a12f9c25f226a75, type: 2}
     - target: {fileID: 2451002314776210200, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.8979454

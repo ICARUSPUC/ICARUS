@@ -111,10 +111,6 @@ public class Inimigo : MonoBehaviour
     {
 
         InvokeRepeating("Atirar", InimigoFireTimer, ShotFrequency);
-
-
-        timerMove = 0f;
-        movendo = true;
     }
 
 
@@ -200,7 +196,7 @@ public class Inimigo : MonoBehaviour
         Vector3 movimento = Vector3.left * speedInimigo * Time.fixedDeltaTime;
         Vector3 Limite = rbEnemy.position + movimento;
         Limite.z = Mathf.Clamp(Limite.z, -13.5f, 6f);
-        Limite.x = Mathf.Clamp(Limite.x, -22f, 22f);
+        Limite.x = Mathf.Clamp(Limite.x, -22f, 40f);
         rbEnemy.MovePosition(Limite);
     }
 }    

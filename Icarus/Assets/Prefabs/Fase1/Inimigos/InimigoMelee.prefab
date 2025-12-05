@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b2d83819c2857a4bb7b7ce99f6192f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
   dano: 1
   tempoMorte: 2
   tempoMovimento: 0
@@ -135,6 +135,7 @@ MonoBehaviour:
   - {fileID: 6171373406514921373}
   damageColor: {r: 0.67058825, g: 0, b: 0, a: 1}
   flashDuration: 0.1
+  Explosao: {fileID: 653595100544672456, guid: 496d83af2d85dd94b9f0d41c03dcf79f, type: 3}
   GameManager: {fileID: 6641579684027775142, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
 --- !u!54 &4317653552716818683
 Rigidbody:

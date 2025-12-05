@@ -223,8 +223,8 @@ public class Player : MonoBehaviour
 
         // Movimento
         Vector3 Limite = (rb.position + moveInput * speedPrincipal * Time.fixedDeltaTime); // Usando FixedDeltaTime para movimento
-        Limite.z = Mathf.Clamp(Limite.z, -11f, 4f);
-        Limite.y = Mathf.Clamp(Limite.y, 0.9f, 9f);
+        Limite.z = Mathf.Clamp(Limite.z, -9.5f, 3f);
+        Limite.y = Mathf.Clamp(Limite.y, 2f, 8.4f);
         rb.MovePosition(Limite);
 
         ApplyTilt(MoveZ);

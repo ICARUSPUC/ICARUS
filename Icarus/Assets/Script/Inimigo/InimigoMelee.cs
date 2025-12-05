@@ -23,6 +23,7 @@ public class InimigoMelee : MonoBehaviour
     [SerializeField] private Renderer[] renderers;
     [SerializeField] private Color damageColor = Color.red;
     [SerializeField] private float flashDuration = 0.1f;
+    [SerializeField] GameObject Explosao;
 
     // =========================================================================
     // 💾 Variáveis de Estado (MANTIDO ORIGINAL)
@@ -176,7 +177,7 @@ public class InimigoMelee : MonoBehaviour
         // Otimização: Cancelando o Dash específico e outros Invokes
         CancelInvoke(nameof(Dash));
         CancelInvoke();
-
+        Instantiate(Explosao, transform.position, transform.rotation);
         gameObject.SetActive(false);
         // Otimização: Usando nameof()
         Invoke(nameof(Destruir), tempoMorte);

@@ -162,10 +162,10 @@ MonoBehaviour:
   shootaudioSource: {fileID: 8717499860814747689}
   laserPrefab: {fileID: 1781231621355046123, guid: db0a5f1432fde9c468bd4434c3a40cee, type: 3}
   spawnLaser: {fileID: 323614058172421192}
-  intervaloTiro: 6
-  tempoCrescimento: 0.5
-  tempoAlerta: 0.5
-  duracaoLaser: 2
+  intervaloTiro: 3
+  tempoCrescimento: 0.3
+  tempoAlerta: 0.3
+  duracaoLaser: 1
   tamanhoCarregamento: 0.5
   comprimentoMaximo: 60
   tempoMorte: 2
@@ -181,6 +181,7 @@ MonoBehaviour:
   flashDuration: 0.1
   alertColor: {r: 1, g: 0.997369, b: 0.9669811, a: 1}
   ExplosaoTiro: {fileID: 953111505554260418, guid: 4955362ee2e14164c9e95dcaef74e76f, type: 3}
+  Explosao: {fileID: 653595100544672456, guid: 496d83af2d85dd94b9f0d41c03dcf79f, type: 3}
 --- !u!54 &1618000702398734738
 Rigidbody:
   m_ObjectHideFlags: 0
