@@ -48,6 +48,7 @@ public class InimigoLaser : MonoBehaviour
     [Header("Particulas")]
 
     [SerializeField] GameObject ExplosaoTiro;
+    [SerializeField] GameObject Explosao;
 
     private TimeBody timeBody;
 
@@ -268,10 +269,6 @@ public class InimigoLaser : MonoBehaviour
     {
 
         InvokeRepeating("AtirarLaser", tempoCrescimento, intervaloTiro);
-
-
-        timerMove = 0f;
-        movendo = true;
     }
     IEnumerator MudarCorAlerta(bool alertar)
     {
@@ -342,6 +339,7 @@ public class InimigoLaser : MonoBehaviour
             Destroy(laserAtual);
         }
         CancelInvoke();
+        Instantiate(Explosao, transform.position, transform.rotation);
         gameObject.SetActive(false);
         Invoke(nameof(Destruir), tempoMorte);
     }

@@ -60,6 +60,12 @@ public class BossAtaqueController : MonoBehaviour
 
     void Start()
     {
+        Invoke("AcharPlayer", 3f);
+    }
+
+    void AcharPlayer()
+    {
+
         // Encontra o Player. IMPORTANTE: Garanta que h APENAS UM objeto com esta tag.
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)

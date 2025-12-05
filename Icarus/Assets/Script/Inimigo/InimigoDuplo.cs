@@ -20,6 +20,7 @@ public class InimigoDuplo : MonoBehaviour
     [Header("Status")]
     [SerializeField] private float vidaMax = 3f; // Vida máxima
     private float vidaAtual;
+    [SerializeField] GameObject Explosao;
 
     bool movendo = true;
     float InimigoFireTimer = 1;
@@ -34,7 +35,8 @@ public class InimigoDuplo : MonoBehaviour
 
     private Color[] originalColors;
     private Transform player; // Posicão do Player
-    
+    private TimeBody timeBody;
+
 
     void Awake()
     {
@@ -154,6 +156,35 @@ public class InimigoDuplo : MonoBehaviour
         }
     }
 
+
+    public void OnRewindStart()
+    {
+
+        CancelInvoke("Atirar");
+    }
+
+    public void OnRewindStop()
+    {
+
+        InvokeRepeating("Atirar", InimigoFireTimer, ShotFrequency);
+
+
+        timerMove = 0f;
+        movendo = true;
+    }
+
+
+    IEnumerator RewindSolution()
+    {
+        OnRewindStart();
+
+
+
+        yield return new WaitUntil(() => timeBody.isRewinding == false);
+
+        OnRewindStop();
+
+    }
     void Destruir() //Apaga o inimigo da cena
     {
         Destroy(gameObject);
@@ -164,6 +195,7 @@ public class InimigoDuplo : MonoBehaviour
         GameManager.Mestre.AlterarPontos(100);
         CancelInvoke();
         InimigoSpawnSequence.AddWavePoints();
+        Instantiate(Explosao, transform.position, transform.rotation);
         gameObject.SetActive(false);
         Invoke("Destruir", 6f);
     }

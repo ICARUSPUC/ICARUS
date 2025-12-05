@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e630d3942adfcf146b3f9270dfe21a59, type: 3}
+  m_Name: AntesBoss
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: {fileID: 11400000, guid: f1cf606baec242742a5ce92875d12bba, type: 2}
+    line: "Qual\xE9 essa foi facil!!!"
+  - speaker: {fileID: 11400000, guid: f1cf606baec242742a5ce92875d12bba, type: 2}
+    line: "\xC9 s\xF3 isso?? Manda Mais!!"
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: Senhorita estou identificando sinais estranhos em formato humanoide. Tome
+      cuidado
+  - speaker: {fileID: 11400000, guid: 24aa5b79cf7e375449eae35071df5245, type: 2}
+    line: "Relaxaaa M.I.R.A, n\xE3o \xE9 como se fosse aparecer um gigante ou algo
+      do tipo."

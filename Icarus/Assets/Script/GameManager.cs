@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
 
         // Tenta pegar SpawnPoint da cena inicial (caso exista)
         EncontrarSpawnPoint();
+        chronospontos = 25f;
     }
     private void Start()
     {

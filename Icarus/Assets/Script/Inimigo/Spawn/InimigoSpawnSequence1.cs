@@ -29,20 +29,23 @@ public class InimigoSpawnSequenceTutorial : MonoBehaviour
     public GameManager gameManager;
     public TimeManager Zawarudo;
     public TimeBody Dio;
-    public static float WavePointsTutorial = 0f;
+
+    [Header("Dialogo após completar a wave")]
+    public DialogueSequence Dialogue;
 
 
     private int enemiesToSpawnCount = 0;
     private int currentWaveEnemyCount = 0;
 
-    private bool spawning = false; // impede sobreposicao de spawn
+    public bool Tutorialspawning = false; // impede sobreposicao de spawn
     
+   
 
     void Start()
     {
         if (gameManager == null)
             gameManager = GameManager.Mestre;
-        WavePointsTutorial = 0;
+        InimigoSpawnSequence.WavePoints = 0;
 
         // Decide qual tipo de sequencia usar
         if (waves != null && waves.Length > 0)
@@ -54,7 +57,7 @@ public class InimigoSpawnSequenceTutorial : MonoBehaviour
     // Modo simples: apenas spawnList
     IEnumerator SpawnSequenceRoutine()
     {
-        spawning = true;
+        Tutorialspawning = true;
 
         foreach (var spawn in spawnList)
         {
@@ -66,32 +69,40 @@ public class InimigoSpawnSequenceTutorial : MonoBehaviour
             }
         }
 
-        spawning = false;
+        Tutorialspawning = false;
         Debug.Log("Sequ�ncia simples conclu�da!");
     }
 
     // Modo com waves organizadas
     IEnumerator SpawnWavesRoutine()
     {
-        spawning = true;
+        Tutorialspawning = true;
 
         foreach (var wave in waves)
         {
             currentWaveEnemyCount = wave.enemies.Length;
-            WavePointsTutorial = 0;
+            InimigoSpawnSequence.WavePoints = 0;
             enemiesToSpawnCount = 0;
-
+            yield return new WaitForSeconds(0.01f);    
             StartCoroutine(SpawnEnemiesInWave(wave));
             Debug.Log($"Iniciando wave: {wave.waveName}");
+            Debug.Log($"Wave {wave.waveName} - Esperando {currentWaveEnemyCount} kills."); // LOG 1
+            yield return new WaitUntil(() => InimigoSpawnSequence.WavePoints >= currentWaveEnemyCount);
+            Debug.Log($"Wave {wave.waveName} CONCLUÍDA! Avançando."); // LOG 2
 
-            yield return new WaitUntil(() => WavePointsTutorial >= currentWaveEnemyCount);
-
-           
 
             yield return new WaitForSeconds(wave.delayAfterWave);
         }
 
-        spawning = false;
+
+        
+        
+        if (Dialogue != null)
+        {
+            DialogueManager.Instance.StartDialogue(Dialogue);
+        }
+        Tutorialspawning = false;
+        InimigoSpawnSequence.WavePoints = 0;
         Debug.Log("Todas as waves foram conclu�das!");
     }
     IEnumerator SpawnEnemiesInWave(WaveData wave)
@@ -108,16 +119,9 @@ public class InimigoSpawnSequenceTutorial : MonoBehaviour
         }
     }
 
-    // Chamar em todos os inimigos derrotados
-    public static void AddWavePointsTutorial()
-    {
-        WavePointsTutorial++;
-        Debug.Log($"Inimigo derrotado. Pontos da Wave: {WavePointsTutorial}");
-    }
-
     public void IniciarSequencia()
     {
-        if (!spawning)
+        if (!Tutorialspawning)
         {
             if (waves != null && waves.Length > 0)
                 StartCoroutine(SpawnWavesRoutine());

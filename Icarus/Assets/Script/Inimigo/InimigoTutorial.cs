@@ -132,7 +132,6 @@ public class InimigoTutorial : MonoBehaviour
         DialogueManager.Instance.StartDialogue(dialogo);
         GameManager.Mestre.AlterarPontos(0);
         GameManager.Mestre.AlterarChronosPontos(0);
-        InimigoSpawnSequenceTutorial.AddWavePointsTutorial();
         CancelInvoke();
         gameObject.SetActive(false);
         Invoke("Destruir", 6f);

@@ -81,23 +81,6 @@ public class BalaEnemy : MonoBehaviour
             return; // Destruiu o jogador, saia
         }
 
-        // Otimização da lógica de dano: usa Tag e destrói
-        if (other.CompareTag("Inimigo"))
-        {
-            other.GetComponent<Inimigo>()?.LevarDano(1);
-            DestruirBala();
-        }
-        else if (other.CompareTag("InimigoMelee"))
-        {
-            other.GetComponent<InimigoMelee>()?.LevarDano(1);
-            DestruirBala();
-        }
-        else if (other.CompareTag("InimigoLaser"))
-        {
-            other.GetComponent<InimigoLaser>()?.LevarDano(1);
-            DestruirBala();
-        }
-
     }
 
     // =========================================================================

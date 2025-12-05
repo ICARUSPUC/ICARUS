@@ -34,6 +34,7 @@ public class Inimigo : MonoBehaviour
     [SerializeField] private float flashDuration = 0.1f;
 
     private Color[] originalColors;
+    private TimeBody timeBody;
 
     public DialogueSequence dialogo;
     void Awake()
@@ -63,6 +64,23 @@ public class Inimigo : MonoBehaviour
         vidaAtual = vidaMax;
 
     }
+    void FixedUpdate()
+    {
+
+        if (timeBody != null && timeBody.isRewinding)
+        {
+            RewindSolution();
+        }
+
+        if (movendo)
+        {
+            MovimentacaoInimigo();
+            timerMove += Time.deltaTime;
+
+            if (timerMove >= tempoMovimento)
+                movendo = false;
+        }
+    }
 
     private void Update()
     {
@@ -83,7 +101,30 @@ public class Inimigo : MonoBehaviour
 
     }
 
+    public void OnRewindStart()
+    {
 
+        CancelInvoke("Atirar");
+    }
+
+    public void OnRewindStop()
+    {
+
+        InvokeRepeating("Atirar", InimigoFireTimer, ShotFrequency);
+    }
+
+
+    IEnumerator RewindSolution()
+    {
+        OnRewindStart();
+
+
+
+        yield return new WaitUntil(() => timeBody.isRewinding == false);
+
+        OnRewindStop();
+
+    }
     public void LevarDano(float dano)
     {
         vidaAtual -= dano;
@@ -155,7 +196,7 @@ public class Inimigo : MonoBehaviour
         Vector3 movimento = Vector3.left * speedInimigo * Time.fixedDeltaTime;
         Vector3 Limite = rbEnemy.position + movimento;
         Limite.z = Mathf.Clamp(Limite.z, -13.5f, 6f);
-        Limite.x = Mathf.Clamp(Limite.x, -22f, 22f);
+        Limite.x = Mathf.Clamp(Limite.x, -22f, 40f);
         rbEnemy.MovePosition(Limite);
     }
 }    
