@@ -114,8 +114,8 @@ private bool girando = false;
 
     Quaternion alvoRotacao = Quaternion.Euler(
         transform.eulerAngles.x,
-        transform.eulerAngles.y,
-        transform.eulerAngles.z + anguloGiro
+        transform.eulerAngles.y + anguloGiro,
+        transform.eulerAngles.z 
     );
 
     float t = 0f;

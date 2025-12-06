@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 2724944458408809450}
   - component: {fileID: 8910432738222074990}
   - component: {fileID: 1034191734169113285}
+  - component: {fileID: -2467149773114960144}
   m_Layer: 0
   m_Name: ChaserBalles
   m_TagString: ChaserBall
@@ -282,3 +283,17 @@ MonoBehaviour:
   - {fileID: 8982201372161305295}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
+--- !u!114 &-2467149773114960144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7800748891444947686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beffbef7a27e4304b80a978113944c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recordTime: 4
+  isRewinding: 0

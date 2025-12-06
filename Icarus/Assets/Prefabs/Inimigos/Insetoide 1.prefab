@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2259893686049050413}
   - component: {fileID: 1122892430849586278}
   - component: {fileID: 1507728281688637493}
+  - component: {fileID: 6701730560103049053}
   m_Layer: 0
   m_Name: Insetoide 1
   m_TagString: Insetoide
@@ -30,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 4062872788540598043}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.2, y: 0, z: 4.4287195}
-  m_LocalScale: {x: 3.3369339, y: 2.1751237, z: 3.278955}
+  m_LocalPosition: {x: 6.2876, y: 0, z: 4.4388}
+  m_LocalScale: {x: 4.6937313, y: 3.059529, z: 4.612178}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7120990378402790978}
@@ -159,13 +160,27 @@ MonoBehaviour:
   tempoMovimento: 7
   limiteEsquerda: -10
   limiteDireita: 10
-  vidaMax: 3
+  vidaMax: 2
   Explosao: {fileID: 653595100544672456, guid: 496d83af2d85dd94b9f0d41c03dcf79f, type: 3}
   GameManager: {fileID: 6641579684027775142, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
   renderers:
   - {fileID: 4796612255845094736}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
+--- !u!114 &6701730560103049053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4062872788540598043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beffbef7a27e4304b80a978113944c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recordTime: 4
+  isRewinding: 0
 --- !u!1 &5456017217576405413
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,8 +239,8 @@ Transform:
   m_GameObject: {fileID: 7091322858801563710}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.081601135, y: -1.1452388, z: 0.03209332}
-  m_LocalScale: {x: 0.41016728, y: 0.6292521, z: 0.41741988}
+  m_LocalPosition: {x: -0.076027, y: -0.76948, z: 0.015009}
+  m_LocalScale: {x: 0.27602616, y: 0.42346147, z: 0.2809069}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5417951879401449124}

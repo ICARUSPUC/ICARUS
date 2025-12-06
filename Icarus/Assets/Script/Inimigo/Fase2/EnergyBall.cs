@@ -51,4 +51,16 @@ public class EnergyBall : MonoBehaviour
         turnSpeed = 0f;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Player playerScript = other.GetComponent<Player>();
+
+        if (other.CompareTag("Player") && other.GetComponent<Player>().Modo == true)
+        {
+            // mata o jogador
+            playerScript.StartCoroutine(playerScript.Derrota());
+            // O laser deve ser destruído ao atingir o jogador para evitar dano contínuo
+            Destroy(gameObject, 1f);
+        }
+    }
 }

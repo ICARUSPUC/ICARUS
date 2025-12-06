@@ -135,8 +135,11 @@ public class ChaserBall : MonoBehaviour
     void Morrer() // Desativa e depois de um tempo deleta o inimigo
     {
 
-        GameManager.Mestre.AlterarPontos(100);
-        GameManager.Mestre.AlterarChronosPontos(5);
+        
+        if (GameManager != null && GameManager.Mestre != null)
+            GameManager.Mestre.AlterarPontos(75);
+            GameManager.Mestre.AlterarChronosPontos(5);
+        InimigoSpawnSequence.AddWavePoints();
         Instantiate(Explosao, transform.position, transform.rotation);
         CancelInvoke();
         gameObject.SetActive(false);

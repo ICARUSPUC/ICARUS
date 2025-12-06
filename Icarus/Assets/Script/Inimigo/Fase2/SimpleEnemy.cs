@@ -80,18 +80,9 @@ public class SimpleEnemy : MonoBehaviour
     {
 
 
-        {
-            if (movendo)
-            {
-                MovimentacaoInimigo();
-                timerMove += Time.fixedDeltaTime;
-
-                if (timerMove >= tempoMovimento)
-                {
-                    movendo = false; // para o inimigo
-                }
-            }
-        }
+           MovimentacaoInimigo();
+                
+        
 
     }
 

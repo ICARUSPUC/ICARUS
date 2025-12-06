@@ -33,7 +33,7 @@ Material:
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
-  m_LockedProperties: 
+  m_LockedProperties: _ColorA
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -115,7 +115,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 1
     - _OcclusionStrength: 1
-    - _Opacity: 0.31
+    - _Opacity: 0.988
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -132,8 +132,8 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 0, b: 0.78594255, a: 1}
     - _Color: {r: 1, g: 0, b: 0.78594255, a: 1}
-    - _ColorA: {r: 1, g: 0.00941272, b: 0, a: 0}
-    - _ColorB: {r: 0.754717, g: 0.046279836, b: 0.33788854, a: 0}
+    - _ColorA: {r: 0.6901961, g: 0.06666665, b: 0.5318433, a: 0}
+    - _ColorB: {r: 0.48879254, g: 0.06666665, b: 0.6901961, a: 0}
     - _EmissionColor: {r: 0.7075472, g: 0.010012442, b: 0.010012442, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []

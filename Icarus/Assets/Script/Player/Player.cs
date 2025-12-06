@@ -155,6 +155,19 @@ public class Player : MonoBehaviour
                 case "TiroInimigo": // Adicionado o tratamento para projéteis inimigos
                     Destroy(other.gameObject);
                     break;
+                case "AngelProbe": // Adicionado o tratamento para projéteis inimigos
+                    Destroy(other.gameObject);
+                    break;
+                case "ChaserBall": // Adicionado o tratamento para projéteis inimigos
+                    Destroy(other.gameObject);
+                    break;
+                case "EnergyOrb": // Adicionado o tratamento para projéteis inimigos
+                    Destroy(other.gameObject);
+                    break;
+                case "SimpleEnemy": // Adicionado o tratamento para projéteis inimigos
+                    Destroy(other.gameObject);
+                    break;
+
             }
         }
     }

@@ -62,6 +62,7 @@ public class EnergyOrb : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         vidaAtual = vidaMax;
+        Invoke("Atirar",2);
     }
 
     
@@ -113,6 +114,15 @@ public class EnergyOrb : MonoBehaviour
         }
     }
 
+    void Atirar()
+    {
+        GameObject orb = Instantiate(
+                energyBallPrefab,
+                spawnPoint.position,
+                spawnPoint.rotation
+            );
+    }
+
    
     public void LevarDano(float dano)
     {
@@ -157,6 +167,7 @@ public class EnergyOrb : MonoBehaviour
         GameManager.Mestre.AlterarPontos(80);      
         GameManager.Mestre.AlterarChronosPontos(8);
         Instantiate(Explosao, transform.position, transform.rotation);
+        CancelInvoke();
         gameObject.SetActive(false);
         Invoke(nameof(Destruir), 5f);
     }

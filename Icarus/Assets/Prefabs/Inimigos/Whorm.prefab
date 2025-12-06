@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6420269433642238459}
   - component: {fileID: 2699951022131126867}
   - component: {fileID: 4834359494251318616}
+  - component: {fileID: 460757667500469826}
   m_Layer: 0
   m_Name: Whorm
   m_TagString: Whorm
@@ -28,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 1091650205531605514}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.290348, y: 5.1554465, z: -2.140088}
-  m_LocalScale: {x: 0.48626, y: 1, z: 0.45007336}
+  m_LocalPosition: {x: 18.769, y: 5.9939, z: -1.9339}
+  m_LocalScale: {x: 0.76224756, y: 1.4275312, z: 0.34520546}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6674020679064239476}
@@ -102,12 +103,26 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 12.304678, y: 11.355852, z: 6.9337997}
   m_Center: {x: 1.1187754, y: -2.2282264, z: 1.207715}
+--- !u!114 &460757667500469826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091650205531605514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beffbef7a27e4304b80a978113944c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recordTime: 4
+  isRewinding: 0
 --- !u!1 &6288798614205557508
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,8 +150,8 @@ Transform:
   m_GameObject: {fileID: 6288798614205557508}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 5.4, y: -3.75, z: 0.54}
-  m_LocalScale: {x: 231.81558, y: 100, z: 178.01346}
+  m_LocalPosition: {x: 5.3821, y: -4.85, z: -0.75527}
+  m_LocalScale: {x: 442.2223, y: 115.91, z: 206.3354}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3117782882866827603}
