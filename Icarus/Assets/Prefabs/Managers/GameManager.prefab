@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7701591345840261749}
   - component: {fileID: 6641579684027775142}
-  - component: {fileID: 3803613914517548884}
+  - component: {fileID: 7712756824169822564}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -47,14 +47,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempo: 0.25
   Pontos: 0
+  chronospontos: 25
   inimigoPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
   SpawnPoint: {fileID: 0}
-  PrimeiraWave:
-  - {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
-  - {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
-  - {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
-  - {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
---- !u!114 &3803613914517548884
+  Wave: []
+  SpawnInterval: 1.5
+  TimeManager: {fileID: 6518356496987133636, guid: a962b801db69cd140824a6a90ef8960c, type: 3}
+  SceneManger: {fileID: 0}
+  Player: {fileID: 0}
+--- !u!114 &7712756824169822564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,10 +64,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4029494991377341830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85fa4fe2c592ea348bc0961253fd09fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 8686ae8f30c101540a6bd927060f9728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpPrefab: {fileID: 0}
-  areaMin: {x: -20, y: 0, z: -10}
-  areaMax: {x: 20, y: 0, z: 10}
-  tempoSpawn: 40
+  Cursorimg: {fileID: 2800000, guid: 3c150d5d82712434d97437cba6bdd8e2, type: 3}
+  hotSpot: {x: 0, y: 0}

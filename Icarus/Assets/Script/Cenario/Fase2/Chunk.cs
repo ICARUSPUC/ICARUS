@@ -5,17 +5,25 @@ public class Chunk : MonoBehaviour
 {
     
     public float speed = 10f;
-    public float destroyX = -1000f; // Quando passar dessa posição X, destrói
-
+    public float destroyX = -1000f; // Quando passar dessa posiï¿½ï¿½o X, destrï¿½i
     void Update()
     {
         // Move no eixo X positivo
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
-
         // Se passou do limite, destruir
         if (transform.position.x <= destroyX)
         {
             Destroy(this.gameObject);
         }
+
+        if (ChunkBackground.Fundo.MoverCenario == false)
+        {
+            return;
+        
+
+        }
+
+        transform.Translate(Vector3.left * speed * Time.deltaTime);
+
+
     }
 }

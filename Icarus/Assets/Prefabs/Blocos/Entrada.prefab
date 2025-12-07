@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1144476194519638598}
   - component: {fileID: 7731837622194940723}
   - component: {fileID: 5329000020445530122}
+  - component: {fileID: 3797922434242163035}
   m_Layer: 0
   m_Name: Entrada
   m_TagString: Untagged
@@ -150,7 +151,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beffbef7a27e4304b80a978113944c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isrewinding: 0
+  recordTime: 5
+  isRewinding: 0
+--- !u!114 &3797922434242163035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6888325798994783726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93574aed3a075f48990bd37bf4725e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: -100
+  stopX: 267
+  MoverCenario: 0
 --- !u!1001 &3856546602255781
 PrefabInstance:
   m_ObjectHideFlags: 0

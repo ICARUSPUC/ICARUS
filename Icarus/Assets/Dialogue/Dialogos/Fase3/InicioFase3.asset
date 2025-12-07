@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e630d3942adfcf146b3f9270dfe21a59, type: 3}
+  m_Name: InicioFase3
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: {fileID: 11400000, guid: 24aa5b79cf7e375449eae35071df5245, type: 2}
+    line: "\xC9 isso M.I.R.A, a gente finalmente chegou, agora \xE9 s\xF3 destruir
+      o n\xFAcleo e ir embora"
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: Contigo sempre senhorita
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: "Minhas Leituras apontam que o n\xFAcleo est\xE1 al\xE9m desta fabrica"
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: Provavelmente algum tipo de parasita se encontra por aqui
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: "Ele adoece o planeta enquanto continua se usufruindo da produ\xE7\xE3o
+      de cristais em massa"
+  - speaker: {fileID: 11400000, guid: c309040fa628d73409e283070ca6545a, type: 2}
+    line: "Parasitas espaciais... o pior tipo de ra\xE7a"
+  - speaker: {fileID: 11400000, guid: c309040fa628d73409e283070ca6545a, type: 2}
+    line: Que nojo...

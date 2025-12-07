@@ -16,7 +16,6 @@ public class SceneManger : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         SceneManager.activeSceneChanged += OnSceneChanged;
     }
 

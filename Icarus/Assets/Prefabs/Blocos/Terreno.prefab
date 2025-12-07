@@ -158,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   destroyX: -1000
+  backgroundp: {fileID: 0}
 --- !u!114 &7826485919661166765
 MonoBehaviour:
   m_ObjectHideFlags: 0

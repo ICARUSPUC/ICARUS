@@ -507,6 +507,8 @@ public class Player : MonoBehaviour
             
             StartCoroutine(nameof(ContagemRegressivaTeleporte));
         }
+        yield return new WaitForSecondsRealtime(1.5f);
+        TimeManager.isbullettime = false;
 
     }
     // COROUTINE: Conta o tempo e executa o teleporte de emergência
@@ -529,6 +531,7 @@ public class Player : MonoBehaviour
 
             {
                 TimeManager?.VoltaroTempoaoNormal();
+                TimeManager.isbullettime = false;
                 yield return null;
             }
             
