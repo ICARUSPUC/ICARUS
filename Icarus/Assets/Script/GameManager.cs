@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float tempo = 0.25f;
 
     public int Pontos = 0;
-    public float chronospontos = 25f;
+    public int chronospontos = 25;
 
     [SerializeField] GameObject inimigoPrefab;
     [SerializeField] GameObject SpawnPoint;
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        chronospontos = 25f;
+        chronospontos = 25;
     }
     private void Start()
     {
@@ -89,11 +89,11 @@ public class GameManager : MonoBehaviour
         Pontos += pontos;
     }
 
-    public void AlterarChronosPontos(float pontos)
+    public void AlterarChronosPontos(int pontos)
     {
         chronospontos += pontos;
 
-        chronospontos = Mathf.Clamp(chronospontos, 0f, 100f);
+        chronospontos = Mathf.Clamp(chronospontos, 0, 100);
     }
 
  

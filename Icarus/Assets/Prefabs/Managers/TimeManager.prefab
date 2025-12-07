@@ -45,4 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowdownFactor: 0.009
-  slowdownHowlong: 2
+  slowdownHowlong: 3
+  slowdownHoldDuration: 1
+  isbullettime: 0
+  ChronoslowdownFactor: 0.05
+  ChronoslowdownHowlong: 1
+  ChronoslowdownHoldDuration: 0

@@ -1033,7 +1033,7 @@ MonoBehaviour:
   speedPrincipal: 10
   MaxtiltAngle: 20
   tiltspeed: 6
-  pontosPraFormarapida: 5
+  pontosPraFormarapida: 25
   speedRapida: 25
   TempoLimiteModoRapido: 4
   transicaoDeltaTime: 1

@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     public static float CurrentHorizontalInput;
 
     [Header("Movimento Rápido")]
-    [SerializeField] float pontosPraFormarapida = 25f;
+    [SerializeField] int pontosPraFormarapida = 25;
     [SerializeField] float speedRapida = 6f;
     [SerializeField] float TempoLimiteModoRapido = 3f; // Tempo máximo no Modo Rápido
     [SerializeField] float transicaoDeltaTime = 0.5f;

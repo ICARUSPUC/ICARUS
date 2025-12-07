@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5789870072051198552
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25,9 +25,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4169115815105348704}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.66875, y: 1.66875, z: 1.66875}
+  m_LocalScale: {x: 1.6687499, y: 1.6687499, z: 1.6687499}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicaFundo: {fileID: 7501898783187706389}
-  TimeManager: {fileID: 6518356496987133636, guid: a962b801db69cd140824a6a90ef8960c, type: 3}
-  player: {fileID: 1378180480481076438, guid: 736836d3352814a4c8960b4b2581af54, type: 3}
-  boss: {fileID: 0}
+  TimeManager: {fileID: 0}
+  player: {fileID: 0}
+  boss: {fileID: 1411989363060565690, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
   pitchChangeSpeed: 10

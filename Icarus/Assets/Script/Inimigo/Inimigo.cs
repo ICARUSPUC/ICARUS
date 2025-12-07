@@ -128,6 +128,7 @@ public class Inimigo : MonoBehaviour
     public void LevarDano(float dano)
     {
         vidaAtual -= dano;
+
         StartCoroutine(DanoVisual());
         Debug.Log($"{name} levou {dano} de dano. Vida atual: {vidaAtual}/{vidaMax}");
         if (vidaAtual <= 0f) Morrer();
