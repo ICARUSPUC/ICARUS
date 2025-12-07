@@ -14,7 +14,7 @@ public class MachineEnemyFast : MonoBehaviour
     private const string bulletTag = "EnemyFast"; 
 
     [Header("Anima��o")]
-    public Animator anim;
+    
     private bool girando = false;
 
     [Header("Status")]

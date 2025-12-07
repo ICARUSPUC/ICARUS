@@ -104,6 +104,15 @@ public class Bala : MonoBehaviour
             other.GetComponent<SimpleEnemy>().LevarDano(1);
             Destroy(gameObject);
         }
+        else if (other.CompareTag("Boss3"))
+        {
+            Boss3 boss3 = other.GetComponentInParent<Boss3>(); // Aqui � o dano no boss
+            if (boss3 != null)
+            {
+                boss3.TomarDano(dano);
+            }
+            Destroy(gameObject);
+        }
 
 
     }

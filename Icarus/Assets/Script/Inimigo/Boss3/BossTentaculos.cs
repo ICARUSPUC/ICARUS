@@ -12,7 +12,7 @@ public class BossTentaculos : MonoBehaviour
     public float tempoDescer = 0.4f;
     public float anguloAtivo = 180f;
 
-    public Animator animator;
+   
 
     private bool animando = false;
 
