@@ -29,20 +29,7 @@ public class GameManager : MonoBehaviour
     public Player Player;
 
     float SpawnTimer = 0;
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded; // Atualiza SpawnPoint ao carregar cena
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        EncontrarSpawnPoint();
-    }
+ 
     void ChronosPontos()
     {
         if (chronospontos >= 100)
@@ -64,13 +51,10 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        // Tenta pegar SpawnPoint da cena inicial (caso exista)
-        EncontrarSpawnPoint();
         chronospontos = 25f;
     }
     private void Start()
     {
-        //InvokeRepeating("SpawnWave", 1f, 8f); //invoca as waves repetidamente SiSTEMA ANTIGO DE WAVE
         Pontos = 0;
     }
 
@@ -80,7 +64,7 @@ public class GameManager : MonoBehaviour
         Zawarudo();
         ChronosPontos();
       
-        if (Input.GetKeyDown(KeyCode.L)) // mostra seus pontos
+        if (Input.GetKeyDown(KeyCode.L)) 
         {
             Debug.Log($"Seus pontos sao: {Pontos}");
         }
@@ -90,20 +74,6 @@ public class GameManager : MonoBehaviour
             CancelInvoke();
         }
     }
-
-    void EncontrarSpawnPoint() // Acha o SpawnPoint Do inimigo
-    {
-        if (SpawnPoint == null)
-        {
-            SpawnPoint = GameObject.FindWithTag("SpawnPoint");
-
-            if (SpawnPoint != null)
-            {
-                DontDestroyOnLoad(SpawnPoint);
-            }
-        }
-    }
-
     void Zawarudo() //pausa o tempo
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -126,27 +96,10 @@ public class GameManager : MonoBehaviour
         chronospontos = Mathf.Clamp(chronospontos, 0f, 100f);
     }
 
-    void SpawnInimigos ()
-    {
-        EncontrarSpawnPoint(); // garante que o SpawnPoint está definido
-
-        if (SpawnPoint == null) return;
-
-        SpawnTimer += Time.deltaTime;
-        if (SpawnTimer > SpawnInterval)
-        {
-            SpawnPosition = new Vector3(
-                SpawnPoint.transform.position.x,
-                SpawnPoint.transform.position.y,
-                Random.Range(-12, 5)
-                );
-            Instantiate(inimigoPrefab, SpawnPosition, SpawnPoint.transform.rotation);
-            SpawnTimer = 0f;
-        }
+ 
     }
 
 
 
 
 
-}

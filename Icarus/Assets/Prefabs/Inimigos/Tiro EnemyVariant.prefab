@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1157566993752303406}
   - component: {fileID: -7684649401819626606}
   - component: {fileID: 3555846727393547906}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tiro EnemyVariant
   m_TagString: TIroEnemy
   m_Icon: {fileID: 0}

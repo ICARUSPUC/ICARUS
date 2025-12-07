@@ -46,79 +46,295 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnList: []
   waves:
-  - waveName: Boss
-    enemies:
-    - enemyPrefab: {fileID: 721043012140272846, guid: 92d1bfe9cd629194e9be5b59f1d0eac3, type: 3}
-      position: {x: 0, y: 0, z: -4}
-      delay: 0
-    delayAfterWave: 15
   - waveName: First Wave
     enemies:
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 3.5, z: 0.36}
+      delay: 3
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 3.5, z: -4.48}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 3.5, z: -9.42}
+      delay: 0
+    delayAfterWave: 0.1
+  - waveName: Inimigo Wave
+    enemies:
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 3.5, z: 4.15}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 3.5, z: -4.48}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 6, z: 0.36}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 6, z: -9.42}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 3.5, z: -12.38}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 3.5, z: 0.36}
+      delay: 3
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 3.5, z: -9.42}
+      delay: 3
+    delayAfterWave: 0.1
+  - waveName: Duple E Laser
+    enemies:
     - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
-      position: {x: 12, y: 3.5, z: 0}
+      position: {x: 13, y: 4, z: -9}
+      delay: 0
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+      position: {x: 13, y: 4, z: -3}
+      delay: 0
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+      position: {x: 13, y: 4, z: 3}
       delay: 0
     - enemyPrefab: {fileID: 2416775903353144361, guid: b6d321c7ceaba5e4a9947a75956e50c9, type: 3}
-      position: {x: 12, y: 3.5, z: -3}
-      delay: 1
+      position: {x: 13, y: 4, z: -6}
+      delay: 0
     - enemyPrefab: {fileID: 2416775903353144361, guid: b6d321c7ceaba5e4a9947a75956e50c9, type: 3}
-      position: {x: 12, y: 3.5, z: -5}
+      position: {x: 13, y: 4, z: 0}
+      delay: 0
+    delayAfterWave: 0.1
+  - waveName: Inimigo Wave2
+    enemies:
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 3.5, z: 4.15}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 3.5, z: -4.48}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 6, z: 0.36}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 6, z: -9.42}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 3.5, z: -12.38}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 3.5, z: 0.36}
+      delay: 1.3
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 3.5, z: -9.42}
+      delay: 0
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+      position: {x: 20, y: 6.32, z: -2.53}
+      delay: 0.3
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+      position: {x: 20, y: 6.32, z: -6.16}
+      delay: 0
+    delayAfterWave: 0.1
+  - waveName: Drill E Meele (Easy)
+    enemies:
+    - enemyPrefab: {fileID: 2388208720466039904, guid: 7661d0555e7b1ea479de55e825a7cd75, type: 3}
+      position: {x: 13, y: 6, z: 6.72}
+      delay: 0
+    - enemyPrefab: {fileID: 2388208720466039904, guid: 7661d0555e7b1ea479de55e825a7cd75, type: 3}
+      position: {x: 13, y: 6, z: 1.63}
+      delay: 0
+    - enemyPrefab: {fileID: 2388208720466039904, guid: 7661d0555e7b1ea479de55e825a7cd75, type: 3}
+      position: {x: 13, y: 6, z: -3.44}
+      delay: 0
+    - enemyPrefab: {fileID: 2388208720466039904, guid: 7661d0555e7b1ea479de55e825a7cd75, type: 3}
+      position: {x: 13, y: 6, z: -8.3}
+      delay: 0
+    - enemyPrefab: {fileID: 2388208720466039904, guid: 7661d0555e7b1ea479de55e825a7cd75, type: 3}
+      position: {x: 13, y: 6, z: -12.97}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 3, z: 6.72}
+      delay: 2
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 3, z: 1.63}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 3, z: -3.44}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 3, z: -8.3}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 3, z: -12.97}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: 1.63}
       delay: 1.5
-    delayAfterWave: 3
-  - waveName: Second Wave
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: -3.44}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: -8.3}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: -12.97}
+      delay: 0
+    delayAfterWave: 0.1
+  - waveName: Drill E Meele (Hard)
     enemies:
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -9}
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 36, y: 6, z: -9.42}
       delay: 0
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -3}
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 36, y: 6, z: -4.48}
       delay: 0
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: 3}
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 36, y: 6, z: -14}
       delay: 0
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -6}
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 36, y: 6, z: 0.36}
       delay: 0
-    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -3}
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 36, y: 6, z: -6}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 36, y: 6, z: -2}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 36, y: 6, z: 2}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 36, y: 6, z: 4}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 36, y: 6, z: -12.97}
+      delay: 0
+    - enemyPrefab: {fileID: 2388208720466039904, guid: 7661d0555e7b1ea479de55e825a7cd75, type: 3}
+      position: {x: 13, y: 6, z: 6.72}
       delay: 1
+    - enemyPrefab: {fileID: 2388208720466039904, guid: 7661d0555e7b1ea479de55e825a7cd75, type: 3}
+      position: {x: 13, y: 6, z: 1.63}
+      delay: 0
+    - enemyPrefab: {fileID: 2388208720466039904, guid: 7661d0555e7b1ea479de55e825a7cd75, type: 3}
+      position: {x: 13, y: 6, z: -3.44}
+      delay: 0
+    - enemyPrefab: {fileID: 2388208720466039904, guid: 7661d0555e7b1ea479de55e825a7cd75, type: 3}
+      position: {x: 13, y: 6, z: -8.3}
+      delay: 0
+    - enemyPrefab: {fileID: 2388208720466039904, guid: 7661d0555e7b1ea479de55e825a7cd75, type: 3}
+      position: {x: 13, y: 6, z: -12.97}
+      delay: 0
     - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 3, z: 6.72}
+      delay: 2
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 3, z: 1.63}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 3, z: -3.44}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 3, z: -8.3}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 3, z: -12.97}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: 1.63}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: -3.44}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: -8.3}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 6, z: -12.97}
+      delay: 0
+    delayAfterWave: 0.1
+  - waveName: Duple E Laser2
+    enemies:
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+      position: {x: 13, y: 4, z: -9}
+      delay: 0
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+      position: {x: 13, y: 4, z: -3}
+      delay: 0
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+      position: {x: 13, y: 4, z: 3}
+      delay: 0
+    - enemyPrefab: {fileID: 2416775903353144361, guid: b6d321c7ceaba5e4a9947a75956e50c9, type: 3}
+      position: {x: 13, y: 4, z: -6}
+      delay: 0.5
+    - enemyPrefab: {fileID: 2416775903353144361, guid: b6d321c7ceaba5e4a9947a75956e50c9, type: 3}
+      position: {x: 13, y: 4, z: 0}
+      delay: 0
+    - enemyPrefab: {fileID: 2416775903353144361, guid: b6d321c7ceaba5e4a9947a75956e50c9, type: 3}
+      position: {x: 13, y: 7, z: -6}
+      delay: 0
+    - enemyPrefab: {fileID: 2416775903353144361, guid: b6d321c7ceaba5e4a9947a75956e50c9, type: 3}
+      position: {x: 13, y: 7, z: 0}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 7, z: -3}
+      delay: 0
+    delayAfterWave: 0.1
+  - waveName: MegaWave
+    enemies:
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 30, y: 4.5, z: 6}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 30, y: 4.5, z: 4.14}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 30, y: 4.5, z: 2.08}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 30, y: 4.5, z: 0.11}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 30, y: 4.5, z: -1.92}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 30, y: 4.5, z: -4.95}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 30, y: 4.5, z: -7.27}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 30, y: 4.5, z: -9.704807}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 30, y: 4.5, z: -12.07759}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 30, y: 4.5, z: -14.35}
+      delay: 0
+    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
+      position: {x: 13, y: 6.51, z: -3.55}
+      delay: 0
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
+      position: {x: 13, y: 6, z: -8}
+      delay: 1
+    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
       position: {x: 13, y: 6, z: 1}
-      delay: 1
-    delayAfterWave: 5
-  - waveName: Third Wave
-    enemies:
-    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
-      position: {x: 13, y: 6, z: -9}
-      delay: 0
-    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
-      position: {x: 13, y: 6, z: -3}
-      delay: 1
-    - enemyPrefab: {fileID: 4124394402925275042, guid: c78948e77355d0f4ab90566bc40c0295, type: 3}
-      position: {x: 13, y: 6, z: 3}
-      delay: 0
-    delayAfterWave: 7
-  - waveName: Fourth Wave
-    enemies:
-    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
-      position: {x: 13, y: 6, z: -9}
       delay: 0
     - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
-      position: {x: 13, y: 6, z: -3}
-      delay: 0
-    - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
-      position: {x: 13, y: 6, z: 3}
+      position: {x: 13, y: 6, z: -12}
       delay: 0
     - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -6}
-      delay: 1
+      position: {x: 12, y: 1.5, z: 5}
+      delay: 3
     - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: 0}
-      delay: 1
+      position: {x: 12, y: 1.5, z: 0}
+      delay: 0
     - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: 6}
-      delay: 1
-    delayAfterWave: 10
-  - waveName: Fifth Wave
+      position: {x: 12, y: 1.5, z: -4}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 12, y: 1.5, z: -9}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 12, y: 1.5, z: -14}
+      delay: 0
+    delayAfterWave: 0.1
+  - waveName: ComboWave
     enemies:
     - enemyPrefab: {fileID: 7552061719777853261, guid: 3eb52d3c663822c44920ac329ebc5310, type: 3}
       position: {x: 13, y: 6, z: -12}
@@ -130,15 +346,38 @@ MonoBehaviour:
       position: {x: 13, y: 6, z: 1}
       delay: 0
     - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -4}
-      delay: 1
+      position: {x: 13, y: 2, z: 5}
+      delay: 0.5
     - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -9}
-      delay: 1
+      position: {x: 13, y: 2, z: 0}
+      delay: 0
     - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
-      position: {x: 13, y: 6, z: -2}
-      delay: 1
-    delayAfterWave: 12
+      position: {x: 13, y: 2, z: -4}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 2, z: -9}
+      delay: 0
+    - enemyPrefab: {fileID: 2832673781323649384, guid: 324b97a128535d144be7e9ad8a108845, type: 3}
+      position: {x: 13, y: 2, z: -14}
+      delay: 0
+    - enemyPrefab: {fileID: 2416775903353144361, guid: b6d321c7ceaba5e4a9947a75956e50c9, type: 3}
+      position: {x: 13, y: 6.51, z: -3.55}
+      delay: 0
+    - enemyPrefab: {fileID: 2416775903353144361, guid: b6d321c7ceaba5e4a9947a75956e50c9, type: 3}
+      position: {x: 13, y: 6.51, z: -3.55}
+      delay: 0
+    delayAfterWave: 3
+  - waveName: Boss
+    enemies:
+    - enemyPrefab: {fileID: 4124394402925275042, guid: 9bf8dcf5fb02b524bb51eb2d1dde933a, type: 3}
+      position: {x: 15, y: 3, z: -4}
+      delay: 0
+    - enemyPrefab: {fileID: 721043012140272846, guid: 92d1bfe9cd629194e9be5b59f1d0eac3, type: 3}
+      position: {x: 21.5, y: -10.48, z: -1}
+      delay: 3.5
+    delayAfterWave: 1.5
   gameManager: {fileID: 0}
   Zawarudo: {fileID: 0}
   Dio: {fileID: 0}
+  Dialogue: {fileID: 11400000, guid: 85806db355b82d2458dcb044f111956f, type: 2}
+  tutorialSpawn: {fileID: 0}

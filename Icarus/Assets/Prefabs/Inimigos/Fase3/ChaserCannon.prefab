@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyShot: {fileID: 7025566002365091599, guid: afcc05954f44af44fa3c2cd631e68544, type: 3}
   SpawnEnemy: {fileID: 4159204840251107611}
-  ShotFrequency: 2
+  ShotFrequency: 1
   MoveTimer: 0
   speedInimigo: 2.3
   timerMove: 0

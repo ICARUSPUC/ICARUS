@@ -202,13 +202,13 @@ IEnumerator VoltarRotacao()
         StartCoroutine(MudarCorAlerta(false));
         emAlerta = false; // Alerta desliga assim que come�a a esticar
 
-        StartCoroutine(GirarDuranteTiro());
+        
 
         yield return StartCoroutine(CrescerLaserfase2(laser.transform, tempoCrescimento, comprimentoMaximo));
 
-       
+        StartCoroutine(GirarDuranteTiro());
         // --- FASE 4: LASER ATIVO (DANO E ESPERA) ---
-     
+
         if (laserScript != null)
         {
             // A dura��o do laser deve ser tratada aqui

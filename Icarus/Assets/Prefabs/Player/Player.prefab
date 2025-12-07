@@ -1060,6 +1060,7 @@ MonoBehaviour:
   Modo: 1
   TrocaTimer: 0
   invencivel: 0
+  barraTrocaForma: {fileID: 0}
   TimeManager: {fileID: 0}
 --- !u!54 &1007489902326412197
 Rigidbody:
