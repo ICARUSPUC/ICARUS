@@ -4,6 +4,8 @@ using Unity.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using UnityEngine.UI;
+
 
 public class Player : MonoBehaviour
 {
@@ -70,7 +72,11 @@ public class Player : MonoBehaviour
     public bool Modo = true; // true = Modo Principal, false = Modo Rápido
     public float TrocaTimer = 0f;
     public bool invencivel = false;
-    
+
+    [Header("UI")]
+    [SerializeField] UnityEngine.UI.Image barraTrocaForma;
+
+
     // =========================================================================
     // ♻️ Variáveis de Estado Privadas
     // =========================================================================
@@ -191,16 +197,32 @@ public class Player : MonoBehaviour
     {
         if (!PlayerVivo) return;
 
+        // ============================
+        // 🟦 ATUALIZAÇÃO DA BARRA DE COOLDOWN (IMAGE FILL)
+        // ============================
+        TrocaTimer += Time.deltaTime;
+
+        if (barraTrocaForma != null)
+        {
+            // fill vai de 0 → 1
+            barraTrocaForma.fillAmount = Mathf.Clamp01(TrocaTimer / TrocaCD);
+        }
+
+        // ============================
+        // 🔫 MODO PRINCIPAL / MODO RÁPIDO
+        // ============================
         if (Modo == true)
         {
-            Atirar(); // O tiro é baseado em Input/Timer, então fica no Update
+            Atirar();
         }
         else
         {
             ModoRapidoInput();
         }
 
-        // Inputs de Escudo (Originalmente de teste, mantidos para não alterar o comportamento)
+        // ============================
+        // 🛡️ ESCUDO (TESTES)
+        // ============================
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             AtivarEscudo();
@@ -210,9 +232,19 @@ public class Player : MonoBehaviour
             QuebrarEscudo();
         }
 
+        // ============================
+        // 🔄 TROCA DE FORMAS
+        // ============================
         InputTrocadeformas();
+
+
+        // ============================
+        // 🏆 VITÓRIA (DEBUG)
+        // ============================
         Ganhar();
     }
+
+
 
     // =========================================================================
     // 🏃 Movimento e Input
