@@ -24,6 +24,7 @@ TagManager:
   - EnergyOrb
   - SimpleEnemy
   - InimigoLaser2
+  - Boss3
   layers:
   - Default
   - TransparentFX
