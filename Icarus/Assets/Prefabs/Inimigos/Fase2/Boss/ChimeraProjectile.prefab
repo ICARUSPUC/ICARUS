@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6337988033196780660}
   - component: {fileID: 129858889308142652}
+  - component: {fileID: 1347425817364004082}
   - component: {fileID: 4025552825779668276}
   - component: {fileID: 1640244781698391432}
   m_Layer: 0
@@ -49,12 +50,27 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 17.136549, y: 17.589622, z: 18.069916}
   m_Center: {x: 0.44562402, y: 0.17863536, z: -0.9108087}
+--- !u!114 &1347425817364004082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3333312139475872367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87310efc4f53d53418cb50bef6c3a800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
+  turnSpeed: 4
+  lifetime: 10
 --- !u!198 &4025552825779668276
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -245,7 +261,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0, b: 0, a: 1}
+      maxColor: {r: 0.33490568, g: 0.71888244, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -3956,8 +3972,8 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 0
-    mode: 0
+    enabled: 1
+    mode: 1
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -4803,6 +4819,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a65f10ed07644fe45b4936d6ee088ad5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
