@@ -2363,7 +2363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &174718273
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11367,6 +11367,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3039603321241862949, guid: cf33def129f780d4ca0386997486b0ef, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3687713882305195733, guid: cf33def129f780d4ca0386997486b0ef, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -11458,6 +11462,14 @@ PrefabInstance:
     - target: {fileID: 3687713882305195733, guid: cf33def129f780d4ca0386997486b0ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723275156246996283, guid: cf33def129f780d4ca0386997486b0ef, type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528386292087638187, guid: cf33def129f780d4ca0386997486b0ef, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.93714
       objectReference: {fileID: 0}
     - target: {fileID: 8227294769512116890, guid: cf33def129f780d4ca0386997486b0ef, type: 3}
       propertyPath: m_Name
@@ -22372,7 +22384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7004696077335659737, guid: 4638767cb324a864c86556d095510604, type: 3}
       propertyPath: waves.Array.data[9].enemies.Array.data[0].position.x
-      value: 15
+      value: -22
       objectReference: {fileID: 0}
     - target: {fileID: 7004696077335659737, guid: 4638767cb324a864c86556d095510604, type: 3}
       propertyPath: waves.Array.data[9].enemies.Array.data[0].position.y
@@ -25201,7 +25213,7 @@ PrefabInstance:
     - target: {fileID: 7004696077335659737, guid: 4638767cb324a864c86556d095510604, type: 3}
       propertyPath: waves.Array.data[9].enemies.Array.data[0].enemyPrefab
       value: 
-      objectReference: {fileID: 4124394402925275042, guid: 310d4c346bdc0324c9e8668ae1a62f16, type: 3}
+      objectReference: {fileID: 8743854818498837248, guid: 1ad48bbe1060ebe48b0599fae703df98, type: 3}
     - target: {fileID: 7004696077335659737, guid: 4638767cb324a864c86556d095510604, type: 3}
       propertyPath: waves.Array.data[9].enemies.Array.data[10].position.x
       value: 13

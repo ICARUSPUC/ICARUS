@@ -12584,7 +12584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &886333960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26622,6 +26622,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3039603321241862949, guid: cf33def129f780d4ca0386997486b0ef, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3687713882305195733, guid: cf33def129f780d4ca0386997486b0ef, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -26701,6 +26705,14 @@ PrefabInstance:
     - target: {fileID: 3687713882305195733, guid: cf33def129f780d4ca0386997486b0ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723275156246996283, guid: cf33def129f780d4ca0386997486b0ef, type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528386292087638187, guid: cf33def129f780d4ca0386997486b0ef, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.93714
       objectReference: {fileID: 0}
     - target: {fileID: 8227294769512116890, guid: cf33def129f780d4ca0386997486b0ef, type: 3}
       propertyPath: m_Name
