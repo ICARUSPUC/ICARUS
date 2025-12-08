@@ -14680,6 +14680,10 @@ PrefabInstance:
       propertyPath: Showpontos
       value: 
       objectReference: {fileID: 2021347151}
+    - target: {fileID: 3572003088680191754, guid: c81a5a814452ff544a7f1334bdaf8b6c, type: 3}
+      propertyPath: Showpontos
+      value: 
+      objectReference: {fileID: 2021347151}
     - target: {fileID: 4196156702293427251, guid: c81a5a814452ff544a7f1334bdaf8b6c, type: 3}
       propertyPath: m_Name
       value: UIManager
