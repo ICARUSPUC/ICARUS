@@ -134,7 +134,6 @@ public class InimigoSpawnSequence : MonoBehaviour
         WavePoints++;
         Debug.Log($"Inimigo derrotado. Pontos da Wave: {WavePoints}");
     }
-
     public void IniciarSequencia()
     {
         if (!spawning)

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e630d3942adfcf146b3f9270dfe21a59, type: 3}
+  m_Name: AntesBoss
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: {fileID: 11400000, guid: 9c2881e726b69174d89d6d9c8604dc64, type: 2}
+    line: "U\xE9, \xE9 s\xF3 isso? Achei que ia ter um chef\xE3o ou algo assim"
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: "Ao que parece os responsaveis pela seguran\xE7a se esqueceram de fabricar
+      um"
+  - speaker: {fileID: 11400000, guid: 9c2881e726b69174d89d6d9c8604dc64, type: 2}
+    line: aaahhh faz sentido...

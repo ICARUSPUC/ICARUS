@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Jukebox.unity
     guid: 1b1782e96ae7c4e42b6643c19f281e7c
   - enabled: 1
@@ -18,14 +18,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Fase2.unity
     guid: 2a6135dde2c70ee4281c5d5f1f7d0d67
   - enabled: 1
+    path: Assets/Scenes/Fase3.unity
+    guid: 202f6f4235fd1ed42a3a58f1ee816980
+  - enabled: 1
     path: Assets/Scenes/Lose.unity
     guid: 2f037a41fe8bf05438f9379e1fe67772
   - enabled: 1
     path: Assets/Scenes/Victory.unity
     guid: b6bb9ad599d1eb64d9e985179bb9363d
-  - enabled: 1
-    path: Assets/Scenes/Fase3.unity
-    guid: 202f6f4235fd1ed42a3a58f1ee816980
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
