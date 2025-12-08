@@ -286,7 +286,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589078833}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 69b8a2787dac8e041a8f584a465e9dcb, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: b68a512d6d9e0f54ea94aa717fcba973, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -300,14 +300,12 @@ VideoPlayer:
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 0.04
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
   m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 0
@@ -349,63 +347,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589078833}
   m_CullTransparentMesh: 1
---- !u!1001 &615671196
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4029494991377341830, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
-      propertyPath: m_Name
-      value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7701591345840261749, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.427209
-      objectReference: {fileID: 0}
-    - target: {fileID: 7701591345840261749, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 9.243513
-      objectReference: {fileID: 0}
-    - target: {fileID: 7701591345840261749, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.4419327
-      objectReference: {fileID: 0}
-    - target: {fileID: 7701591345840261749, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7701591345840261749, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7701591345840261749, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7701591345840261749, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7701591345840261749, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7701591345840261749, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7701591345840261749, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 01fb9364d41a4f84eaa31b34f908b715, type: 3}
 --- !u!1 &1479367543
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +579,6 @@ GameObject:
   - component: {fileID: 1676771168}
   - component: {fileID: 1676771167}
   - component: {fileID: 1676771169}
-  - component: {fileID: 1676771170}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -689,19 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 589078835}
-  proximaCena: Menu
---- !u!114 &1676771170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676771166}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ab39b73bc70ee4f96d8018230dd18b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  proximaCena: Jukebox
 --- !u!1 &1933093847
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,4 +919,3 @@ SceneRoots:
   - {fileID: 2103867178}
   - {fileID: 1933093853}
   - {fileID: 1567114271}
-  - {fileID: 615671196}

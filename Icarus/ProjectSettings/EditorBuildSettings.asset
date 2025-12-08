@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Jukebox.unity
+    path: Assets/Scenes/LogoPUC.unity
     guid: 1b1782e96ae7c4e42b6643c19f281e7c
+  - enabled: 1
+    path: Assets/Scenes/Jukebox.unity
+    guid: 2b3de3a786322bf448814c663bac6dca
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 3011776a306a54e4cae1920711ceae41
