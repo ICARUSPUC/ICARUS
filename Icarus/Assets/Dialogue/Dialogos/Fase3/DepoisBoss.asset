@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e630d3942adfcf146b3f9270dfe21a59, type: 3}
+  m_Name: DepoisBoss
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: "Ainda \xE9 c\xE9tica quanto a gigantes senhorita Pilot?"
+  - speaker: {fileID: 11400000, guid: 9c2881e726b69174d89d6d9c8604dc64, type: 2}
+    line: Caraaa, eu realmente preciso diminuir seus niveis de sarcarmo
+  - speaker: {fileID: 11400000, guid: 9c2881e726b69174d89d6d9c8604dc64, type: 2}
+    line: Mas tirando seu humor toxico robotico...
+  - speaker: {fileID: 11400000, guid: f1cf606baec242742a5ce92875d12bba, type: 2}
+    line: CONSEGUIMOS!!!!
+  - speaker: {fileID: 11400000, guid: 24aa5b79cf7e375449eae35071df5245, type: 2}
+    line: "Pra ser sincera foi meio anticlimatico achei que ia ter uma explos\xE3o
+      grandona ou algo assim"
+  - speaker: {fileID: 11400000, guid: 9c2881e726b69174d89d6d9c8604dc64, type: 2}
+    line: "Uns aplausos ou algo do tipo ia ser legal tamb\xE9m"
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: "Senhorita eu pessoalmente acho que voc\xEA fez um bom trabalho!"
+  - speaker: {fileID: 11400000, guid: 5b28ff6321e645d43bfe531f51f1943f, type: 2}
+    line: Valeu M.I.R.A
+  - speaker: {fileID: 11400000, guid: 24aa5b79cf7e375449eae35071df5245, type: 2}
+    line: "Partiu casa ent\xE3o?"
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: "Prefiro viajar at\xE9 ela inv\xE9s de dividi-la se possivel."
+  - speaker: {fileID: 11400000, guid: 9c2881e726b69174d89d6d9c8604dc64, type: 2}
+    line: Caraaa, Algum dia eu ainda apago seu banco de dados por causa dessas piadas...
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: '*Risadas Roboticas*'

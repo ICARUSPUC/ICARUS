@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2974738819591778722}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0013064279, y: 0.9979372, z: 0.02156597, w: 0.06045326}
+  m_LocalRotation: {x: 0.0013057146, y: 0.99793696, z: 0.021566927, w: 0.06045602}
   m_LocalPosition: {x: -1.8979454, y: 5.0327277, z: -1.241539}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -61,8 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d448aa94e35a1fd40a1423cb28b384f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMax: 30
-  efeitoMorte: {fileID: 0}
+  vidaMax: 100
+  efeitoMorte: {fileID: 6157148692288117796, guid: 72526c93cc614a84fb064c3ecb4a03d0, type: 3}
   renderers:
   - {fileID: 1912146892705847868}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
@@ -233,7 +233,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8053f7fa6cda1fd4fa43ad6bce3af120, type: 2}
+  - {fileID: 2100000, guid: 6df4df2accff6e84899a0eef64b9f5e0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

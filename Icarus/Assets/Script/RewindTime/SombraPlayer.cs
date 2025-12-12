@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class SombraPlayer : MonoBehaviour
 {
-   
-    void Start()
+    public float tempovida = 4f;
+    private void Start()
     {
-        Destroy(this.gameObject, 4.5f);
+        Destroy(this.gameObject, tempovida);
+    }
+    public void Destruir()
+    {
+        Destroy(this.gameObject);
     }
 
    

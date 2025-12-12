@@ -1041,7 +1041,7 @@ MonoBehaviour:
   - {fileID: 4700728010307310827, guid: 5a9e1381080346a4a88570d07da5f5dd, type: 3}
   Spawn: {fileID: 6254974994627905710}
   FireRate: 0.22
-  TrocaCD: 4
+  TrocaCD: 9
   TempoInvencivel: 2.5
   shield: {fileID: 564908711786030174, guid: dfa332844fe4d6849b7e32a64c067af9, type: 3}
   escudoVisual: {fileID: 4837136591211986604, guid: 1634fef4083aef442b928fd55ca71bfb, type: 3}

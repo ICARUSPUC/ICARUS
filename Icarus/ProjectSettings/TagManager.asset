@@ -25,6 +25,7 @@ TagManager:
   - SimpleEnemy
   - InimigoLaser2
   - Boss3
+  - Slider
   layers:
   - Default
   - TransparentFX

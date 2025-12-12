@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
     bool direcaoangulo = false;
     bool direcao = true;
     float FireTimer = 0f;
-
+    private SombraPlayer lastshadowclone;
     // Variáveis de referência de componentes
     private Rigidbody rb;
     private Vector3 moveInput;
@@ -98,6 +98,7 @@ public class Player : MonoBehaviour
     GameManager GameManager; // Mantido o nome original
     public TimeManager TimeManager; // Mantido o nome original
     private TimeBody timeBody; // Referência ao TimeBody
+    SombraPlayer playerSombra;
 
     // =========================================================================
     // 🏷️ Tags
@@ -390,7 +391,8 @@ public class Player : MonoBehaviour
             invencivel = true;
             GameManager.chronospontos = 0;
             Instantiate(Explosaotemporal, transform.position, transform.rotation);
-            Instantiate(SombraPlayer, transform.position, transform.rotation);
+            GameObject clone =  Instantiate(SombraPlayer, transform.position, transform.rotation);
+            lastshadowclone = clone.GetComponent<SombraPlayer>();
             TrailNormal.SetActive(false);
             TrailTempo.SetActive(true);
             DilatacaoTemporal.Play();
@@ -410,36 +412,16 @@ public class Player : MonoBehaviour
             yield return new WaitForSecondsRealtime(GlobalRewindDuration);
             TrailNormal.SetActive(true);
             TrailTempo.SetActive(false);
-            SombraPlayer.SetActive(false);
-            Chronos = false;
-             IEnumerator TransitarParaModoRapido()
-    {
-     
-        Instantiate(ExplosaoSecondForm, transform.position, transform.rotation);
-        TrocaTimer = 0;
-        GameManager.chronospontos = (GameManager.chronospontos - pontosPraFormarapida);
-        StartCoroutine(TornarInvencivel());
-        tempoNoModoRapido = 0f;
-
-        if (TimeManager != null)
-        {
-           
-            TimeManager.StartCoroutine("TempoNaFormaRapida");
-        }
-
-
-        yield return new WaitForSecondsRealtime(0.01f); // Espera 1 frame IMPORTANTISSIMO, É OQUE RESOLVE O PROBLEMA DO TELEPORTE NÃO MEXA NESSA MERDA!!!!!!!!!!!
-
-        Instantiate(SombraPlayer, transform.position, transform.rotation);
-        Modo = false; 
-
-
-        if (timeBody != null)
-        {
-            timeBody.SaveCheckpoint();
+            if (lastshadowclone != null)
+            {
+            Destroy(lastshadowclone.gameObject);
+                lastshadowclone = null;
+            }
             
-            StartCoroutine(nameof(ContagemRegressivaTeleporte));
-        }
+            Chronos = false;
+            
+    {
+            
 
     }
             invencivel = false;
@@ -529,7 +511,8 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(0.01f); // Espera 1 frame IMPORTANTISSIMO, É OQUE RESOLVE O PROBLEMA DO TELEPORTE NÃO MEXA NESSA MERDA!!!!!!!!!!!
 
-        Instantiate(SombraPlayer, transform.position, transform.rotation);
+       GameObject cloneforma = Instantiate(SombraPlayer, transform.position, transform.rotation);
+       lastshadowclone = cloneforma.GetComponent<SombraPlayer>();
         Modo = false; 
 
 
@@ -539,8 +522,14 @@ public class Player : MonoBehaviour
             
             StartCoroutine(nameof(ContagemRegressivaTeleporte));
         }
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(TempoLimiteModoRapido);
         TimeManager.isbullettime = false;
+        if (lastshadowclone != null)
+        {
+            Destroy(lastshadowclone.gameObject);
+
+            lastshadowclone = null;
+        }
 
     }
     // COROUTINE: Conta o tempo e executa o teleporte de emergência

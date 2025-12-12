@@ -29,7 +29,7 @@ public class Bala : MonoBehaviour
         }
         else if (other.CompareTag("Boss"))
         {
-            Boss boss = other.GetComponentInParent<Boss>(); // Aqui � o dano no boss
+            Boss boss = other.GetComponent<Boss>(); // Aqui � o dano no boss
             if (boss != null)
             {
                 boss.TomarDano(dano);

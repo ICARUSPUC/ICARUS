@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1318653061582686866}
   - component: {fileID: 5712180197840511930}
-  - component: {fileID: 3815618253716340821}
   - component: {fileID: 9028336629614244108}
   - component: {fileID: 2388564023754155098}
   - component: {fileID: 2966634104905704455}
@@ -64,33 +63,6 @@ MonoBehaviour:
   - {fileID: 6118119836961197945}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
---- !u!54 &3815618253716340821
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 721043012140272846}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &9028336629614244108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +299,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -344,7 +316,7 @@ GameObject:
   - component: {fileID: 8063508094845193479}
   - component: {fileID: 6361491113579315874}
   - component: {fileID: 9199861452324992616}
-  - component: {fileID: 5356536640303526174}
+  - component: {fileID: 3132770528602882604}
   m_Layer: 0
   m_Name: Mao_Esquerda
   m_TagString: Boss
@@ -362,7 +334,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.39466843, y: 0.60473686, z: 0.58671695, w: -0.36646062}
   m_LocalPosition: {x: -5.719961, y: 5.5083, z: 2.4111462}
-  m_LocalScale: {x: 35.134285, y: -82.6, z: 100}
+  m_LocalScale: {x: 35.134285, y: -82, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1318653061582686866}
@@ -421,7 +393,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5356536640303526174
+--- !u!65 &3132770528602882604
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -440,8 +412,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.05628278, y: 0.021629391, z: 0.03284006}
-  m_Center: {x: 0.008487942, y: 0.0029790306, z: 0.0037328713}
+  m_Size: {x: 0.056282777, y: 0.021633113, z: 0.034180235}
+  m_Center: {x: 0.008488022, y: 0.0041663134, z: 0.0041632545}
 --- !u!1001 &9070950502702886607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -450,34 +422,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1318653061582686866}
     m_Modifications:
-    - target: {fileID: 1411989363060565690, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
-      propertyPath: vidaMax
-      value: 100
+    - target: {fileID: 1006617685853190052, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006617685853190052, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006617685853190052, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
+      propertyPath: m_Center.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1411989363060565690, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
       propertyPath: MusicaBoss
       value: 
       objectReference: {fileID: 2388564023754155098}
     - target: {fileID: 1411989363060565690, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
-      propertyPath: MusicaMain
-      value: 
-      objectReference: {fileID: 4169115815105348704, guid: 3bd8c90dd4ffcd340994516bba14dfb3, type: 3}
-    - target: {fileID: 1411989363060565690, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
-      propertyPath: efeitoMorte
-      value: 
-      objectReference: {fileID: 6157148692288117796, guid: 72526c93cc614a84fb064c3ecb4a03d0, type: 3}
-    - target: {fileID: 1912146892705847868, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
-      propertyPath: m_Materials.Array.size
+      propertyPath: BossinScene
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1912146892705847868, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 6df4df2accff6e84899a0eef64b9f5e0, type: 2}
-    - target: {fileID: 1912146892705847868, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 56a11838878dc0047a12f9c25f226a75, type: 2}
+      objectReference: {fileID: -876546973899608171, guid: ec29b1e37044c0f44a999ce052928cfe, type: 3}
     - target: {fileID: 2451002314776210200, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.8979454
@@ -518,15 +486,79 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.299
       objectReference: {fileID: 0}
+    - target: {fileID: 2709158134742779384, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
+      propertyPath: MinDistance
+      value: 0.3457141
+      objectReference: {fileID: 0}
     - target: {fileID: 2974738819591778722, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
       propertyPath: m_Name
       value: 'Boss '
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1006617685853190052, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2974738819591778722, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7109694368482074142}
+    - targetCorrespondingSourceObject: {fileID: 2974738819591778722, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5194567257789300283}
   m_SourcePrefab: {fileID: 100100000, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
+--- !u!1 &6100715437393485677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2974738819591778722, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}
+  m_PrefabInstance: {fileID: 9070950502702886607}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7109694368482074142
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6100715437393485677}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.4707446, y: 5.680636, z: 4.9400024}
+  m_Center: {x: -0.25867105, y: 2.8308048, z: 0.09727523}
+--- !u!54 &5194567257789300283
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6100715437393485677}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &6909024247539353047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2451002314776210200, guid: a29ccd7fb3522534fb14169a89e3657f, type: 3}

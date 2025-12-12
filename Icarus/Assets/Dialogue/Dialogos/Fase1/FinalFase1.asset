@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e630d3942adfcf146b3f9270dfe21a59, type: 3}
+  m_Name: FinalFase1
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: {fileID: 11400000, guid: 24aa5b79cf7e375449eae35071df5245, type: 2}
+    line: "CARAAA A VIAGEM NO TEMPO \xC9 VERDADE MESMO???"
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: "Sim senhora!!! Ela \xE9 devida do Projeto ICARUS, a \"Lata velha\" atr\xE1s
+      da senhorita..."
+  - speaker: {fileID: 11400000, guid: 9c2881e726b69174d89d6d9c8604dc64, type: 2}
+    line: Eu mereci essa vai...
+  - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
+    line: "Ao seu combustivel CHRONOS chegar ao maximo, ela ser\xE1 sempre ativada."
+  - speaker: {fileID: 11400000, guid: f1cf606baec242742a5ce92875d12bba, type: 2}
+    line: "QUE MANEIROO!!! hehehe de volta pro futuro ent\xE3o..."
+  - speaker: {fileID: 11400000, guid: f1cf606baec242742a5ce92875d12bba, type: 2}
+    line: E agora rumo ao planeta!!!

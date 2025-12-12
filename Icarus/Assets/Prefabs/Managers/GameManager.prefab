@@ -83,3 +83,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsSlider: {fileID: 0}
+  sliderObjectName: CronosSlider

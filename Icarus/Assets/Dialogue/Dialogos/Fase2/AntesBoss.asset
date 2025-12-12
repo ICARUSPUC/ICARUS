@@ -16,7 +16,7 @@ MonoBehaviour:
   - speaker: {fileID: 11400000, guid: 9c2881e726b69174d89d6d9c8604dc64, type: 2}
     line: "U\xE9, \xE9 s\xF3 isso? Achei que ia ter um chef\xE3o ou algo assim"
   - speaker: {fileID: 11400000, guid: bb9e706440c470f4ab4cdad079015dcb, type: 2}
-    line: "Ao que parece os responsaveis pela seguran\xE7a se esqueceram de fabricar
-      um"
+    line: "Ao que parece os responsaveis pela seguran\xE7a devem ter ficado sem tempo
+      pra fabricar um"
   - speaker: {fileID: 11400000, guid: 9c2881e726b69174d89d6d9c8604dc64, type: 2}
     line: aaahhh faz sentido...
